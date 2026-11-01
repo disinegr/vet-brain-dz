@@ -121,36 +121,10 @@
 
   const stepCards = [...document.querySelectorAll('.vb-course-steps__stack > .vb-course-step')];
   if (stepCards.length > 1) {
-    const staticSteps = matchMedia('(max-width: 900px), (prefers-reduced-motion: reduce)');
-    const horizontalSteps = matchMedia('(max-width: 768px) and (prefers-reduced-motion: no-preference)');
-    const stepsSection = document.querySelector('.vb-course-steps');
-    const stepsRunway = document.querySelector('.vb-course-steps__runway');
-    const stepsStack = document.querySelector('.vb-course-steps__stack');
+    const staticSteps = matchMedia('(prefers-reduced-motion: reduce)');
     let stepFrame = 0;
     const updateStepScale = () => {
       stepFrame = 0;
-      stepsSection.classList.toggle('is-horizontal', horizontalSteps.matches);
-      if (horizontalSteps.matches) {
-        const cardHeight = stepsStack.getBoundingClientRect().height;
-        const scrollLength = Math.max(1, Math.round((stepCards.length - 1) * innerHeight * 0.78));
-        stepsRunway.style.height = `${cardHeight + scrollLength}px`;
-        const stickyTop = parseFloat(getComputedStyle(stepsStack).top) || 0;
-        const progress = Math.max(0, Math.min(1, (stickyTop - stepsRunway.getBoundingClientRect().top) / scrollLength));
-        const position = progress * (stepCards.length - 1);
-        stepCards.forEach((card, index) => {
-          const arrival = Math.max(0, Math.min(1, position - (index - 1)));
-          const nextArrival = Math.max(0, Math.min(1, position - index));
-          card.style.setProperty('--vb-step-x', index === 0 ? '0%' : `${((1 - arrival) * 105).toFixed(2)}%`);
-          card.style.setProperty('--vb-step-mobile-scale', (1 - nextArrival * 0.032).toFixed(4));
-          card.style.removeProperty('--vb-step-scale');
-        });
-        return;
-      }
-      stepsRunway.style.removeProperty('height');
-      stepCards.forEach(card => {
-        card.style.removeProperty('--vb-step-x');
-        card.style.removeProperty('--vb-step-mobile-scale');
-      });
       if (staticSteps.matches) {
         stepCards.forEach(card => card.style.removeProperty('--vb-step-scale'));
         return;
@@ -171,7 +145,6 @@
     addEventListener('scroll', scheduleStepScale, { passive: true });
     addEventListener('resize', scheduleStepScale);
     staticSteps.addEventListener('change', scheduleStepScale);
-    horizontalSteps.addEventListener('change', scheduleStepScale);
     scheduleStepScale();
   }
 
