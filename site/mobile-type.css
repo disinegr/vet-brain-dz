@@ -1,4 +1,8 @@
 /* Shared phone typography for the home and therapy course pages. */
+.vb-course-page .vb-course-price-suffix {
+  color: var(--vb-secondary-grey) !important;
+}
+
 @media (max-width: 425px) {
   :root {
     --vb-phone-section: 28px;
@@ -95,11 +99,50 @@
   }
 
   .vb-course-page .vb-course-hero-visual {
-    aspect-ratio: 3 / 2;
+    height: clamp(220px, 64vw, 280px) !important;
+    min-height: clamp(220px, 64vw, 280px) !important;
+    max-height: none !important;
+    flex: 0 0 auto !important;
+    aspect-ratio: auto;
+  }
+
+  .vb-course-page .vb-course-hero-img-frame {
+    height: 100% !important;
+    max-height: none !important;
   }
 
   .vb-course-page .vb-course-hero-img {
-    object-position: center;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-grid {
+    grid-template-rows: repeat(4, minmax(136px, auto)) 100px;
+    grid-auto-rows: auto;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cell--cta {
+    min-height: 0;
+    height: 100px;
+  }
+}
+
+@media (max-width: 420px) {
+  .vb-course-page .vb-course-price-line {
+    gap: 4px;
+  }
+
+  .vb-course-page .vb-course-price-value {
+    font-size: 20px !important;
+  }
+
+  .vb-course-page .vb-course-price-from,
+  .vb-course-page .vb-course-price-suffix {
+    font-size: 16px !important;
   }
 }
 
