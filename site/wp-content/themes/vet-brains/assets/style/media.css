@@ -1,0 +1,168 @@
+/**
+ * Ð•Ð´Ð¸Ð½Ð°Ñ Ð°Ð´Ð°Ð¿Ñ‚Ð¸Ð²Ð½Ð¾ÑÑ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ð¹ Ð½Ð° ÑÐ°Ð¹Ñ‚Ðµ (Ð³Ð»Ð°Ð²Ð½Ð°Ñ, ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³, Ð»Ð¸Ñ†ÐµÐ½Ð·Ð¸Ð¸ Ð¸ Ñ‚.Ð´.).
+ * Ð¡Ñ‚Ñ€Ð°Ð½Ð¸Ñ†Ð° ÐºÑƒÑ€ÑÐ°: single-course.css + single-course-responsive.css â€” Ð±ÐµÐ· Ð¿Ñ€Ð°Ð²Ð¸Ð» Ð·Ð´ÐµÑÑŒ.
+ */
+
+/* â”€â”€ Ð Ð°Ð¼ÐºÐ¸: Ñ„Ð¾Ñ‚Ð¾ Â«ÑÑ‚Ð¾ÑÑ‚Â» Ð½Ð° Ð½Ð¸Ð¶Ð½ÐµÐ¼ ÐºÑ€Ð°Ðµ Ð±Ð»Ð¾ÐºÐ° â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+:where(
+    [class*="__photo-frame"],
+    [class*="__img-frame"],
+    [class*="__photo-wrap"],
+    .main-hero__photo-frame,
+    .home-help__consult-visual-photo,
+    .vb-catalog-hero__photo-wrap
+) {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    overflow: hidden;
+    min-width: 0;
+}
+
+/* â”€â”€ Ð Ð°Ð¼ÐºÐ¸: Ñ†ÐµÐ½Ñ‚Ñ€Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ (Ð¸ÐºÐ¾Ð½ÐºÐ¸, ÐºÐ°Ñ€Ñ‚Ð¾Ñ‡ÐºÐ¸ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ð°, Ð¾Ñ‚Ð·Ñ‹Ð²Ñ‹) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+:where(
+    .home-course-card__media,
+    .home-review-card__media,
+    .home-help__consult-map-frame,
+    .footer-team-image,
+    .vb-catalog-hero-card__accent-visual-frame
+) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-width: 0;
+}
+
+/* picture Ð²Ð½ÑƒÑ‚Ñ€Ð¸ Ð³Ð»Ð°Ð²Ð½Ð¾Ð³Ð¾ Ð³ÐµÑ€Ð¾Ñ â€” ÑÐ½Ð¸Ð·Ñƒ */
+:where(.main-hero__photo-frame picture) {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    width: 100%;
+    height: 100%;
+}
+
+/* â”€â”€ IMG: Ð²Ð¿Ð¸ÑÐ°Ñ‚ÑŒ Ñ†ÐµÐ»Ð¸ÐºÐ¾Ð¼ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+:where(
+    [class*="__photo-frame"] > img,
+    [class*="__img-frame"] > img,
+    .main-hero__photo,
+    .main-banner-grid-hero__photo,
+    .home-catalog-card__media img,
+    .vb-webinar-learn__icon img,
+    .home-help__consult-visual-photo img,
+    .home-help__consult-map-frame img,
+    .footer-team-image img,
+    .archive-courses-card__media img,
+    .vb-licenses-card__media img,
+    .vb-catalog-hero__photo,
+    .vb-catalog-hero-card__accent-photo,
+    .vb-tariff-promo-modal__hero
+) {
+    position: relative !important;
+    inset: auto !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    transform: none !important;
+    object-fit: contain !important;
+}
+
+/* ÐÐ¸Ð¶Ð½Ð¸Ð¹ ÐºÑ€Ð°Ð¹ Ð±Ð»Ð¾ÐºÐ° â€” Ð¿ÐµÑ€ÑÐ¾Ð½Ð°Ð¶Ð¸, Ð±Ð°Ð½Ð½ÐµÑ€Ñ‹, Ð¿Ñ€ÐµÐ¸Ð¼ÑƒÑ‰ÐµÑÑ‚Ð²Ð° */
+:where(
+    .main-hero__photo,
+    .home-help__consult-visual-photo img,
+    .vb-catalog-hero__photo
+) {
+    object-position: center bottom !important;
+}
+
+/* ÐŸÐ¾ Ñ†ÐµÐ½Ñ‚Ñ€Ñƒ â€” Ð¸Ð»Ð»ÑŽÑÑ‚Ñ€Ð°Ñ†Ð¸Ð¸ Ð² ÐºÐ°Ñ€Ñ‚Ð¾Ñ‡ÐºÐ°Ñ…, Ð¸ÐºÐ¾Ð½ÐºÐ¸, Ð¾Ñ‚Ð·Ñ‹Ð²Ñ‹ */
+:where(
+    .home-catalog-card__media img,
+    .vb-catalog-hero-card__accent-photo,
+    .vb-tariff-promo-modal__hero,
+    .archive-courses-card__media img,
+    .vb-licenses-card__media img,
+    .home-help__consult-map-frame img
+) {
+    object-position: center center !important;
+}
+
+/* ÐŸÐ¾Ñ€Ñ‚Ñ€ÐµÑ‚Ñ‹ Ð¿Ñ€ÐµÐ¿Ð¾Ð´Ð°Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¹ (background-image) */
+:where(
+    .home-teacher-card__hero-photo:not(.home-teacher-card__hero-photo--empty)
+) {
+    position: absolute !important;
+    inset: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    background-size: contain !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+}
+
+/* ÐŸÐ»Ð¸Ñ‚ÐºÐ° Â«Ð ÐµÐ°Ð»ÑŒÐ½Ð°Ñ Ð¿Ñ€Ð°ÐºÑ‚Ð¸ÐºÐ°Â»: Ñ„Ð¾Ñ‚Ð¾ Ð²Ð½Ð¸Ð·Ñƒ Ð±Ð»Ð¾ÐºÐ° */
+.main-banner-grid-hero__photo {
+    object-position: center bottom !important;
+}
+
+/* Ð˜ÐºÐ¾Ð½ÐºÐ¸ */
+:where(
+    [class*="__icon-frame"] img,
+    [class*="__icon-img"]:not(.home-map-link__icon-img):not(.home-help-channel__icon-img),
+    .home-social-cta__pill-icon
+) {
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+/* ÐšÐ°Ñ‚Ð°Ð»Ð¾Ð³ ÐºÑƒÑ€ÑÐ¾Ð² â€” Ñ„Ð¾Ñ‚Ð¾ Ð³ÐµÑ€Ð¾Ñ Ð¿Ð¾ Ð½Ð¸Ð¶Ð½ÐµÐ¼Ñƒ ÐºÑ€Ð°ÑŽ, Ð±ÐµÐ· Ð¾Ð±Ñ€ÐµÐ·ÐºÐ¸ */
+.vb-catalog-hero__photo-wrap {
+    overflow: visible !important;
+}
+
+@media (min-width: 1550px) {
+    .vb-catalog-hero__photo {
+        max-height: 100% !important;
+        max-width: 108% !important;
+    }
+}
+
+@media (min-width: 1001px) and (max-width: 1200px) {
+    .vb-catalog-hero__photo-wrap {
+        align-items: flex-end !important;
+    }
+
+    .vb-catalog-hero__photo {
+        object-position: center bottom !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .vb-catalog-hero__photo-wrap {
+        display: none !important;
+    }
+}

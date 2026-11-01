@@ -1,0 +1,1495 @@
+<!doctype html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+    (function () {
+        try {
+            var key = 'vet-brains-a11y';
+            var legacy = 'vet-brains-accessibility-mode';
+            var html = document.documentElement;
+            var raw = localStorage.getItem(key);
+            var state = null;
+            if (raw) {
+                state = JSON.parse(raw);
+            } else if (localStorage.getItem(legacy) === 'true') {
+                state = { enabled: true, toolbarOpen: true, theme: 'bw', fontScale: 'normal', fontFamily: 'sans', spacing: 'normal', images: true };
+                localStorage.removeItem(legacy);
+            }
+            if (!state) {
+                return;
+            }
+            var toolbarOpen = state.toolbarOpen !== false && (state.toolbarOpen === true || state.enabled === true);
+            if (toolbarOpen) {
+                html.classList.add('vb-a11y-toolbar-open');
+            }
+            if (!state.enabled) {
+                return;
+            }
+            var remove = [];
+            html.classList.forEach(function (cls) {
+                if (cls === 'vb-a11y' || cls.indexOf('vb-a11y--') === 0) {
+                    remove.push(cls);
+                }
+            });
+            remove.forEach(function (cls) {
+                html.classList.remove(cls);
+            });
+            html.classList.add('vb-a11y');
+            var scale = state.fontScale || 'normal';
+            if (scale === 'large') {
+                html.classList.add('vb-a11y--font-lg');
+            } else if (scale === 'xlarge') {
+                html.classList.add('vb-a11y--font-xl');
+            }
+            var themes = ['bw', 'wb', 'blue', 'brown'];
+            var theme = themes.indexOf(state.theme) >= 0 ? state.theme : 'bw';
+            html.classList.add('vb-a11y--theme-' + theme);
+            if (state.fontFamily === 'serif') {
+                html.classList.add('vb-a11y--font-serif');
+            }
+            if (state.spacing === 'wide') {
+                html.classList.add('vb-a11y--spacing-wide');
+            }
+            if (state.images === false) {
+                html.classList.add('vb-a11y--images-off');
+            }
+        } catch (e) {
+            /* ignore */
+        }
+    })();
+    </script>
+    <title>Терапия мелких домашних животных &#8212; vet-brain</title>
+<meta name='robots' content='noindex, nofollow' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://vet-brain.ru/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fvet-brain.ru%2Fcourses%2F100-pervykh-paczientov-terapevta%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://vet-brain.ru/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fvet-brain.ru%2Fcourses%2F100-pervykh-paczientov-terapevta%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='vet-brains-style-css' href='https://vet-brain.ru/wp-content/themes/vet-brains/style.css?ver=1.0.18' media='all' />
+<link rel='stylesheet' id='header-style-css' href='https://vet-brain.ru/wp-content/themes/vet-brains/assets/style/header.css?ver=1.0.18' media='all' />
+<link rel='stylesheet' id='footer-style-css' href='https://vet-brain.ru/wp-content/themes/vet-brains/assets/style/footer.css?ver=1.0.18' media='all' />
+<link rel='stylesheet' id='home-page-style-css' href='https://vet-brain.ru/wp-content/themes/vet-brains/assets/style/home-page.css?ver=1.0.18' media='all' />
+<link rel='stylesheet' id='home-page-responsive-style-css' href='https://vet-brain.ru/wp-content/themes/vet-brains/assets/style/home-page-responsive.css?ver=1.0.18' media='all' />
+<link rel='stylesheet' id='single-course-style-css' href='https://vet-brain.ru/wp-content/themes/vet-brains/assets/style/single-course.css?ver=1.0.18' media='all' />
+<link rel='stylesheet' id='single-course-webinar-style-css' href='https://vet-brain.ru/wp-content/themes/vet-brains/assets/style/single-course-webinar.css?ver=1.0.18' media='all' />
+<link rel='stylesheet' id='vet-brains-a11y-css' href='https://vet-brain.ru/wp-content/themes/vet-brains/assets/style/accessibility.css?ver=1.0.18' media='all' />
+<link rel='stylesheet' id='vet-brains-media-css' href='https://vet-brain.ru/wp-content/themes/vet-brains/assets/style/media.css?ver=1.0.18' media='all' />
+<link rel='stylesheet' id='single-course-responsive-style-css' href='https://vet-brain.ru/wp-content/themes/vet-brains/assets/style/single-course-responsive.css?ver=1.0.18' media='all' />
+<link rel='stylesheet' id='vet-brains-single-course-overrides-css' href='https://vet-brain.ru/wp-content/themes/vet-brains/assets/style/single-course-overrides.css?ver=1.0.18' media='all' />
+<link rel="https://api.w.org/" href="https://vet-brain.ru/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://vet-brain.ru/wp-json/wp/v2/courses/384" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://vet-brain.ru/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.4" />
+<link rel="canonical" href="https://vet-brain.ru/courses/100-pervykh-paczientov-terapevta/" />
+<link rel='shortlink' href='https://vet-brain.ru/?p=384' />
+<link rel="icon" href="https://vet-brain.ru/wp-content/uploads/2026/06/cropped-favicon_Vet_Brain-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://vet-brain.ru/wp-content/uploads/2026/06/cropped-favicon_Vet_Brain-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://vet-brain.ru/wp-content/uploads/2026/06/cropped-favicon_Vet_Brain-180x180.png" />
+<meta name="msapplication-TileImage" content="https://vet-brain.ru/wp-content/uploads/2026/06/cropped-favicon_Vet_Brain-270x270.png" />
+</head>
+<body class="wp-singular courses-template-default single single-courses postid-384 wp-theme-vet-brains">
+<div class="site-shell">
+    <div id="vb-a11y-panel" class="vb-a11y-toolbar" role="region"
+         aria-labelledby="vb-a11y-panel-title"
+         data-msg-reset="Обычная версия сайта включена.">
+        <div class="vb-a11y-toolbar__inner">
+            <p id="vb-a11y-panel-title" class="vb-a11y-toolbar__title">
+                Версия для слабовидящих            </p>
+            <div class="vb-a11y-toolbar__controls">
+                <div class="vb-a11y-toolbar__group" role="group" aria-labelledby="vb-a11y-lbl-font">
+                    <span id="vb-a11y-lbl-font" class="vb-a11y-toolbar__label">Размер шрифта</span>
+                    <div class="vb-a11y-toolbar__btns vb-a11y-toolbar__btns--font">
+                        <label class="vb-a11y-toolbar__btn" title="Обычный размер">
+                            <input type="radio" name="vb-a11y-font" value="normal" data-vb-a11y-field="fontScale" checked>
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true">А</span>
+                            <span class="screen-reader-text">Обычный размер</span>
+                        </label>
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--lg" title="Увеличенный">
+                            <input type="radio" name="vb-a11y-font" value="large" data-vb-a11y-field="fontScale">
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true">А</span>
+                            <span class="screen-reader-text">Увеличенный</span>
+                        </label>
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--xl" title="Очень увеличенный">
+                            <input type="radio" name="vb-a11y-font" value="xlarge" data-vb-a11y-field="fontScale">
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true">А</span>
+                            <span class="screen-reader-text">Очень увеличенный</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="vb-a11y-toolbar__group" role="group" aria-labelledby="vb-a11y-lbl-theme">
+                    <span id="vb-a11y-lbl-theme" class="vb-a11y-toolbar__label">Цветовая схема</span>
+                    <div class="vb-a11y-toolbar__btns vb-a11y-toolbar__btns--theme">
+                        <label class="vb-a11y-swatch vb-a11y-swatch--bw" title="Чёрным по белому">
+                            <input type="radio" name="vb-a11y-theme" value="bw" data-vb-a11y-field="theme" checked>
+                            <span class="vb-a11y-swatch__preview" aria-hidden="true"></span>
+                            <span class="screen-reader-text">Чёрным по белому</span>
+                        </label>
+                        <label class="vb-a11y-swatch vb-a11y-swatch--wb" title="Белым по чёрному">
+                            <input type="radio" name="vb-a11y-theme" value="wb" data-vb-a11y-field="theme">
+                            <span class="vb-a11y-swatch__preview" aria-hidden="true"></span>
+                            <span class="screen-reader-text">Белым по чёрному</span>
+                        </label>
+                        <label class="vb-a11y-swatch vb-a11y-swatch--blue" title="Синим по голубому">
+                            <input type="radio" name="vb-a11y-theme" value="blue" data-vb-a11y-field="theme">
+                            <span class="vb-a11y-swatch__preview" aria-hidden="true"></span>
+                            <span class="screen-reader-text">Синим по голубому</span>
+                        </label>
+                        <label class="vb-a11y-swatch vb-a11y-swatch--brown" title="Коричневым по бежевому">
+                            <input type="radio" name="vb-a11y-theme" value="brown" data-vb-a11y-field="theme">
+                            <span class="vb-a11y-swatch__preview" aria-hidden="true"></span>
+                            <span class="screen-reader-text">Коричневым по бежевому</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="vb-a11y-toolbar__group" role="group" aria-labelledby="vb-a11y-lbl-font-family">
+                    <span id="vb-a11y-lbl-font-family" class="vb-a11y-toolbar__label">Шрифт</span>
+                    <div class="vb-a11y-toolbar__btns">
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--wide" title="Без засечек">
+                            <input type="radio" name="vb-a11y-font-family" value="sans" data-vb-a11y-field="fontFamily" checked>
+                            <span class="vb-a11y-toolbar__btn-text vb-a11y-toolbar__btn-text--sans" aria-hidden="true">Аа</span>
+                            <span class="screen-reader-text">Без засечек</span>
+                        </label>
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--wide" title="С засечками">
+                            <input type="radio" name="vb-a11y-font-family" value="serif" data-vb-a11y-field="fontFamily">
+                            <span class="vb-a11y-toolbar__btn-text vb-a11y-toolbar__btn-text--serif" aria-hidden="true">Аа</span>
+                            <span class="screen-reader-text">С засечками</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="vb-a11y-toolbar__group" role="group" aria-labelledby="vb-a11y-lbl-spacing">
+                    <span id="vb-a11y-lbl-spacing" class="vb-a11y-toolbar__label">Кернинг</span>
+                    <div class="vb-a11y-toolbar__btns">
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--wide" title="Обычный интервал">
+                            <input type="radio" name="vb-a11y-spacing" value="normal" data-vb-a11y-field="spacing" checked>
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true">Аа</span>
+                            <span class="screen-reader-text">Обычный интервал</span>
+                        </label>
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--wide vb-a11y-toolbar__btn--kern-wide" title="Увеличенный интервал">
+                            <input type="radio" name="vb-a11y-spacing" value="wide" data-vb-a11y-field="spacing">
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true">А&nbsp;а</span>
+                            <span class="screen-reader-text">Увеличенный интервал</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="vb-a11y-toolbar__group" role="group" aria-labelledby="vb-a11y-lbl-images">
+                    <span id="vb-a11y-lbl-images" class="vb-a11y-toolbar__label">Изображения</span>
+                    <div class="vb-a11y-toolbar__btns">
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--wide" title="Показывать изображения">
+                            <input type="checkbox" data-vb-a11y-field="images" checked>
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true">Вкл.</span>
+                            <span class="screen-reader-text">Показывать изображения</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="vb-a11y-toolbar__reset" data-vb-a11y-reset>
+                Обычная версия            </button>
+        </div>
+    </div>
+    <p id="vb-a11y-live" class="vb-a11y-live" aria-live="polite" aria-atomic="true"></p>
+
+    <header class="site-header" id="vb-site-header">
+        <div class="site-header__bar">
+            <a href="https://vet-brain.ru" class="header__logo" aria-label="Vet-Brains">
+                <img class="header__logo_img vb-a11y-keep"
+                     src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/header/logo.svg" alt="Vet-Brains —
+                         главная страница"
+                     width="97" height="42">
+            </a>
+
+            <div class="header__actions">
+                <a class="header__messenger" href="https://t.me/VetBrainschool" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                    <img class="vb-a11y-keep"
+                         src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/header/icon-telegram1.svg"
+                         alt="" aria-hidden="true" width="32" height="32">
+                </a>
+                <a class="header__messenger" href="https://max.ru/u/f9LHodD0cOJ4BDHLJjn1ugJK1wIMGD-H1fT75ihT0MlcS2aO3qojzc3cBSw" target="_blank" rel="noopener noreferrer" aria-label="MAX">
+                    <img class="vb-a11y-keep"
+                         src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/header/icon-max1.svg"
+                         alt="" aria-hidden="true" width="32" height="32">
+                </a>
+                <button class="header__accessibility-toggle" type="button" aria-pressed="false"
+                        aria-expanded="false" aria-controls="vb-a11y-panel"
+                        aria-label="Версия для слабовидящих">
+                    <img class="vb-a11y-keep"
+                         src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/header/accessible_version.svg"
+                         alt="" aria-hidden="true" width="32" height="32">
+                </button>
+                <button class="header__menu-toggle" type="button" aria-expanded="false"
+                        aria-controls="vb-header-primary-nav"
+                        aria-label="Открыть меню"
+                        data-label-close="Закрыть меню">
+                    <span class="header__menu-toggle-box" aria-hidden="true">
+                        <span class="header__menu-toggle-line"></span>
+                        <span class="header__menu-toggle-line"></span>
+                        <span class="header__menu-toggle-line"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="header-nav" id="vb-header-primary-nav" aria-label="Primary navigation">
+            <ul id="menu-menyu-1" class="menu"><li id="menu-item-493" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-493"><a href="https://vet-brain.ru/courses/?vb_fmt%5B%5D=free_seminar">ДПО</a></li>
+<li id="menu-item-50" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-50"><a href="https://vet-brain.ru/courses/?vb_fmt%5B%5D=course">Курсы</a></li>
+<li id="menu-item-51" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-51"><a href="https://vet-brain.ru/courses/?vb_fmt%5B%5D=webinar">Вебинары</a></li>
+<li id="menu-item-49" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49"><a href="https://vet-brain.ru/liczenzii/">Сведения об организации</a></li>
+<li id="menu-item-494" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-494"><a href="#footer-info">Контакты</a></li>
+</ul>        </nav>
+
+        <div class="header__backdrop" aria-hidden="true"></div>
+    </header>
+    <main class="site-main">
+
+    <article class="vb-course">
+
+        <div class="vb-course-page">
+
+                <section
+        class="vb-course-hero-wrap"
+        style="--vb-course-hero-banner-bg: url('https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/main-page/course-hero-banner-bg-figma.png');"
+    >
+        <div class="vb-course-inner vb-course-hero-inner">
+            <div class="vb-course-hero-main">
+                <div class="vb-course-hero-info">
+                    <div class="vb-course-hero-info-top">
+                                                    <ul class="vb-course-badges">
+                                                                                                        <li class="vb-course-badge">
+                                                                                    <span class="vb-course-badge-icon"><svg aria-hidden="true"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-school" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /> <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /> </svg></span>
+                                                                                <span>ДПО</span>
+                                    </li>
+                                                                                                        <li class="vb-course-badge">
+                                                                                    <span class="vb-course-badge-icon"><svg aria-hidden="true"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-certificate" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M12 15a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /> <path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5" /> <path d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73" /> <path d="M6 9l12 0" /> <path d="M6 12l3 0" /> <path d="M6 15l2 0" /> </svg></span>
+                                                                                <span>Профессиональная переподготовка</span>
+                                    </li>
+                                                            </ul>
+                                                <div class="vb-course-hero-text">
+                                                            <h1 class="vb-course-title">Терапия мелких домашних животных</h1>
+                                                                                        <p class="vb-course-excerpt">Всё, что нужно знать, чтобы разобраться даже со сложным пациентом на приёме</p>
+                                                    </div>
+                    </div>
+                    <div class="vb-course-hero-visual" aria-hidden="true">
+                        <div class="vb-course-hero-visual-atmosphere"></div>
+                                                    <div class="vb-course-hero-img-frame">
+                                <img class="vb-course-hero-img" src="https://vet-brain.ru/wp-content/uploads/2026/08/Терапия_мелких_домашних_животных_mini.webp" alt="">
+                            </div>
+                                                                            <div class="vb-course-trust-card">
+                                <span class="vb-course-trust-count">1000+</span>
+                                <span class="vb-course-trust-label">ветеринарных врачей советуют этот курс</span>
+                            </div>
+                                            </div>
+                    <div class="vb-course-hero-cta-block">
+                                                    <p class="vb-course-price-line">
+                                                                    <span class="vb-course-price-from">от</span>
+                                                                <span class="vb-course-price-value">825</span>
+                                <span class="vb-course-price-suffix">₽/мес.</span>
+                                                            </p>
+                                                                                                            <a class="vb-course-btn vb-course-btn--primary vb-course-btn--wide"
+                                   href="#vb-course-tariffs">Записаться</a>
+                                                                                                                                <p class="vb-course-next-start">Курс находится на финальной доработке</p>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+            
+            
+            
+                            <section class="vb-course-section vb-course-section--muted vb-course-section--audience">
+                    <div class="vb-course-inner">
+                                                    <h2 class="vb-course-section-title vb-course-section-title--center vb-course-audience-section-title">Для кого этот курс?</h2>
+                                                                        <div class="vb-course-audience-grid">
+                                                            <div class="vb-course-audience-card">
+                                    <h3 class="vb-course-audience-title">Молодым врачам, которые только начинают самостоятельный приём</h3>
+                                                                            <img class="vb-course-audience-img vb-course-audience-img--figma" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/main-page/audience-card-1-figma.png" alt="">
+                                                                                                            <ul class="vb-course-audience-list">
+                                                                                    <li>Тем, кто пока теряется в алгоритмах, физиологии, патофизиологии, диагностике и не всегда чувствует уверенность в своих решениях</li>
+                                                                            </ul>
+                                </div>
+                                                            <div class="vb-course-audience-card">
+                                    <h3 class="vb-course-audience-title">Терапевтам и врачам общей практики</h3>
+                                                                            <img class="vb-course-audience-img vb-course-audience-img--figma" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/main-page/audience-card-2-figma.png" alt="">
+                                                                                                            <ul class="vb-course-audience-list">
+                                                                                    <li>Которые уже работают, но всё ещё сталкиваются с неуверенностью на приёмах</li>
+                                                                            </ul>
+                                </div>
+                                                            <div class="vb-course-audience-card">
+                                    <h3 class="vb-course-audience-title">Ассистентам и студентам последних курсов</h3>
+                                                                            <img class="vb-course-audience-img vb-course-audience-img--uploaded" src="https://vet-brain.ru/wp-content/uploads/2026/06/Image.png" alt="">
+                                                                                                            <ul class="vb-course-audience-list">
+                                                                                    <li>Которые готовятся перейти в роль врача, хотят укрепить фундаментальные знания и выйти в практику не с набором разрозненных фактов, а с понятной и системной базой</li>
+                                                                            </ul>
+                                </div>
+                                                            <div class="vb-course-audience-card">
+                                    <h3 class="vb-course-audience-title">Узким специалистам</h3>
+                                                                            <img class="vb-course-audience-img vb-course-audience-img--uploaded" src="https://vet-brain.ru/wp-content/uploads/2026/06/Image-Container-4.png" alt="">
+                                                                                                            <ul class="vb-course-audience-list">
+                                                                                    <li>Которые хотят разбираться в смежных направлениях и действительно понимать, что происходит с пациентом, насколько обосновано лечение и как это влияет на дальнейшее ведение</li>
+                                                                            </ul>
+                                </div>
+                                                    </div>
+                    </div>
+                </section>
+            
+            
+                            <section class="vb-course-section vb-course-section--teachers">
+                    <div class="vb-course-inner">
+                        <h2 class="vb-course-section-title vb-course-section-title--center">Вашими преподавателями будут топовые эксперты ветеринарной медицины</h2>
+                        <div class="vb-course-teachers-grid">
+                                                                                            <article class="vb-course-teacher-card">
+                                    <div class="vb-course-teacher-hero">
+                                        <span class="vb-course-teacher-hero-layers" aria-hidden="true"></span>
+                                                                                    <span class="vb-course-teacher-hero-photo" aria-hidden="true" style="background-image: url('https://vet-brain.ru/wp-content/uploads/2026/08/2.jpg');"></span>
+                                                                            </div>
+                                    <div class="vb-course-teacher-card-body">
+                                                                                    <ul class="vb-course-teacher-chips" aria-label="Роли и специализации">
+                                                                                                    <li class="vb-course-teacher-chip">Ветеринарный врач интернальной медицины</li>
+                                                                                            </ul>
+                                                                                <h3 class="vb-course-teacher-name">Грачева Дарья</h3>
+                                                                                    <p class="vb-course-teacher-bio">Руководитель ординатуры интернальной медицины СВК «Белый клык»</p>
+                                                                            </div>
+                                </article>
+                                                                                            <article class="vb-course-teacher-card">
+                                    <div class="vb-course-teacher-hero">
+                                        <span class="vb-course-teacher-hero-layers" aria-hidden="true"></span>
+                                                                                    <span class="vb-course-teacher-hero-photo" aria-hidden="true" style="background-image: url('https://vet-brain.ru/wp-content/uploads/2026/08/photo.jpeg');"></span>
+                                                                            </div>
+                                    <div class="vb-course-teacher-card-body">
+                                                                                    <ul class="vb-course-teacher-chips" aria-label="Роли и специализации">
+                                                                                                    <li class="vb-course-teacher-chip">Ветеринарный врач интернальной медицины</li>
+                                                                                            </ul>
+                                                                                <h3 class="vb-course-teacher-name">Богатова Ирина</h3>
+                                                                                    <p class="vb-course-teacher-bio">Руководитель ординатуры интернальной медицины СВК «Белый клык»</p>
+                                                                            </div>
+                                </article>
+                                                                                            <article class="vb-course-teacher-card">
+                                    <div class="vb-course-teacher-hero">
+                                        <span class="vb-course-teacher-hero-layers" aria-hidden="true"></span>
+                                                                                    <span class="vb-course-teacher-hero-photo" aria-hidden="true" style="background-image: url('https://vet-brain.ru/wp-content/uploads/2026/08/noroot.png');"></span>
+                                                                            </div>
+                                    <div class="vb-course-teacher-card-body">
+                                                                                    <ul class="vb-course-teacher-chips" aria-label="Роли и специализации">
+                                                                                                    <li class="vb-course-teacher-chip">Клинический психолог, медиатор</li>
+                                                                                            </ul>
+                                                                                <h3 class="vb-course-teacher-name">Томилина-Пейчева Эльмира</h3>
+                                                                                    <p class="vb-course-teacher-bio">Кризисный психолог, докладчик 12 международных конгрессов</p>
+                                                                            </div>
+                                </article>
+                                                                                            <article class="vb-course-teacher-card">
+                                    <div class="vb-course-teacher-hero">
+                                        <span class="vb-course-teacher-hero-layers" aria-hidden="true"></span>
+                                                                                    <span class="vb-course-teacher-hero-photo" aria-hidden="true" style="background-image: url('https://vet-brain.ru/wp-content/uploads/2026/08/noroot-1-1.png');"></span>
+                                                                            </div>
+                                    <div class="vb-course-teacher-card-body">
+                                                                                    <ul class="vb-course-teacher-chips" aria-label="Роли и специализации">
+                                                                                                    <li class="vb-course-teacher-chip">Ветеринарный врач интенсивной терапии</li>
+                                                                                            </ul>
+                                                                                <h3 class="vb-course-teacher-name">Типисова Вероника</h3>
+                                                                                    <p class="vb-course-teacher-bio">Заместитель главного врача филиала «Крылатское» СВК «Белый клык», руководитель стационара</p>
+                                                                            </div>
+                                </article>
+                                                                                            <article class="vb-course-teacher-card">
+                                    <div class="vb-course-teacher-hero">
+                                        <span class="vb-course-teacher-hero-layers" aria-hidden="true"></span>
+                                                                                    <span class="vb-course-teacher-hero-photo" aria-hidden="true" style="background-image: url('https://vet-brain.ru/wp-content/uploads/2026/08/2_1_1.jpg');"></span>
+                                                                            </div>
+                                    <div class="vb-course-teacher-card-body">
+                                                                                    <ul class="vb-course-teacher-chips" aria-label="Роли и специализации">
+                                                                                                    <li class="vb-course-teacher-chip">Ветеринарный врач-нефролог, уролог</li>
+                                                                                            </ul>
+                                                                                <h3 class="vb-course-teacher-name">Крутицкая Надежда</h3>
+                                                                                    <p class="vb-course-teacher-bio">Президент ассоциации «НефроУроВет», врач ВК «Ковчег»</p>
+                                                                            </div>
+                                </article>
+                                                                                            <article class="vb-course-teacher-card">
+                                    <div class="vb-course-teacher-hero">
+                                        <span class="vb-course-teacher-hero-layers" aria-hidden="true"></span>
+                                                                                    <span class="vb-course-teacher-hero-photo" aria-hidden="true" style="background-image: url('https://vet-brain.ru/wp-content/uploads/2026/08/noroot-2.png');"></span>
+                                                                            </div>
+                                    <div class="vb-course-teacher-card-body">
+                                                                                    <ul class="vb-course-teacher-chips" aria-label="Роли и специализации">
+                                                                                                    <li class="vb-course-teacher-chip">Ветеринарный врач-офтальмолог</li>
+                                                                                            </ul>
+                                                                                <h3 class="vb-course-teacher-name">Васильева Анастасия</h3>
+                                                                                    <p class="vb-course-teacher-bio">Врач ветеринарного госпиталя Skolkovo Vet, в офтальмологии с 2014 года</p>
+                                                                            </div>
+                                </article>
+                                                                                            <article class="vb-course-teacher-card">
+                                    <div class="vb-course-teacher-hero">
+                                        <span class="vb-course-teacher-hero-layers" aria-hidden="true"></span>
+                                                                                    <span class="vb-course-teacher-hero-photo" aria-hidden="true" style="background-image: url('https://vet-brain.ru/wp-content/uploads/2026/08/1.jpg.webp');"></span>
+                                                                            </div>
+                                    <div class="vb-course-teacher-card-body">
+                                                                                    <ul class="vb-course-teacher-chips" aria-label="Роли и специализации">
+                                                                                                    <li class="vb-course-teacher-chip">Ветеринарный врач-невролог</li>
+                                                                                            </ul>
+                                                                                <h3 class="vb-course-teacher-name">Кирюхина Ольга</h3>
+                                                                                    <p class="vb-course-teacher-bio">Врач СВК «Белый клык», лектор NVC и MVC</p>
+                                                                            </div>
+                                </article>
+                                                                                            <article class="vb-course-teacher-card">
+                                    <div class="vb-course-teacher-hero">
+                                        <span class="vb-course-teacher-hero-layers" aria-hidden="true"></span>
+                                                                                    <span class="vb-course-teacher-hero-photo" aria-hidden="true" style="background-image: url('https://vet-brain.ru/wp-content/uploads/2026/08/noroot-3.png');"></span>
+                                                                            </div>
+                                    <div class="vb-course-teacher-card-body">
+                                                                                    <ul class="vb-course-teacher-chips" aria-label="Роли и специализации">
+                                                                                                    <li class="vb-course-teacher-chip">Ветеринарный врач-хирург, ортопед, невролог</li>
+                                                                                            </ul>
+                                                                                <h3 class="vb-course-teacher-name">Русская-Склярова Арина</h3>
+                                                                                    <p class="vb-course-teacher-bio">Хирург СВК «Астин», лектор NVC и Vet Camp</p>
+                                                                            </div>
+                                </article>
+                                                    </div>
+                    </div>
+                </section>
+            
+                                            <section class="vb-course-section vb-course-section--program vb-course-section--program-accordion"
+                         data-vb-program-layout="accordion">
+                    <div class="vb-course-inner vb-course-inner--narrow">
+                        <header class="vb-course-program-head">
+                            <div class="vb-course-program-head-main">
+                                                                    <h2 class="vb-course-program-title">Что будет на курсе?</h2>
+                                                                                                    <p class="vb-course-program-subtitle">Онлайн-семинары, визитерство и сертификат</p>
+                                                            </div>
+                                                    </header>
+
+                                                    <div class="vb-course-program-acc">
+                                                                                                        <article class="vb-course-acc-module vb-course-acc-module--program">
+                                        <div class="vb-course-acc-module__shell">
+                                            <span class="vb-course-acc-module__accent" aria-hidden="true"></span>
+                                            <span class="vb-course-acc-module__num" aria-hidden="true">01</span>
+                                            <div class="vb-course-acc-module__column">
+                                                <div class="vb-course-acc-module__core">
+                                                                                                            <span class="vb-course-acc-module__title">Не про болезни. Про мышление врача</span>
+                                                                                                                                                                                                                    <span class="vb-course-acc-module__meta screen-reader-text">
+                                                                                                                            <span class="vb-course-acc-module__topics-count">1 тем</span>
+                                                                                                                                                                                                                                            </span>
+                                                                                                    </div>
+                                                <div class="vb-course-acc-module__body">
+                                                                                            <ul class="vb-course-acc-module__list">
+                                                                                                                                                                    <li>Главная особенность курса — алгоритмизированный подход к клинической практике. На курсе разберем ВСЕ симптомы, с которыми врач сталкивается на приёме каждый день. Вместе с терапевтами, неврологом, офтальмологом и хирургом-ортопедом будем учиться смотреть на пациента шире и понимать, какие системные заболевания могут скрываться за привычными жалобами.</li>
+                                                                                                                                                                                                            </ul>
+                                                                                            </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                                                                                        <article class="vb-course-acc-module vb-course-acc-module--program">
+                                        <div class="vb-course-acc-module__shell">
+                                            <span class="vb-course-acc-module__accent" aria-hidden="true"></span>
+                                            <span class="vb-course-acc-module__num" aria-hidden="true">02</span>
+                                            <div class="vb-course-acc-module__column">
+                                                <div class="vb-course-acc-module__core">
+                                                                                                            <span class="vb-course-acc-module__title">Симптом, а не готовый диагноз</span>
+                                                                                                                                                                                                                    <span class="vb-course-acc-module__meta screen-reader-text">
+                                                                                                                            <span class="vb-course-acc-module__topics-count">1 тем</span>
+                                                                                                                                                                                                                                            </span>
+                                                                                                    </div>
+                                                <div class="vb-course-acc-module__body">
+                                                                                            <ul class="vb-course-acc-module__list">
+                                                                                                                                                                    <li>Владельцы не приходят со словами: «У моего питомца идиопатический цистит». Они приходят с жалобой: «У него кровь в моче». На курсе мы разберём ВСЕ основные симптомы, с которыми врач сталкивается каждый день, и научимся искать их реальные причины.</li>
+                                                                                                                                                                                                            </ul>
+                                                                                            </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                                                                                        <article class="vb-course-acc-module vb-course-acc-module--program">
+                                        <div class="vb-course-acc-module__shell">
+                                            <span class="vb-course-acc-module__accent" aria-hidden="true"></span>
+                                            <span class="vb-course-acc-module__num" aria-hidden="true">03</span>
+                                            <div class="vb-course-acc-module__column">
+                                                <div class="vb-course-acc-module__core">
+                                                                                                            <span class="vb-course-acc-module__title">Алгоритмы вместо угадывания</span>
+                                                                                                                                                                                                                    <span class="vb-course-acc-module__meta screen-reader-text">
+                                                                                                                            <span class="vb-course-acc-module__topics-count">1 тем</span>
+                                                                                                                                                                                                                                            </span>
+                                                                                                    </div>
+                                                <div class="vb-course-acc-module__body">
+                                                                                            <ul class="vb-course-acc-module__list">
+                                                                                                                                                                    <li>Научимся выстраивать диагностический алгоритм, не зацикливаться на первом пришедшем в голову диагнозе, мыслить шире и понимать, что делать, если стандартное лечение не сработало. Наша задача — перестать угадывать и начать системно вести пациента.</li>
+                                                                                                                                                                                                            </ul>
+                                                                                            </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                                                                                        <article class="vb-course-acc-module vb-course-acc-module--program">
+                                        <div class="vb-course-acc-module__shell">
+                                            <span class="vb-course-acc-module__accent" aria-hidden="true"></span>
+                                            <span class="vb-course-acc-module__num" aria-hidden="true">04</span>
+                                            <div class="vb-course-acc-module__column">
+                                                <div class="vb-course-acc-module__core">
+                                                                                                            <span class="vb-course-acc-module__title">Реальные пациенты и клинические случаи</span>
+                                                                                                                                                                                                                    <span class="vb-course-acc-module__meta screen-reader-text">
+                                                                                                                            <span class="vb-course-acc-module__topics-count">1 тем</span>
+                                                                                                                                                                                                                                            </span>
+                                                                                                    </div>
+                                                <div class="vb-course-acc-module__body">
+                                                                                            <ul class="vb-course-acc-module__list">
+                                                                                                                                                                    <li>Практически в каждой лекции разбираются настоящие клинические случаи. Мы не просто изучаем теорию, а сразу применяем её на практике и учимся принимать решения в ситуациях, максимально приближенных к реальному приёму.</li>
+                                                                                                                                                                                                            </ul>
+                                                                                            </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                                                                                        <article class="vb-course-acc-module vb-course-acc-module--program">
+                                        <div class="vb-course-acc-module__shell">
+                                            <span class="vb-course-acc-module__accent" aria-hidden="true"></span>
+                                            <span class="vb-course-acc-module__num" aria-hidden="true">05</span>
+                                            <div class="vb-course-acc-module__column">
+                                                <div class="vb-course-acc-module__core">
+                                                                                                            <span class="vb-course-acc-module__title">Физиология и патофизиология без скуки</span>
+                                                                                                                                                                                                                    <span class="vb-course-acc-module__meta screen-reader-text">
+                                                                                                                            <span class="vb-course-acc-module__topics-count">1 тем</span>
+                                                                                                                                                                                                                                            </span>
+                                                                                                    </div>
+                                                <div class="vb-course-acc-module__body">
+                                                                                            <ul class="vb-course-acc-module__list">
+                                                                                                                                                                    <li>Сложные процессы в организме объясняем максимально понятно, наглядно и интересно. Без многочасовых монологов и перегруженных слайдов. Чтобы вы действительно понимали, почему развивается тот или иной симптом.</li>
+                                                                                                                                                                                                            </ul>
+                                                                                            </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                                                                                        <article class="vb-course-acc-module vb-course-acc-module--program">
+                                        <div class="vb-course-acc-module__shell">
+                                            <span class="vb-course-acc-module__accent" aria-hidden="true"></span>
+                                            <span class="vb-course-acc-module__num" aria-hidden="true">06</span>
+                                            <div class="vb-course-acc-module__column">
+                                                <div class="vb-course-acc-module__core">
+                                                                                                            <span class="vb-course-acc-module__title">Как вести приём от начала до конца</span>
+                                                                                                                                                                                                                    <span class="vb-course-acc-module__meta screen-reader-text">
+                                                                                                                            <span class="vb-course-acc-module__topics-count">1 тем</span>
+                                                                                                                                                                                                                                            </span>
+                                                                                                    </div>
+                                                <div class="vb-course-acc-module__body">
+                                                                                            <ul class="vb-course-acc-module__list">
+                                                                                                                                                                    <li>Разберём, как собирать полный анамнез, проводить полноценный клинический осмотр, объяснять владельцу план диагностики и лечения, работать с возражениями, конфликтами и выстраивать коммуникацию после приёма.</li>
+                                                                                                                                                                                                            </ul>
+                                                                                            </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                                                                                        <article class="vb-course-acc-module vb-course-acc-module--program">
+                                        <div class="vb-course-acc-module__shell">
+                                            <span class="vb-course-acc-module__accent" aria-hidden="true"></span>
+                                            <span class="vb-course-acc-module__num" aria-hidden="true">07</span>
+                                            <div class="vb-course-acc-module__column">
+                                                <div class="vb-course-acc-module__core">
+                                                                                                            <span class="vb-course-acc-module__title">Коммуникация, консилиумы и сложные разговоры</span>
+                                                                                                                                                                                                                    <span class="vb-course-acc-module__meta screen-reader-text">
+                                                                                                                            <span class="vb-course-acc-module__topics-count">1 тем</span>
+                                                                                                                                                                                                                                            </span>
+                                                                                                    </div>
+                                                <div class="vb-course-acc-module__body">
+                                                                                            <ul class="vb-course-acc-module__list">
+                                                                                                                                                                    <li>Поговорим о взаимодействии с коллегами, консилиумах и обсуждении сложных пациентов. Отдельно разберём одну из самых непростых тем в профессии — оценку качества жизни пациента и разговоры об эвтаназии.</li>
+                                                                                                                                                                                                            </ul>
+                                                                                            </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                                                                                        <article class="vb-course-acc-module vb-course-acc-module--program">
+                                        <div class="vb-course-acc-module__shell">
+                                            <span class="vb-course-acc-module__accent" aria-hidden="true"></span>
+                                            <span class="vb-course-acc-module__num" aria-hidden="true">08</span>
+                                            <div class="vb-course-acc-module__column">
+                                                <div class="vb-course-acc-module__core">
+                                                                                                            <span class="vb-course-acc-module__title">Анализы, которые рассказывают ГОРАЗДО больше, чем кажется</span>
+                                                                                                                                                                                                            </div>
+                                                <div class="vb-course-acc-module__body">
+                                                                                            </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                                            </div>
+
+                        
+                                                                            <div class="vb-course-program-footer" id="vb-course-program-qualification">
+                                <div class="vb-course-program-footer__icon" aria-hidden="true">
+                                    <span class="vb-course-program-footer__diploma">
+                                        <img
+                                            src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/main-page/program-qualification-diploma-figma.png"
+                                            alt=""
+                                            width="1120"
+                                            height="870"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </span>
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="22" fill="rgba(255,255,255,0.22)"/><path d="M24 14 10 20.5 24 27l14-6.5L24 14Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" fill="none"/><path d="M17 23v7.5c0 2.2 3.2 4 7 4s7-1.8 7-4V23" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M10 20.5V27c0 1.2 2.1 2.2 5 2.7M38 20.5V27c0 1.2-2.1 2.2-5 2.7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                </div>
+                                <div class="vb-course-program-footer__text">
+                                    <p class="vb-course-program-footer__heading">Подтвердим вашу квалификацию</p>
+                                    <p class="vb-course-program-footer__body">В конце обучения вы получите удостоверение о повышении квалификации установленного образца. Мы обучаем по государственной лицензии Л035-01298-77/04357828 от 12.02.2026.</p>
+                                </div>
+                                                            </div>
+                                            </div>
+                </section>
+            
+            
+                                            <section class="vb-course-section vb-course-section--outcomes">
+                    <div class="vb-course-inner vb-course-inner--outcomes">
+                        <div class="vb-course-outcomes-panel">
+                                                            <h2 class="vb-course-outcomes-title">После курса Вы:</h2>
+                                                        <div class="vb-course-outcomes-grid">
+                                                                                                        <article class="vb-course-outcome-card">
+                                                                                    <div class="vb-course-outcome-card__media">
+                                                <img src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/course-outcomes/card-coral-teal.svg" alt="" decoding="async" loading="lazy">
+                                            </div>
+                                                                                <h3 class="vb-course-outcome-title">Перестанете теряться на приёме</h3>
+                                        <p class="vb-course-outcome-body">Начнёте понимать, как пошагово работать с&nbsp;пациентом, структурировать приём и&nbsp;принимать решения даже в&nbsp;непростых клинических ситуациях</p>
+                                    </article>
+                                                                                                        <article class="vb-course-outcome-card">
+                                                                                    <div class="vb-course-outcome-card__media">
+                                                <img src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/course-outcomes/card-teal-light.svg" alt="" decoding="async" loading="lazy">
+                                            </div>
+                                                                                <h3 class="vb-course-outcome-title">Начнёте получать максимум информации из анализов и анамнеза</h3>
+                                        <p class="vb-course-outcome-body">Поймёте, как правильно собирать анамнез, какие вопросы задавать владельцу и&nbsp;как извлекать из&nbsp;анализов гораздо больше информации, чем просто наличие или отсутствие отклонений</p>
+                                    </article>
+                                                                                                        <article class="vb-course-outcome-card">
+                                                                                    <div class="vb-course-outcome-card__media">
+                                                <img src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/course-outcomes/card-coral-light.svg" alt="" decoding="async" loading="lazy">
+                                            </div>
+                                                                                <h3 class="vb-course-outcome-title">Научитесь уверенно общаться с владельцами и коллегами</h3>
+                                        <p class="vb-course-outcome-body">Сможете объяснять план диагностики и&nbsp;лечения, лучше взаимодействовать внутри команды. Перестанете бояться консилиумов и&nbsp;обсуждения сложных пациентов</p>
+                                    </article>
+                                                                                                        <article class="vb-course-outcome-card">
+                                                                                    <div class="vb-course-outcome-card__media">
+                                                <img src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/course-outcomes/card-mint-navy.svg" alt="" decoding="async" loading="lazy">
+                                            </div>
+                                                                                <h3 class="vb-course-outcome-title">Станете спокойнее и увереннее в своей практике</h3>
+                                        <p class="vb-course-outcome-body">Получите базу, максимально приближенную к&nbsp;реальной работе врача на&nbsp;приёме, будете понимать, что делать, зачем делать и&nbsp;куда двигаться дальше в&nbsp;каждом клиническом случае</p>
+                                    </article>
+                                                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+            
+                <section class="vb-course-section vb-course-section--tariffs" id="vb-course-tariffs">
+        <div class="vb-course-inner vb-course-inner--tariffs vb-course-tariffs-wrap">
+                            <h2 class="vb-course-tariffs-title">
+                    Выберите тариф<br>и запишитесь на курс                </h2>
+                                                        <div
+                    class="vb-course-tariff-promo"
+                    role="button"
+                    tabindex="0"
+                    data-vb-tariff-promo-open
+                    aria-haspopup="dialog"
+                    aria-controls="vb-tariff-promo-dialog"
+                    aria-label="Промо-акция: Скидка 15% для наших студентов на любой следующий курс. Подробнее"
+                >
+                    <div class="vb-course-tariff-promo__decor vb-course-tariff-promo__decor--left" aria-hidden="true">
+                        <img
+                            class="vb-course-tariff-promo__decor-img vb-course-tariff-promo__decor-img--left"
+                            src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/course-tariffs/promo-decor-left.png"
+                            srcset="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/course-tariffs/promo-decor-left@2x.png 2x"
+                            alt=""
+                            width="172"
+                            height="70"
+                            decoding="async"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="vb-course-tariff-promo__main">
+                        <p class="vb-course-tariff-promo__text">Скидка 15% для наших студентов на любой следующий курс</p>
+                    </div>
+                    <div class="vb-course-tariff-promo__decor vb-course-tariff-promo__decor--right" aria-hidden="true">
+                        <img
+                            class="vb-course-tariff-promo__decor-img vb-course-tariff-promo__decor-img--right"
+                            src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/course-tariffs/promo-decor-right.png"
+                            srcset="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/course-tariffs/promo-decor-right@2x.png 2x"
+                            alt=""
+                            width="172"
+                            height="70"
+                            decoding="async"
+                            loading="lazy"
+                        >
+                    </div>
+                </div>
+                <dialog class="vb-tariff-promo-modal vb-tariff-promo-modal--discount" id="vb-tariff-promo-dialog" aria-labelledby="vb-tariff-promo-dialog-title" aria-describedby="vb-tariff-promo-dialog-desc">
+                    <div class="vb-tariff-promo-modal__card">
+                        <button type="button" class="vb-tariff-promo-modal__close" data-vb-tariff-promo-close aria-label="Закрыть">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke="#859494" stroke-width="2" stroke-linecap="round" d="M10 10l12 12M22 10 10 22"/></svg>
+                        </button>
+                        <div class="vb-tariff-promo-modal__grid">
+                            <div class="vb-tariff-promo-modal__main">
+                                <div class="vb-tariff-promo-modal__heading">
+                                    <p class="vb-tariff-promo-modal__chip">Учились у нас?</p>
+                                    <h2 class="vb-tariff-promo-modal__title" id="vb-tariff-promo-dialog-title">
+                                        <span class="vb-tariff-promo-modal__title-line">Получите скидку <span class="vb-tariff-promo-modal__title-accent">15%</span></span>
+                                        <span class="vb-tariff-promo-modal__title-line">на любой курс!</span>
+                                    </h2>
+                                    <div class="vb-tariff-promo-modal__body" id="vb-tariff-promo-dialog-desc">
+                                        <p class="vb-tariff-promo-modal__lead">Скидку могут получить все студенты,<br>которые ранее проходили наши курсы.</p>
+                                        <p class="vb-tariff-promo-modal__lead">
+                                            Просто напишите нам на почту                                            <a class="vb-tariff-promo-modal__mail" href="mailto:info@dr-hug.school?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D1%80%D0%BE%D0%BC%D0%BE%D0%BA%D0%BE%D0%B4%D0%B0%20%28%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%29">info@dr-hug.school</a>, мы пришлем промокод.                                        </p>
+                                    </div>
+                                </div>
+                                <a class="vb-tariff-promo-modal__cta" href="mailto:info@dr-hug.school?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D1%80%D0%BE%D0%BC%D0%BE%D0%BA%D0%BE%D0%B4%D0%B0%20%28%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%29">Получить скидку</a>
+                            </div>
+                            <div class="vb-tariff-promo-modal__visual" aria-hidden="true">
+                                <img class="vb-tariff-promo-modal__hero" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/course/tariff-promo-modal-hero.png" alt="" width="652" height="657" decoding="async" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </dialog>
+                                        <div class="vb-course-tariffs-grid">
+                                                                    <div class="vb-course-tariff-card">
+                            <div class="vb-course-tariff-card__top">
+                                <h3 class="vb-course-tariff-name">Полный курс</h3>
+                                                                    <ul class="vb-course-tariff-features">
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Доступ к записям лекций на 1 год</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">10 онлайн-семинаров с разбором клинических случаев</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Лекции Томилиной-Пейчевой Э.А. в прямом эфире</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Методические материалы и презентации ко всем лекциям</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Онлайн-тестирования для проверки знаний</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Сопровождение лектора Грачевой Д.В. в закрытом чате 6 месяцев</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Итоговый экзамен (онлайн)</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Диплом о профессиональной переподготовке после успешной сдачи промежуточных и итоговых аттестаций (для слушателей без высшего образования — электронный сертификат)</span>
+                                            </li>
+                                                                            </ul>
+                                                            </div>
+                            <div class="vb-course-tariff-card__bottom">
+                                <div class="vb-course-tariff-foot">
+                                    <div class="vb-course-tariff-prices">
+                                                                                    <span class="vb-course-tariff-current">89 900 ₽</span>
+                                                                                                                    </div>
+                                                                            <button type="button"
+                                            class="vb-course-tariff-cta vb-course-tariff-cta--signup"
+                                            data-tariff-index="0"
+                                            onclick="loadDrHugWidgetFromWindow(this);">
+                                            Оставить заявку                                        </button>
+                                                                                                        </div>
+                                                                        <div class="vb-course-tariff-installment-bar">
+        <p class="vb-course-tariff-installment-formula">
+            <span class="vb-course-tariff-installment-count">12</span>
+            <span class="vb-course-tariff-installment-times" aria-hidden="true">×</span>
+            <span class="vb-course-tariff-installment-amount">7 492</span>
+            <span class="vb-course-tariff-installment-currency">₽</span>
+        </p>
+        <p class="vb-course-tariff-installment-note">при рассрочке на 12 месяцев</p>
+    </div>
+                                                                </div>
+                        </div>
+                                                                    <div class="vb-course-tariff-card">
+                            <div class="vb-course-tariff-card__top">
+                                <h3 class="vb-course-tariff-name">Организация приема и коммуникация (1-й блок)</h3>
+                                                                    <ul class="vb-course-tariff-features">
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Доступ к записям лекций на 1 год</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Лекции Томилиной-Пейчевой Э.А. в прямом эфире</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">2 онлайн-семинара с Томилиной-Пейчевой Э.А.</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Методические материалы и презентации</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Сопровождение лектора Грачевой Д.В. в закрытом чате 6 месяцев</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Онлайн-тестирования для проверки знаний</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Электронный сертификат об обучении</span>
+                                            </li>
+                                                                            </ul>
+                                                            </div>
+                            <div class="vb-course-tariff-card__bottom">
+                                <div class="vb-course-tariff-foot">
+                                    <div class="vb-course-tariff-prices">
+                                                                                    <span class="vb-course-tariff-current">9 900 ₽</span>
+                                                                                                                    </div>
+                                                                            <button type="button"
+                                            class="vb-course-tariff-cta vb-course-tariff-cta--signup"
+                                            data-tariff-index="1"
+                                            onclick="loadDrHugWidgetFromWindow(this);">
+                                            Оставить заявку                                        </button>
+                                                                                                        </div>
+                                                                        <div class="vb-course-tariff-installment-bar">
+        <p class="vb-course-tariff-installment-formula">
+            <span class="vb-course-tariff-installment-count">12</span>
+            <span class="vb-course-tariff-installment-times" aria-hidden="true">×</span>
+            <span class="vb-course-tariff-installment-amount">825</span>
+            <span class="vb-course-tariff-installment-currency">₽</span>
+        </p>
+        <p class="vb-course-tariff-installment-note">при рассрочке на 12 месяцев</p>
+    </div>
+                                                                </div>
+                        </div>
+                                                                    <div class="vb-course-tariff-card">
+                            <div class="vb-course-tariff-card__top">
+                                <h3 class="vb-course-tariff-name">Подход к частым симптомам на приеме (2-й блок)</h3>
+                                                                    <ul class="vb-course-tariff-features">
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Доступ к записям лекций на 1 год</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">2 онлайн-семинара с разбором клинических случаев</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Методические материалы и презентации</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Сопровождение лектора Грачевой Д.В. в закрытом чате 6 месяцев</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Онлайн-тестирования для проверки знаний</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Электронный сертификат об обучении</span>
+                                            </li>
+                                                                            </ul>
+                                                            </div>
+                            <div class="vb-course-tariff-card__bottom">
+                                <div class="vb-course-tariff-foot">
+                                    <div class="vb-course-tariff-prices">
+                                                                                    <span class="vb-course-tariff-current">29 900 ₽</span>
+                                                                                                                    </div>
+                                                                            <button type="button"
+                                            class="vb-course-tariff-cta vb-course-tariff-cta--signup"
+                                            data-tariff-index="2"
+                                            onclick="loadDrHugWidgetFromWindow(this);">
+                                            Оставить заявку                                        </button>
+                                                                                                        </div>
+                                                                        <div class="vb-course-tariff-installment-bar">
+        <p class="vb-course-tariff-installment-formula">
+            <span class="vb-course-tariff-installment-count">12</span>
+            <span class="vb-course-tariff-installment-times" aria-hidden="true">×</span>
+            <span class="vb-course-tariff-installment-amount">2 492</span>
+            <span class="vb-course-tariff-installment-currency">₽</span>
+        </p>
+        <p class="vb-course-tariff-installment-note">при рассрочке на 12 месяцев</p>
+    </div>
+                                                                </div>
+                        </div>
+                                                                    <div class="vb-course-tariff-card">
+                            <div class="vb-course-tariff-card__top">
+                                <h3 class="vb-course-tariff-name">Интерпретация рутинных тестов в клинической практике (3-й блок)</h3>
+                                                                    <ul class="vb-course-tariff-features">
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Доступ к записям лекций на 1 год</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">2 онлайн-семинара с разбором клинических случаев</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Методические материалы и презентации</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Сопровождение лектора Грачевой Д.В. в закрытом чате 6 месяцев</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Онлайн-тестирования для проверки знаний</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Электронный сертификат об обучении</span>
+                                            </li>
+                                                                            </ul>
+                                                            </div>
+                            <div class="vb-course-tariff-card__bottom">
+                                <div class="vb-course-tariff-foot">
+                                    <div class="vb-course-tariff-prices">
+                                                                                    <span class="vb-course-tariff-current">24 900 ₽</span>
+                                                                                                                    </div>
+                                                                            <button type="button"
+                                            class="vb-course-tariff-cta vb-course-tariff-cta--signup"
+                                            data-tariff-index="3"
+                                            onclick="loadDrHugWidgetFromWindow(this);">
+                                            Оставить заявку                                        </button>
+                                                                                                        </div>
+                                                                        <div class="vb-course-tariff-installment-bar">
+        <p class="vb-course-tariff-installment-formula">
+            <span class="vb-course-tariff-installment-count">12</span>
+            <span class="vb-course-tariff-installment-times" aria-hidden="true">×</span>
+            <span class="vb-course-tariff-installment-amount">2 075</span>
+            <span class="vb-course-tariff-installment-currency">₽</span>
+        </p>
+        <p class="vb-course-tariff-installment-note">при рассрочке на 12 месяцев</p>
+    </div>
+                                                                </div>
+                        </div>
+                                                                    <div class="vb-course-tariff-card">
+                            <div class="vb-course-tariff-card__top">
+                                <h3 class="vb-course-tariff-name">Клинический подход к частым нозологиям в практике (4-й блок)</h3>
+                                                                    <ul class="vb-course-tariff-features">
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Доступ к записям лекций на 1 год</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">3 онлайн-семинара с разбором клинических случаев</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Методические материалы и презентации</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Сопровождение лектора Грачевой Д.В. в закрытом чате 6 месяцев</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Онлайн-тестирования для проверки знаний</span>
+                                            </li>
+                                                                                    <li class="vb-course-tariff-feature">
+                                                <span class="vb-course-tariff-feature__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_3529_8382)">
+                <path d="M5 12L10 17L20 7" stroke="#239CB1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3529_8382">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+            </svg></span>
+                                                <span class="vb-course-tariff-feature__text">Электронный сертификат об обучении</span>
+                                            </li>
+                                                                            </ul>
+                                                            </div>
+                            <div class="vb-course-tariff-card__bottom">
+                                <div class="vb-course-tariff-foot">
+                                    <div class="vb-course-tariff-prices">
+                                                                                    <span class="vb-course-tariff-current">39 900 ₽</span>
+                                                                                                                    </div>
+                                                                            <button type="button"
+                                            class="vb-course-tariff-cta vb-course-tariff-cta--signup"
+                                            data-tariff-index="4"
+                                            onclick="loadDrHugWidgetFromWindow(this);">
+                                            Оставить заявку                                        </button>
+                                                                                                        </div>
+                                                                        <div class="vb-course-tariff-installment-bar">
+        <p class="vb-course-tariff-installment-formula">
+            <span class="vb-course-tariff-installment-count">12</span>
+            <span class="vb-course-tariff-installment-times" aria-hidden="true">×</span>
+            <span class="vb-course-tariff-installment-amount">3 325</span>
+            <span class="vb-course-tariff-installment-currency">₽</span>
+        </p>
+        <p class="vb-course-tariff-installment-note">при рассрочке на 12 месяцев</p>
+    </div>
+                                                                </div>
+                        </div>
+                                    </div>
+                    </div>
+    </section>
+    
+        </div>
+
+    </article>
+        </main>
+    <footer class="site-footer">
+                <div class="footer-help-consult-wrap">
+            <section class="footer-help-consult home-map-cta" aria-labelledby="footer-help-consult-title">
+                <div class="home-map-cta__layout">
+                    <div class="home-map-cta__left">
+                        <div class="home-map-cta__card">
+                            <div class="home-map-cta__head">
+                                <h2 id="footer-help-consult-title" class="home-map-cta__title">
+                                    <span>Нужна помощь</span>
+                                    <span>с выбором?</span>
+                                </h2>
+                                <p class="home-map-cta__lead">
+                                    <span>Оставьте заявку - мы проконсультируем</span>
+                                    <span>и ответим на все вопросы</span>
+                                </p>
+                            </div>
+                            <div class="home-map-cta__links">
+                                <a class="home-map-link home-map-link--vk" href="https://vk.ru/vetbrainschool" target="_blank" aria-label="Вконтакте">
+                                    <span class="home-map-link__bg" aria-hidden="true"></span>
+                                    <span class="home-map-link__label">Вконтакте</span>
+                                    <span class="home-map-link__icon" aria-hidden="true">
+                                        <span class="home-map-link__icon-frame">
+                                            <img class="home-map-link__icon-img" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/main-page/help-icon-vk2.png" width="72" height="72" alt="">
+                                        </span>
+                                    </span>
+                                </a>
+                                <a class="home-map-link home-map-link--telegram" href="https://t.me/VetBrainschool" target="_blank" aria-label="Telegram">
+                                    <span class="home-map-link__bg" aria-hidden="true"></span>
+                                    <span class="home-map-link__label">Telegram</span>
+                                    <span class="home-map-link__icon" aria-hidden="true">
+                                        <span class="home-map-link__icon-frame">
+                                            <img class="home-map-link__icon-img" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/main-page/help-icon-telegram2.png" width="172" height="172" alt="">
+                                        </span>
+                                    </span>
+                                </a>
+                                <a class="home-map-link home-map-link--max" href="https://max.ru/u/f9LHodD0cOJ4BDHLJjn1ugJK1wIMGD-H1fT75ihT0MlcS2aO3qojzc3cBSw" target="_blank" aria-label="MAX">
+                                    <span class="home-map-link__bg" aria-hidden="true"></span>
+                                    <span class="home-map-link__label">MAX</span>
+                                    <span class="home-map-link__icon" aria-hidden="true">
+                                        <span class="home-map-link__icon-frame">
+                                            <img class="home-map-link__icon-img" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/main-page/help-icon-max2.png" width="172" height="172" alt="">
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-map-cta__map" aria-label="Карта учебного центра">
+                        <div class="home-map-cta__map-slot" id="footer-help-map">
+                                                            <div class="home-map-cta__map-embed">
+                                    <iframe src="https://yandex.ru/map-widget/v1/org/vet_brain/207053700242/?ll=37.472881%2C55.738318&amp;z=17" width="700" height="600" frameborder="0" allowfullscreen="true"></iframe>                                </div>
+                                                    </div>
+                    </div>
+                </div>
+                <p class="home-map-cta__legal">
+                    Отправляя заявку, вы принимаете условия                     <a href="https://vet-brain.ru/wp-content/uploads/2026/10/ПУБЛИЧНАЯ-ОФЕРТА.docx" target="_blank" rel="noopener noreferrer">договора оферты</a>
+                     и позволяете нам обрабатывать ваши данные в соответствии с                     <a href="https://vet-brain.ru/wp-content/uploads/2026/06/Политика-в-отношении-обработки-персональных-данных.docx" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a>.
+                </p>
+            </section>
+        </div>
+
+        <div class="footer-info-wrap" id="footer-info">
+            <div class="footer-info-container">
+                <div class="footer-favicon-logo">
+                    <img src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/main-page/logo_favicon.png" alt="vet-brain">
+                </div>
+
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <div class="footer-nav-info">
+                        <p class="footer-nav-title">Разделы</p>
+                        <ul class="footer-nav-list"><li><a href="#">О нас</a></li><li><a href="#home-teachers">Кураторы</a></li><li><a href="https://vet-brain.ru/liczenzii/">Сведения об организации</a></li><li><a href="#home-reviews">Отзывы</a></li><li><a href="https://vet-brain.ru/wp-content/uploads/2026/10/ПУБЛИЧНАЯ-ОФЕРТА.docx">Публичная оферта</a></li><li><a href="https://vet-brain.ru/wp-content/uploads/2026/06/Политика-в-отношении-обработки-персональных-данных.docx">Политика конфиденциальности</a></li></ul>                    </div>
+
+                    <div class="footer-nav-info">
+                        <p class="footer-nav-title">Контакты</p>
+                        <ul class="footer-nav-list"><li><a href="mailto:info@dr-hug.school">info@dr-hug.school</a></li><li><a href="#">Telegram</a></li><li><a href="#">Вконтакте</a></li></ul>                    </div>
+                </nav>
+
+                <div class="footer-subscribe" id="footer-subscribe">
+                    <p class="footer-subscribe-title">Подписывайтесь — будем делиться курсами, скидками и пользой</p>
+                                        <form class="footer-subscribe-form" action="https://vet-brain.ru/courses/100-pervykh-paczientov-terapevta/#footer-subscribe" method="post">
+                        <input type="hidden" id="vb_footer_subscribe_nonce" name="vb_footer_subscribe_nonce" value="b1a6e8707b" /><input type="hidden" name="_wp_http_referer" value="/courses/100-pervykh-paczientov-terapevta/" />                        <input type="hidden" name="vb_footer_subscribe" value="1">
+                        <input type="hidden" name="vb_footer_subscribe_return" value="https://vet-brain.ru/courses/100-pervykh-paczientov-terapevta/">
+                        <label class="screen-reader-text" for="footer-subscribe-email">
+                            Email for subscription                        </label>
+                        <input
+                            id="footer-subscribe-email"
+                            class="footer-subscribe-input"
+                            type="email"
+                            name="footer_subscribe_email"
+                            placeholder="Электронная почта"
+                            required
+                        >
+                        <button class="footer-subscribe-button" type="submit">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-brand-block">
+            
+            <div class="footer-brand-words">
+                <img src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/images/footer/footer-brand-words.svg" alt="">
+            </div>
+
+            <div class="footer-team-image">
+                <img src="https://vet-brain.ru/wp-content/uploads/2026/06/doctors_footer_img.webp" alt="Footer team image">
+            </div>
+
+                            <div class="footer-legal">
+                                            <span class="footer-legal-item">© 2025–2026 Vet Brain</span>
+                                            <span class="footer-legal-item">ООО «ВетКомПро»</span>
+                                            <span class="footer-legal-item">ОГРН 1257700160630</span>
+                                            <span class="footer-legal-item">ИНН 7733466532</span>
+                                    </div>
+                    </div>
+    </footer>
+    <button type="button" class="vb-scroll-top" id="vb-scroll-top" aria-hidden="true" tabindex="-1"
+            aria-label="Наверх">
+        <svg class="vb-scroll-top__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+             fill="none" aria-hidden="true" focusable="false">
+            <path d="M12 5 5 12M12 5l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+        </svg>
+    </button>
+</div>
+<script>window.vbDrhugTariffScripts = ["<script id=\"91c3add1773072a7ddee7556ae97857edee0e500\" src=\"https:\/\/vet.dr-hug.school\/pl\/lite\/widget\/script?id=1616457\"><\/script>","<script id=\"8e2722860dd26a3988642d238cbf9abfbbd7f2bf\" src=\"https:\/\/vet.dr-hug.school\/pl\/lite\/widget\/script?id=1616458\"><\/script>","<script id=\"32a0c84a273db5c51cc9bda9224c990083a4f251\" src=\"https:\/\/vet.dr-hug.school\/pl\/lite\/widget\/script?id=1666792\"><\/script>","<script id=\"3d14098506f0b48f902166e30cabd9480c832630\" src=\"https:\/\/vet.dr-hug.school\/pl\/lite\/widget\/script?id=1666793\"><\/script>","<script id=\"713be8ea5cfc18d2de34a4201b4c93aad50a5fef\" src=\"https:\/\/vet.dr-hug.school\/pl\/lite\/widget\/script?id=1666794\"><\/script>"];console.log("Тарифные скрипты:", window.vbDrhugTariffScripts);</script><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/vet-brains/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="vet-brains-single-course-program-js" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/js/single-course-program.js?ver=1.0.18"></script>
+<script id="vet-brains-single-course-clinical-cases-js" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/js/single-course-clinical-cases.js?ver=1.0.18"></script>
+<script id="vet-brains-single-course-tariff-promo-js" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/js/single-course-tariff-promo.js?ver=1.0.18"></script>
+<script id="vet-brains-single-course-signup-modal-js-extra">
+var vbCourseSignup = {"restUrl":"https://vet-brain.ru/wp-json/vet-brains/v1/course-signup","nonce":"6f17762fc0","courseId":"384","courseTitleHtml":"\u0422\u0435\u0440\u0430\u043f\u0438\u044f \u043c\u0435\u043b\u043a\u0438\u0445 \u0434\u043e\u043c\u0430\u0448\u043d\u0438\u0445 \u0436\u0438\u0432\u043e\u0442\u043d\u044b\u0445","tariffs":[{"name":"\u041f\u043e\u043b\u043d\u044b\u0439 \u043a\u0443\u0440\u0441","priceCurrent":"89 900 \u20bd","priceOld":"","discountLabel":"","installmentLabel":"12 \u00d7 7 492 \u20bd","installmentBarHtml":"    \u003Cdiv class=\"vb-course-tariff-installment-bar\"\u003E\n        \u003Cp class=\"vb-course-tariff-installment-formula\"\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-count\"\u003E12\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-times\" aria-hidden=\"true\"\u003E\u00d7\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-amount\"\u003E7 492\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-currency\"\u003E\u20bd\u003C/span\u003E\n        \u003C/p\u003E\n        \u003Cp class=\"vb-course-tariff-installment-note\"\u003E\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u0430 \u0440\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0430 \u0431\u0435\u0437 \u043f\u0435\u0440\u0435\u043f\u043b\u0430\u0442\u003C/p\u003E\n    \u003C/div\u003E\n    ","installmentLeftHtml":"    \u003Cdiv class=\"vb-course-tariff-installment-bar\"\u003E\n        \u003Cp class=\"vb-course-tariff-installment-formula\"\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-count\"\u003E12\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-times\" aria-hidden=\"true\"\u003E\u00d7\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-amount\"\u003E7 492\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-currency\"\u003E\u20bd\u003C/span\u003E\n        \u003C/p\u003E\n        \u003Cp class=\"vb-course-tariff-installment-note\"\u003E\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u0430 \u0440\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0430 \u0431\u0435\u0437 \u043f\u0435\u0440\u0435\u043f\u043b\u0430\u0442\u003C/p\u003E\n    \u003C/div\u003E\n    "},{"name":"\u041e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u0440\u0438\u0435\u043c\u0430 \u0438 \u043a\u043e\u043c\u043c\u0443\u043d\u0438\u043a\u0430\u0446\u0438\u044f (1-\u0439 \u0431\u043b\u043e\u043a)","priceCurrent":"9 900 \u20bd","priceOld":"","discountLabel":"","installmentLabel":"12 \u00d7 825 \u20bd","installmentBarHtml":"    \u003Cdiv class=\"vb-course-tariff-installment-bar\"\u003E\n        \u003Cp class=\"vb-course-tariff-installment-formula\"\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-count\"\u003E12\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-times\" aria-hidden=\"true\"\u003E\u00d7\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-amount\"\u003E825\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-currency\"\u003E\u20bd\u003C/span\u003E\n        \u003C/p\u003E\n        \u003Cp class=\"vb-course-tariff-installment-note\"\u003E\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u0430 \u0440\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0430 \u0431\u0435\u0437 \u043f\u0435\u0440\u0435\u043f\u043b\u0430\u0442\u003C/p\u003E\n    \u003C/div\u003E\n    ","installmentLeftHtml":"    \u003Cdiv class=\"vb-course-tariff-installment-bar\"\u003E\n        \u003Cp class=\"vb-course-tariff-installment-formula\"\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-count\"\u003E12\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-times\" aria-hidden=\"true\"\u003E\u00d7\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-amount\"\u003E825\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-currency\"\u003E\u20bd\u003C/span\u003E\n        \u003C/p\u003E\n        \u003Cp class=\"vb-course-tariff-installment-note\"\u003E\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u0430 \u0440\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0430 \u0431\u0435\u0437 \u043f\u0435\u0440\u0435\u043f\u043b\u0430\u0442\u003C/p\u003E\n    \u003C/div\u003E\n    "},{"name":"\u041f\u043e\u0434\u0445\u043e\u0434 \u043a \u0447\u0430\u0441\u0442\u044b\u043c \u0441\u0438\u043c\u043f\u0442\u043e\u043c\u0430\u043c \u043d\u0430 \u043f\u0440\u0438\u0435\u043c\u0435 (2-\u0439 \u0431\u043b\u043e\u043a)","priceCurrent":"29 900 \u20bd","priceOld":"","discountLabel":"","installmentLabel":"12 \u00d7 2 492 \u20bd","installmentBarHtml":"    \u003Cdiv class=\"vb-course-tariff-installment-bar\"\u003E\n        \u003Cp class=\"vb-course-tariff-installment-formula\"\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-count\"\u003E12\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-times\" aria-hidden=\"true\"\u003E\u00d7\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-amount\"\u003E2 492\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-currency\"\u003E\u20bd\u003C/span\u003E\n        \u003C/p\u003E\n        \u003Cp class=\"vb-course-tariff-installment-note\"\u003E\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u0430 \u0440\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0430 \u0431\u0435\u0437 \u043f\u0435\u0440\u0435\u043f\u043b\u0430\u0442\u003C/p\u003E\n    \u003C/div\u003E\n    ","installmentLeftHtml":"    \u003Cdiv class=\"vb-course-tariff-installment-bar\"\u003E\n        \u003Cp class=\"vb-course-tariff-installment-formula\"\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-count\"\u003E12\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-times\" aria-hidden=\"true\"\u003E\u00d7\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-amount\"\u003E2 492\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-currency\"\u003E\u20bd\u003C/span\u003E\n        \u003C/p\u003E\n        \u003Cp class=\"vb-course-tariff-installment-note\"\u003E\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u0430 \u0440\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0430 \u0431\u0435\u0437 \u043f\u0435\u0440\u0435\u043f\u043b\u0430\u0442\u003C/p\u003E\n    \u003C/div\u003E\n    "},{"name":"\u0418\u043d\u0442\u0435\u0440\u043f\u0440\u0435\u0442\u0430\u0446\u0438\u044f \u0440\u0443\u0442\u0438\u043d\u043d\u044b\u0445 \u0442\u0435\u0441\u0442\u043e\u0432 \u0432 \u043a\u043b\u0438\u043d\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u043f\u0440\u0430\u043a\u0442\u0438\u043a\u0435 (3-\u0439 \u0431\u043b\u043e\u043a)","priceCurrent":"24 900 \u20bd","priceOld":"","discountLabel":"","installmentLabel":"12 \u00d7 2 075 \u20bd","installmentBarHtml":"    \u003Cdiv class=\"vb-course-tariff-installment-bar\"\u003E\n        \u003Cp class=\"vb-course-tariff-installment-formula\"\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-count\"\u003E12\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-times\" aria-hidden=\"true\"\u003E\u00d7\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-amount\"\u003E2 075\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-currency\"\u003E\u20bd\u003C/span\u003E\n        \u003C/p\u003E\n        \u003Cp class=\"vb-course-tariff-installment-note\"\u003E\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u0430 \u0440\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0430 \u0431\u0435\u0437 \u043f\u0435\u0440\u0435\u043f\u043b\u0430\u0442\u003C/p\u003E\n    \u003C/div\u003E\n    ","installmentLeftHtml":"    \u003Cdiv class=\"vb-course-tariff-installment-bar\"\u003E\n        \u003Cp class=\"vb-course-tariff-installment-formula\"\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-count\"\u003E12\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-times\" aria-hidden=\"true\"\u003E\u00d7\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-amount\"\u003E2 075\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-currency\"\u003E\u20bd\u003C/span\u003E\n        \u003C/p\u003E\n        \u003Cp class=\"vb-course-tariff-installment-note\"\u003E\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u0430 \u0440\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0430 \u0431\u0435\u0437 \u043f\u0435\u0440\u0435\u043f\u043b\u0430\u0442\u003C/p\u003E\n    \u003C/div\u003E\n    "},{"name":"\u041a\u043b\u0438\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043f\u043e\u0434\u0445\u043e\u0434 \u043a \u0447\u0430\u0441\u0442\u044b\u043c \u043d\u043e\u0437\u043e\u043b\u043e\u0433\u0438\u044f\u043c \u0432 \u043f\u0440\u0430\u043a\u0442\u0438\u043a\u0435 (4-\u0439 \u0431\u043b\u043e\u043a)","priceCurrent":"39 900 \u20bd","priceOld":"","discountLabel":"","installmentLabel":"12 \u00d7 3 325 \u20bd","installmentBarHtml":"    \u003Cdiv class=\"vb-course-tariff-installment-bar\"\u003E\n        \u003Cp class=\"vb-course-tariff-installment-formula\"\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-count\"\u003E12\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-times\" aria-hidden=\"true\"\u003E\u00d7\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-amount\"\u003E3 325\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-currency\"\u003E\u20bd\u003C/span\u003E\n        \u003C/p\u003E\n        \u003Cp class=\"vb-course-tariff-installment-note\"\u003E\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u0430 \u0440\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0430 \u0431\u0435\u0437 \u043f\u0435\u0440\u0435\u043f\u043b\u0430\u0442\u003C/p\u003E\n    \u003C/div\u003E\n    ","installmentLeftHtml":"    \u003Cdiv class=\"vb-course-tariff-installment-bar\"\u003E\n        \u003Cp class=\"vb-course-tariff-installment-formula\"\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-count\"\u003E12\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-times\" aria-hidden=\"true\"\u003E\u00d7\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-amount\"\u003E3 325\u003C/span\u003E\n            \u003Cspan class=\"vb-course-tariff-installment-currency\"\u003E\u20bd\u003C/span\u003E\n        \u003C/p\u003E\n        \u003Cp class=\"vb-course-tariff-installment-note\"\u003E\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u0430 \u0440\u0430\u0441\u0441\u0440\u043e\u0447\u043a\u0430 \u0431\u0435\u0437 \u043f\u0435\u0440\u0435\u043f\u043b\u0430\u0442\u003C/p\u003E\n    \u003C/div\u003E\n    "}],"msgOk":"\u0417\u0430\u044f\u0432\u043a\u0430 \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0430. \u041c\u044b \u0441\u0432\u044f\u0436\u0435\u043c\u0441\u044f \u0441 \u0432\u0430\u043c\u0438.","msgErr":"\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u043e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0437\u0430\u044f\u0432\u043a\u0443. \u041f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u043f\u043e\u0437\u0436\u0435."};
+//# sourceURL=vet-brains-single-course-signup-modal-js-extra
+</script>
+<script id="vet-brains-single-course-signup-modal-js" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/js/single-course-signup-modal.js?ver=1.0.18"></script>
+<script id="vet-brains-home-page-js" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/js/home-page.js?ver=1.0.18"></script>
+<script id="vet-brains-a11y-js" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/js/accessibility-panel.js?ver=1.0.18"></script>
+<script id="header-script-js" src="https://vet-brain.ru/wp-content/themes/vet-brains/assets/js/header.js?ver=1.0.18"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://vet-brain.ru/wp-includes/js/wp-emoji-release.min.js?ver=7.1.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://vet-brain.ru/wp-includes/js/wp-emoji-loader.min.js
+</script>
+</body>
+</html>

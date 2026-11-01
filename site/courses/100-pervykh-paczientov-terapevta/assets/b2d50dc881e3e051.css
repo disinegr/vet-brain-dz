@@ -1,0 +1,168 @@
+/**
+ * Единая адаптивность изображений на сайте (главная, каталог, лицензии и т.д.).
+ * Страница курса: single-course.css + single-course-responsive.css — без правил здесь.
+ */
+
+/* ── Рамки: фото «стоят» на нижнем крае блока ───────────────────────────── */
+
+:where(
+    [class*="__photo-frame"],
+    [class*="__img-frame"],
+    [class*="__photo-wrap"],
+    .main-hero__photo-frame,
+    .home-help__consult-visual-photo,
+    .vb-catalog-hero__photo-wrap
+) {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    overflow: hidden;
+    min-width: 0;
+}
+
+/* ── Рамки: центрирование (иконки, карточки каталога, отзывы) ─────────── */
+
+:where(
+    .home-course-card__media,
+    .home-review-card__media,
+    .home-help__consult-map-frame,
+    .footer-team-image,
+    .vb-catalog-hero-card__accent-visual-frame
+) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-width: 0;
+}
+
+/* picture внутри главного героя — снизу */
+:where(.main-hero__photo-frame picture) {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    width: 100%;
+    height: 100%;
+}
+
+/* ── IMG: вписать целиком ───────────────────────────────────────────────── */
+
+:where(
+    [class*="__photo-frame"] > img,
+    [class*="__img-frame"] > img,
+    .main-hero__photo,
+    .main-banner-grid-hero__photo,
+    .home-catalog-card__media img,
+    .vb-webinar-learn__icon img,
+    .home-help__consult-visual-photo img,
+    .home-help__consult-map-frame img,
+    .footer-team-image img,
+    .archive-courses-card__media img,
+    .vb-licenses-card__media img,
+    .vb-catalog-hero__photo,
+    .vb-catalog-hero-card__accent-photo,
+    .vb-tariff-promo-modal__hero
+) {
+    position: relative !important;
+    inset: auto !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    transform: none !important;
+    object-fit: contain !important;
+}
+
+/* Нижний край блока — персонажи, баннеры, преимущества */
+:where(
+    .main-hero__photo,
+    .home-help__consult-visual-photo img,
+    .vb-catalog-hero__photo
+) {
+    object-position: center bottom !important;
+}
+
+/* По центру — иллюстрации в карточках, иконки, отзывы */
+:where(
+    .home-catalog-card__media img,
+    .vb-catalog-hero-card__accent-photo,
+    .vb-tariff-promo-modal__hero,
+    .archive-courses-card__media img,
+    .vb-licenses-card__media img,
+    .home-help__consult-map-frame img
+) {
+    object-position: center center !important;
+}
+
+/* Портреты преподавателей (background-image) */
+:where(
+    .home-teacher-card__hero-photo:not(.home-teacher-card__hero-photo--empty)
+) {
+    position: absolute !important;
+    inset: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    background-size: contain !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Плитка «Реальная практика»: фото внизу блока */
+.main-banner-grid-hero__photo {
+    object-position: center bottom !important;
+}
+
+/* Иконки */
+:where(
+    [class*="__icon-frame"] img,
+    [class*="__icon-img"]:not(.home-map-link__icon-img):not(.home-help-channel__icon-img),
+    .home-social-cta__pill-icon
+) {
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+/* Каталог курсов — фото героя по нижнему краю, без обрезки */
+.vb-catalog-hero__photo-wrap {
+    overflow: visible !important;
+}
+
+@media (min-width: 1550px) {
+    .vb-catalog-hero__photo {
+        max-height: 100% !important;
+        max-width: 108% !important;
+    }
+}
+
+@media (min-width: 1001px) and (max-width: 1200px) {
+    .vb-catalog-hero__photo-wrap {
+        align-items: flex-end !important;
+    }
+
+    .vb-catalog-hero__photo {
+        object-position: center bottom !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .vb-catalog-hero__photo-wrap {
+        display: none !important;
+    }
+}

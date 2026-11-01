@@ -1,0 +1,272 @@
+/**
+ * Страница курса — точечные правки (hero, клинические кейсы).
+ * Адаптив блоков: single-course-responsive.css (подключается перед этим файлом).
+ */
+/* ── Hero ≥769px: правая колонка — только фото курса (фон баннера на wrap) ─ */
+
+@media (min-width: 769px) {
+    .vb-course-hero-main .vb-course-hero-visual {
+        position: relative !important;
+        inset: auto !important;
+        grid-area: hero-visual;
+        overflow: hidden;
+        justify-content: center !important;
+        align-items: stretch !important;
+        padding: 0 !important;
+    }
+
+    .vb-course-hero-main .vb-course-hero-img-frame {
+        position: absolute !important;
+        inset: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .vb-course-hero-main .vb-course-hero-img-frame picture {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+    }
+
+    .vb-course-hero-main .vb-course-hero-img {
+        width: auto !important;
+        height: auto !important;
+        max-width: 110% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        object-position: center center !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .vb-course-hero-main .vb-course-hero-img {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
+        object-position: center bottom !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1600px) {
+    .vb-course-hero-main .vb-course-hero-img-frame picture {
+        align-items: flex-end !important;
+    }
+
+    .vb-course-hero-main .vb-course-hero-img {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
+        object-position: center bottom !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+    .vb-course-hero-main {
+        min-height: 500px;
+    }
+}
+
+/* ── Hero ≤768px: колонка, фото между текстом и CTA ─────────────────────── */
+
+@media (max-width: 768px) {
+    .vb-course-hero-wrap {
+        margin-bottom: 82px;
+        min-height: 0;
+        background-color: #232929;
+        /* background-image:
+            radial-gradient(
+                ellipse 82.75% 41.89% at 48.9% 50%,
+                rgba(255, 255, 255, 0.27) 0%,
+                rgba(255, 255, 255, 0) 100%
+            ),
+            linear-gradient(146deg, #54bfd1 0%, #239cb1 100%); */
+    }
+
+    .vb-course-hero-main {
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .vb-course-hero-info {
+        min-height: 0;
+        padding: 0;
+        justify-content: flex-start;
+        gap: 24px;
+    }
+
+    .vb-course-hero-visual {
+        grid-area: unset;
+        align-self: stretch;
+        position: relative;
+        inset: auto;
+        order: 0;
+        width: 100%;
+        height: 328px;
+        min-height: 328px;
+        max-height: 328px;
+        flex: 0 0 328px;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        background: none;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .vb-course-hero-visual::after {
+        display: none;
+    }
+
+    .vb-course-hero-visual-atmosphere {
+        display: none;
+    }
+
+    .vb-course-hero-img-frame {
+        position: relative !important;
+        inset: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        max-height: 328px;
+    }
+
+    .vb-course-hero-img-frame picture {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100%;
+        height: 100%;
+    }
+
+    .vb-course-hero-img {
+        display: block;
+        width: auto !important;
+        height: auto !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        margin: 0 auto !important;
+        object-fit: contain !important;
+        object-position: center bottom !important;
+    }
+
+    .vb-course-trust-card {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .vb-course-hero-visual {
+        height: 200px;
+        min-height: 200px;
+        max-height: 200px;
+        flex: 0 0 200px;
+    }
+
+    .vb-course-hero-img-frame {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 320px) {
+    .vb-course-hero-visual {
+        height: 152px;
+        min-height: 152px;
+        max-height: 152px;
+        flex: 0 0 152px;
+    }
+
+    .vb-course-hero-img-frame {
+        max-height: 152px;
+    }
+}
+
+/* ── Клинические кейсы: Figma band + caption ─────────────────────────── */
+
+.vb-course-case-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.vb-course-case-visual {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    padding: 16px !important;
+    overflow: hidden !important;
+}
+
+.vb-course-case-visual img {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+}
+
+.vb-course-cases-grid--photo .vb-course-case-visual {
+    padding: 0 !important;
+}
+
+.vb-course-cases-grid--photo .vb-course-case-visual img {
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+@media (max-width: 768px) {
+    .vb-course-audience-card {
+        padding: 24px !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .vb-course-audience-card {
+        padding: 16px !important;
+    }
+}
+
+.vb-course-audience-img,
+.vb-course-audience-img--figma,
+.vb-course-audience-img--uploaded {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 330px !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+}
+
+@media (max-width: 1000px) {
+    .vb-course-audience-card .vb-course-audience-img,
+    .vb-course-audience-card .vb-course-audience-img--figma,
+    .vb-course-audience-card .vb-course-audience-img--uploaded {
+        max-width: 248px !important;
+        max-height: 248px !important;
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+

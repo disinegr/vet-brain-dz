@@ -1,0 +1,9 @@
+<svg viewBox="0 0 880 750" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <radialGradient id="vbCourseHeroColGlow" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="10" gradientTransform="matrix(-10.4 55.1 -46.49 -8.7748 496 464.5)">
+      <stop stop-color="rgb(255,255,255)" offset="0"/>
+      <stop stop-color="rgba(255,255,255,0)" offset="1"/>
+    </radialGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#vbCourseHeroColGlow)" opacity="0.27"/>
+</svg>

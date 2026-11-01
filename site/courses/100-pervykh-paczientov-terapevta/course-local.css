@@ -1,0 +1,1372 @@
+.prototype-map {
+  display: grid;
+  place-items: center;
+  min-height: 420px;
+  padding: 32px;
+  border: 2px solid #239cb1;
+  border-radius: 28px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #e1f3f5, #f6fafb);
+  color: #232929;
+  font: 700 20px/1.4 Onest, system-ui, sans-serif;
+  text-align: center;
+}
+
+.prototype-signup {
+  width: min(520px, calc(100vw - 32px));
+  max-height: min(90vh, 760px);
+  padding: 0;
+  border: 0;
+  border-radius: 28px;
+  color: #232929;
+  font-family: Onest, system-ui, sans-serif;
+}
+.prototype-signup::backdrop { background: rgba(20, 43, 49, .58); }
+.prototype-signup__card { display: grid; gap: 18px; padding: 32px; }
+.prototype-signup h2 { margin: 0; font-size: 32px; }
+.prototype-signup__tariff { margin: 0; color: #657a7d; font-size: 18px; }
+.prototype-signup label { display: grid; gap: 8px; font-size: 16px; font-weight: 700; }
+.prototype-signup input { min-height: 52px; padding: 12px 16px; border: 1px solid #d8e7e9; border-radius: 14px; background: #f2f8fa; box-sizing: border-box; font: inherit; }
+.prototype-signup__close { justify-self: end; width: 40px; height: 40px; border: 0; border-radius: 50%; background: #eaf4f6; color: #239cb1; font-size: 28px; cursor: pointer; }
+.prototype-signup__submit { min-height: 56px; border: 0; border-radius: 14px; background: #239cb1; color: #fff; font: 700 18px Onest, system-ui, sans-serif; cursor: pointer; }
+.prototype-signup__status, .prototype-form-status { margin: 0; color: #168aa0; font-size: 15px; line-height: 1.4; }
+
+/* The six learning steps stack as the reader scrolls past them. */
+html:has(.vb-course-steps),
+body.single-courses:has(.vb-course-steps) {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+.vb-course-steps { margin-bottom: 100px; }
+.vb-course-steps .vb-course-section-title { max-width: 820px; margin-bottom: 48px; }
+.vb-course-steps__stack { display: grid; gap: 24px; padding-bottom: 24px; }
+.vb-course-step {
+  position: sticky;
+  top: 92px;
+  display: grid;
+  grid-template-columns: minmax(0, 45%) minmax(0, 55%);
+  min-height: min(540px, calc(100vh - 122px));
+  padding: 22px;
+  box-sizing: border-box;
+  border-radius: 28px;
+  background: #fff;
+  transform: scale(var(--vb-step-scale, 1));
+  transform-origin: center top;
+}
+.vb-course-step:nth-child(1) { z-index: 1; }
+.vb-course-step:nth-child(2) { z-index: 2; }
+.vb-course-step:nth-child(3) { z-index: 3; }
+.vb-course-step:nth-child(4) { z-index: 4; }
+.vb-course-step:nth-child(5) { z-index: 5; }
+.vb-course-step:nth-child(6) { z-index: 6; }
+.vb-course-step__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(28px, 4vw, 72px);
+}
+.vb-course-step__number {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 34px;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(145deg, #5cc6d6, #1596ab);
+  font: 700 28px/1 Onest, system-ui, sans-serif;
+}
+.vb-course-step__content h3 { max-width: 15ch; margin: 0 0 20px; color: #232929; font: 700 32px/1.12 Onest, system-ui, sans-serif; }
+.vb-course-step__content p { max-width: 44ch; margin: 0; color: #647c81; font: 500 clamp(17px, 1.45vw, 20px)/1.48 Onest, system-ui, sans-serif; }
+.vb-course-step__visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #62c7d5 0%, #39afc1 48%, #1c9aaf 100%);
+}
+.vb-course-step__visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./assets/7d8a7b771ec20f54.png") 0 0 / 183.2px 245.2px repeat;
+  opacity: .09;
+}
+.vb-course-step__visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 45% 42% at 50% 49%, rgba(255,255,255,.62), rgba(255,255,255,0) 100%);
+}
+.vb-course-step__visual img { position: relative; z-index: 1; display: block; width: min(72%, 340px); height: auto; max-height: 88%; object-fit: contain; }
+@media (max-width: 900px) {
+  .vb-course-steps { margin-bottom: 72px; }
+  .vb-course-step { position: relative; top: auto; min-height: 0; grid-template-columns: 1fr; padding: 16px; }
+  .vb-course-step__content { padding: 24px 20px 32px; }
+  .vb-course-step__number { width: 52px; height: 52px; margin-bottom: 22px; font-size: 23px; }
+  .vb-course-step__visual { min-height: 280px; }
+  .vb-course-step__visual img { width: min(58%, 270px); }
+}
+@media (max-width: 540px) {
+  .vb-course-steps .vb-course-section-title { margin-bottom: 32px; }
+  .vb-course-steps__stack { gap: 18px; padding-bottom: 0; }
+  .vb-course-step { border-radius: 22px; padding: 10px; }
+  .vb-course-step__content { padding: 22px 16px 26px; }
+  .vb-course-step__content h3 { font-size: 27px; }
+  .vb-course-step__content p { font-size: 16px; }
+  .vb-course-step__visual { min-height: 230px; border-radius: 16px; }
+}
+
+/* Course curator, using the existing teacher portrait and turquoise card treatment. */
+@media (min-width: 901px) {
+  .vb-course-curator { margin-bottom: 100px; }
+}
+.vb-course-curator .vb-course-section-title { margin-bottom: 52px; }
+.vb-course-curator__card {
+  display: grid;
+  grid-template-columns: minmax(260px, 32%) minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 28px;
+  background: #fff;
+}
+.vb-course-curator__portrait {
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  min-height: 420px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #54bfd1, #239cb1);
+}
+.vb-course-curator__portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./assets/7d8a7b771ec20f54.png") 0 0 / 183.2px 245.2px repeat;
+  opacity: .07;
+  pointer-events: none;
+}
+.vb-course-curator__portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse 58% 52% at 50% 56%, rgba(255, 255, 255, .46), rgba(255, 255, 255, 0) 78%);
+  pointer-events: none;
+}
+.vb-course-curator__portrait img { position: absolute; z-index: 1; bottom: 0; left: 50%; display: block; width: auto; height: calc(100% - 20px); max-width: none; max-height: none; object-fit: contain; object-position: center bottom; transform: translateX(-50%); }
+.vb-course-curator__content { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: clamp(28px, 4vw, 56px); }
+.vb-course-curator__content h3 { margin: 0; color: #232929; font-size: clamp(28px, 3vw, 40px); line-height: 1.1; }
+.vb-course-curator__content p { max-width: 62ch; margin: 0; color: #607b81; font-size: 18px; line-height: 1.45; }
+.vb-course-curator__credentials { display: grid; gap: 6px; }
+.vb-course-curator__label { color: #239cb1; font-size: 14px; font-weight: 700; line-height: 1.3; }
+.vb-course-curator__content .vb-course-curator__role { color: #859494; font-size: 20px; font-weight: 500; }
+.vb-course-curator__quote { display: grid; gap: 12px; margin: 4px 0 0; padding: 2px 0 2px 20px; border-left: 3px solid #54bfd1; }
+.vb-course-curator__quote p { font-style: italic; }
+.vb-course-curator__button { display: inline-flex; align-items: center; justify-content: center; min-height: 58px; margin-top: auto; padding: 14px 22px; border: 0; border-radius: 14px; background: #f54362; color: #fff; font: 700 17px Onest, system-ui, sans-serif; cursor: pointer; }
+.vb-course-curator__button:hover { background: #df3655; }
+
+.vb-course-section--program-accordion .vb-course-acc-module__list { padding-left: 0; list-style: none; }
+.vb-course-section--program-accordion .vb-course-acc-module__list li::marker { content: none; }
+.vb-course-section--program-accordion .vb-course-acc-module__list li::before { content: none; display: none; }
+
+/* One row of complete cards, with mandatory snapping after touch or wheel scrolling. */
+.vb-course-teachers-shell { position: relative; margin-top: 40px; }
+.vb-course-section--teachers .vb-course-teachers-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 60px) / 4);
+  grid-template-columns: none;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  margin-top: 0;
+  /* Keep the hover shadow inside the vertical bounds of the scrollport. */
+  padding-bottom: 72px;
+  margin-bottom: -72px;
+}
+.vb-course-section--teachers .vb-course-teachers-grid::-webkit-scrollbar { display: none; }
+.vb-course-section--teachers .vb-course-teacher-card { min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; }
+.vb-course-section--teachers .vb-course-teacher-name { font-size: 24px; line-height: 1.5; }
+.vb-course-section--teachers .vb-course-teacher-chip { font-size: 18px; }
+.vb-course-section--teachers .vb-course-teacher-bio { font-size: 20px; line-height: 1.4; }
+.vb-course-teachers-controls { position: absolute; inset: 0; z-index: 3; display: flex; align-items: center; justify-content: space-between; padding: 0; opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+.vb-course-teachers-shell:hover .vb-course-teachers-controls,
+.vb-course-teachers-shell:focus-within .vb-course-teachers-controls { opacity: 1; }
+.vb-course-teachers-controls__button { box-sizing: border-box; flex: 0 0 48px; width: 48px; height: 48px; border: 0; border-radius: 50%; background: #239cb1; color: #fff; font-size: 23px; cursor: pointer; pointer-events: auto; box-shadow: 0 5px 18px rgba(18, 76, 88, .18); }
+.vb-course-teachers-controls__button:first-child { transform: translateX(-50%); }
+.vb-course-teachers-controls__button:last-child { transform: translateX(50%); }
+.vb-course-teachers-controls__button:disabled { background: #d7e9ed; color: #89a9af; cursor: default; }
+@media (hover: none) { .vb-course-teachers-controls { opacity: 1; } }
+
+/* Detailed course timeline. */
+.vb-learning-timeline .vb-course-section-title { max-width: 1000px; margin-bottom: 14px; }
+.vb-learning-timeline__intro { margin: 0 0 52px; color: #607b81; font-size: 20px; line-height: 1.4; text-align: center; }
+.vb-learning-timeline__list { position: relative; display: grid; gap: 104px; }
+.vb-learning-timeline__track { position: absolute; top: 0; left: 50%; z-index: 0; width: 3px; height: 100%; border-radius: 99px; background: #cfe1e5; transform: translateX(-50%); overflow: hidden; pointer-events: none; }
+.vb-learning-timeline__progress { display: block; width: 100%; height: 100%; border-radius: inherit; background: linear-gradient(#58c4d2, #169bb1); transform: scaleY(0); transform-origin: center top; }
+.vb-learning-timeline__row { display: grid; grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr); gap: 20px; align-items: stretch; min-height: 350px; }
+.vb-learning-timeline__copy,
+.vb-learning-timeline__photo { position: relative; z-index: 1; min-width: 0; min-height: 350px; border-radius: 24px; overflow: hidden; }
+.vb-learning-timeline__copy { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 12px; padding: 30px 34px; box-sizing: border-box; background: #fff; }
+.vb-learning-timeline__photo { grid-column: 3; grid-row: 1; height: 350px; background: #dfedf0; }
+.vb-learning-timeline__photo img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.vb-learning-timeline__row:nth-of-type(even) .vb-learning-timeline__copy { grid-column: 3; }
+.vb-learning-timeline__row:nth-of-type(even) .vb-learning-timeline__photo { grid-column: 1; }
+.vb-learning-timeline__copy > .vb-course-teacher-chip { font-size: 18px; }
+.vb-learning-timeline__copy h3 { margin: 0; color: #232929; font-size: clamp(25px, 2.2vw, 32px); line-height: 1.16; }
+.vb-learning-timeline__copy p { max-width: 42ch; margin: 0; color: #647c81; font-size: 18px; line-height: 1.45; }
+.vb-learning-timeline__dot { grid-column: 2; grid-row: 1; align-self: center; justify-self: center; position: relative; z-index: 2; display: block; width: 28px; height: 28px; border: 2px solid #8fd6df; border-radius: 50%; box-sizing: border-box; background: #f0f8fa; box-shadow: 0 0 0 7px #eff8fa; transition: border-color .35s ease, background-color .35s ease; }
+.vb-learning-timeline__dot::after { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: #c4d7dc; transform: scale(.75); transition: background-color .35s ease, transform .35s ease; }
+.vb-learning-timeline__dot.is-active { border-color: #21acc0; background: #fff; }
+.vb-learning-timeline__dot.is-active::after { background: #25b7c8; transform: scale(1); }
+.vb-learning-timeline.is-ready .vb-learning-timeline__row:not(.is-revealed) .vb-learning-timeline__copy,
+.vb-learning-timeline.is-ready .vb-learning-timeline__row:not(.is-revealed) .vb-learning-timeline__photo { opacity: 0; transform: translateY(24px); }
+.vb-learning-timeline__copy,
+.vb-learning-timeline__photo { transition: opacity .65s ease, transform .65s cubic-bezier(.2,.75,.25,1); }
+.vb-learning-timeline__photo { transition-delay: .08s; }
+@media (min-width: 1200px) {
+  .vb-learning-timeline__list { width: calc(100% - 80px); max-width: 1320px; margin-inline: auto; }
+  .vb-learning-timeline__row { min-height: clamp(420px, 27vw, 500px); }
+  .vb-learning-timeline__copy,
+  .vb-learning-timeline__photo { min-height: clamp(420px, 27vw, 500px); }
+  .vb-learning-timeline__photo { height: clamp(420px, 27vw, 500px); }
+}
+@media (max-width: 900px) {
+  .vb-learning-timeline__intro { margin-bottom: 36px; font-size: 18px; }
+  .vb-learning-timeline__list { gap: 60px; }
+  .vb-learning-timeline__row { grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr); gap: 12px; min-height: 270px; }
+  .vb-learning-timeline__copy,
+  .vb-learning-timeline__photo { min-height: 270px; border-radius: 20px; }
+  .vb-learning-timeline__photo { height: 270px; }
+  .vb-learning-timeline__copy { padding: 24px; }
+  .vb-learning-timeline__copy > .vb-course-teacher-chip { font-size: 16px; }
+  .vb-learning-timeline__copy h3 { font-size: 25px; }
+  .vb-learning-timeline__copy p { font-size: 16px; }
+}
+@media (max-width: 680px) {
+  .vb-learning-timeline__list { gap: 44px; }
+  .vb-learning-timeline__row { grid-template-columns: 28px minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 16px; row-gap: 12px; min-height: 0; }
+  .vb-learning-timeline__track { left: 13px; transform: none; }
+  .vb-learning-timeline__dot { grid-column: 1; grid-row: 1; align-self: start; margin-top: 26px; }
+  .vb-learning-timeline__copy,
+  .vb-learning-timeline__row:nth-of-type(even) .vb-learning-timeline__copy { grid-column: 2; grid-row: 1; min-height: 0; padding: 24px; }
+  .vb-learning-timeline__photo,
+  .vb-learning-timeline__row:nth-of-type(even) .vb-learning-timeline__photo { grid-column: 2; grid-row: 2; height: auto; min-height: 190px; aspect-ratio: 3 / 2; }
+  .vb-learning-timeline__intro { margin-bottom: 30px; font-size: 16px; }
+  .vb-learning-timeline__copy h3 { font-size: 24px; }
+  .vb-learning-timeline__copy > .vb-course-teacher-chip { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vb-learning-timeline__copy,
+  .vb-learning-timeline__photo,
+  .vb-learning-timeline__dot,
+  .vb-learning-timeline__dot::after { transition: none; }
+  .vb-learning-timeline.is-ready .vb-learning-timeline__copy,
+  .vb-learning-timeline.is-ready .vb-learning-timeline__photo { opacity: 1 !important; transform: none !important; }
+}
+
+@media (max-width: 1200px) {
+  .vb-course-section--teachers .vb-course-teachers-grid { grid-auto-columns: calc((100% - 32px) / 3); gap: 16px; }
+}
+@media (max-width: 768px) {
+  .vb-course-curator__card { grid-template-columns: 1fr; }
+  .vb-course-curator__portrait { min-height: 300px; }
+  .vb-course-curator__portrait img { height: calc(100% - 16px); }
+}
+@media (max-width: 768px) {
+  .vb-course-section--teachers .vb-course-teachers-grid { grid-auto-columns: calc((100% - 16px) / 2); }
+  .vb-course-teachers-controls__button:first-child { transform: translateX(-20%); }
+  .vb-course-teachers-controls__button:last-child { transform: translateX(20%); }
+}
+
+/* Keep the hero facts brief so the course title stays prominent. */
+.vb-course-page .vb-course-hero-info-top .vb-course-badges {
+  gap: 8px;
+}
+
+.vb-course-page .vb-course-hero-info-top .vb-course-badge {
+  gap: 6px;
+  padding: 7px 10px;
+  font-size: 16px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.vb-course-page .vb-course-hero-info-top .vb-course-badge-icon.vb-tabler-icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 540px) {
+  .vb-course-page .vb-course-hero-info-top .vb-course-badge {
+    font-size: 14px;
+  }
+}
+
+/* Обновлённый первый экран курса. */
+@media (min-width: 1001px) and (max-width: 1100px) {
+  .vb-course-section--audience .vb-course-audience-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.vb-course-page .vb-course-hero-wrap {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 16px;
+}
+.vb-course-page .vb-course-hero-main {
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+  min-height: 650px;
+}
+.vb-course-page .vb-course-hero-info-top {
+  max-width: none;
+  gap: 20px;
+  padding: 38px 20px 0 42px;
+}
+.vb-course-page .vb-course-hero-text { gap: 14px; }
+.vb-course-page .vb-course-title { font-size: clamp(36px, 3.4vw, 52px); line-height: 1.12; }
+.vb-course-page .vb-course-excerpt { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.35; }
+.vb-tabler-icon--school { --vb-tabler-url: url('./assets/tabler/school.svg'); }
+.vb-tabler-icon--certificate { --vb-tabler-url: url('./assets/tabler/certificate.svg'); }
+.vb-tabler-icon--calendar-event { --vb-tabler-url: url('./assets/tabler/calendar-event.svg'); }
+.vb-tabler-icon--clock { --vb-tabler-url: url('./assets/tabler/clock.svg'); }
+.vb-tabler-icon--book-2 { --vb-tabler-url: url('./assets/tabler/book-2.svg'); }
+.vb-tabler-icon--device-laptop { --vb-tabler-url: url('./assets/tabler/device-laptop.svg'); }
+.vb-tabler-icon--award { --vb-tabler-url: url('./assets/tabler/award.svg'); }
+.vb-tabler-icon--stethoscope { --vb-tabler-url: url('./assets/tabler/stethoscope.svg'); }
+.vb-tabler-icon--medical-cross { --vb-tabler-url: url('./assets/tabler/medical-cross.svg'); }
+.vb-tabler-icon--test-pipe { --vb-tabler-url: url('./assets/tabler/test-pipe.svg'); }
+.vb-tabler-icon--messages { --vb-tabler-url: url('./assets/tabler/messages.svg'); }
+.vb-course-badge-icon.vb-tabler-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: currentColor;
+  -webkit-mask: var(--vb-tabler-url) center / contain no-repeat;
+  mask: var(--vb-tabler-url) center / contain no-repeat;
+}
+.vb-course-hero-benefits { margin-bottom: 80px; }
+.vb-course-hero-benefits .main-banner-grid-features {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 16px;
+}
+.vb-course-hero-benefits .main-banner-grid-feature {
+  min-width: 0;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 24px;
+  background: #fff;
+}
+.vb-course-hero-benefits .vb-course-hero-benefit-art {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 124px;
+  background: transparent;
+}
+.vb-course-hero-benefits .vb-course-hero-benefit-art img {
+  display: block;
+  width: 124px;
+  height: 124px;
+  max-width: 100%;
+  object-fit: contain;
+  /* The transparent asset contains its own natural contact shadow. */
+}
+.vb-course-hero-benefits .main-banner-grid-feature__body { gap: 0; }
+.vb-course-hero-benefits .main-banner-grid-feature__title {
+  font-size: 21px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 1100px) {
+  .vb-course-hero-benefits .main-banner-grid-feature { padding: 20px; }
+  .vb-course-hero-benefits .main-banner-grid-feature__title { font-size: 18px; }
+  .vb-course-hero-benefits .vb-course-hero-benefit-art { height: 116px; }
+  .vb-course-hero-benefits .vb-course-hero-benefit-art img { width: 116px; height: 116px; }
+}
+@media (max-width: 900px) {
+  .vb-course-hero-benefits .main-banner-grid-features { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 540px) {
+  .vb-course-hero-benefits .main-banner-grid-features { grid-template-columns: 1fr !important; gap: 12px; }
+  .vb-course-hero-benefits .main-banner-grid-feature { flex-direction: row; align-items: center; gap: 16px; }
+  .vb-course-hero-benefits .main-banner-grid-feature__title { font-size: 18px; }
+  .vb-course-hero-benefits .vb-course-hero-benefit-art { flex: 0 0 88px; width: 88px; height: 88px; }
+  .vb-course-hero-benefits .vb-course-hero-benefit-art img { width: 88px; height: 88px; }
+  .vb-course-hero-benefits { margin-bottom: 56px; }
+}
+.vb-course-page .vb-course-hero-cta-block {
+  gap: 8px;
+  padding: 18px 20px 36px 42px;
+}
+.vb-course-page .vb-course-price-line { line-height: 1.1; }
+.vb-course-page .vb-course-price-from,
+.vb-course-page .vb-course-price-suffix { font-size: 23px; }
+.vb-course-page .vb-course-price-value { font-size: 40px; }
+.vb-course-hero-installment { margin: 0; color: #a8c0c7; font-size: 16px; }
+@media (min-width: 769px) {
+  .vb-course-page .vb-course-hero-installment { color: var(--vb-secondary-grey); }
+}
+.vb-course-hero-actions { display: flex; gap: 10px; width: 100%; margin-top: 12px; }
+.vb-course-page .vb-course-hero-actions .vb-course-btn {
+  box-sizing: border-box;
+  width: auto;
+  min-width: 0;
+  flex: 1;
+  min-height: 56px;
+  padding: 14px 16px;
+  font-size: 16px;
+  text-align: center;
+  white-space: nowrap;
+}
+.vb-course-page .vb-course-btn--outline {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .75);
+  background: transparent;
+}
+.vb-course-page .vb-course-btn--outline:hover { background: rgba(255, 255, 255, .12); }
+.vb-course-page .vb-course-trust-card {
+  right: 18px;
+  bottom: 26px;
+  margin: 0;
+  max-width: 280px;
+  padding: 18px 20px;
+  border-radius: 22px;
+}
+.vb-course-page .vb-course-trust-count { font-size: 23px; line-height: 1.15; }
+.vb-course-page .vb-course-trust-label { font-size: 16px; line-height: 1.3; }
+.vb-course-hero-trust-mobile { display: none; }
+@media (max-width: 1100px) and (min-width: 769px) {
+  .vb-course-page .vb-course-hero-main { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); min-height: 690px; }
+  .vb-course-page .vb-course-hero-info-top { gap: 16px; padding-left: 24px; }
+  .vb-course-page .vb-course-hero-cta-block { padding-left: 24px; }
+  .vb-course-page .vb-course-trust-card { display: flex; max-width: 210px; }
+  .vb-course-page .vb-course-trust-count { font-size: 19px; }
+  .vb-course-page .vb-course-trust-label { font-size: 13px; }
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .vb-course-page .vb-course-hero-inner { padding: 24px; }
+  .vb-course-page .vb-course-hero-main { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); overflow: visible; }
+  .vb-course-page .vb-course-hero-info-top { padding: 0; }
+  .vb-course-page .vb-course-hero-cta-block { padding: 0; }
+  .vb-course-page .vb-course-hero-visual { height: calc(100% + 24px); }
+}
+@media (max-width: 1024px) {
+  .vb-course-page .vb-course-hero-actions { flex-direction: column; }
+  .vb-course-page .vb-course-hero-actions .vb-course-btn { flex: none; width: 100%; }
+}
+@media (min-width: 769px) and (max-width: 1600px) {
+  .vb-course-page .vb-course-hero-wrap {
+    background-image: radial-gradient(ellipse 44% 54% at 76% 46%, rgba(255, 255, 255, .17) 0%, rgba(255, 255, 255, .07) 42%, rgba(255, 255, 255, 0) 100%);
+    background-size: 100% 100%;
+  }
+  .vb-course-page .vb-course-hero-visual-atmosphere::after { content: none; }
+  .vb-course-page .vb-course-hero-visual-atmosphere::before {
+    left: 2%;
+    top: 18%;
+    width: 96%;
+    height: 72%;
+    opacity: .09;
+  }
+}
+@media (max-width: 768px) {
+  .vb-course-page .vb-course-hero-main { display: flex; min-height: 0; }
+  .vb-course-page .vb-course-hero-inner { padding: 24px; }
+  .vb-course-page .vb-course-hero-info-top { align-items: stretch; text-align: left; padding: 0; }
+  .vb-course-page .vb-course-hero-cta-block { padding: 0; align-items: stretch; }
+  .vb-course-page .vb-course-title,
+  .vb-course-page .vb-course-excerpt { text-align: left; }
+  .vb-course-page .vb-course-hero-actions .vb-course-btn { max-width: none; }
+  .vb-course-page .vb-course-trust-card { display: none !important; }
+  .vb-course-page .vb-course-hero-visual { width: 100%; height: auto; aspect-ratio: 1817 / 866; }
+  .vb-course-page .vb-course-hero-visual-atmosphere { display: none; }
+  .vb-course-page .vb-course-hero-img-frame,
+  .vb-course-page .vb-course-hero-img-frame picture,
+  .vb-course-page .vb-course-hero-img { border-radius: 18px; overflow: hidden; }
+  .vb-course-page .vb-course-hero-img-frame picture,
+  .vb-course-page .vb-course-hero-img { width: 100%; height: 100%; max-width: none; max-height: none; }
+  .vb-course-page .vb-course-hero-img { object-fit: cover; }
+  .vb-course-page .vb-course-hero-installment { width: 100%; text-align: center; color: var(--vb-secondary-grey); }
+  .vb-course-page .vb-course-hero-trust-mobile {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0 0 16px;
+    padding: 18px 24px;
+    border-radius: 18px;
+    background: var(--vb-cornflower);
+  }
+  .vb-course-page .vb-course-hero-trust-mobile .vb-course-trust-count { font-size: 20px; line-height: 1.2; }
+  .vb-course-page .vb-course-hero-trust-mobile .vb-course-trust-label { font-size: 16px; line-height: 1.35; }
+}
+@media (max-width: 540px) {
+  .vb-course-page .vb-course-hero-inner { padding: 20px; }
+  .vb-course-page .vb-course-title { font-size: 34px; }
+  .vb-course-page .vb-course-hero-actions { flex-direction: column; }
+  .vb-course-page .vb-course-hero-actions .vb-course-btn { width: 100%; }
+}
+@media (max-width: 520px) {
+  .vb-course-section--teachers .vb-course-teachers-grid { grid-auto-columns: calc((100% - 16px) / 2); }
+  .vb-course-section--teachers .vb-course-teacher-card-body { padding: 16px; }
+  .vb-course-section--teachers .vb-course-teacher-chip { font-size: 14px; }
+  .vb-course-section--teachers .vb-course-teacher-name { font-size: 18px; }
+  .vb-course-section--teachers .vb-course-teacher-bio { font-size: 16px; }
+}
+
+/* Tablet body copy uses one readable secondary-text size. */
+@media (min-width: 521px) and (max-width: 768px) {
+  .vb-course-page .vb-course-audience-list li,
+  .vb-course-page .vb-course-step__content p,
+  .vb-course-page .vb-course-curator__content p,
+  .vb-course-page .vb-course-section--teachers .vb-course-teacher-bio,
+  .vb-course-page .vb-course-section--outcomes .vb-course-outcome-body,
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__list li:not(.vb-course-acc-module__more),
+  .vb-course-page .vb-course-tariff-feature__text {
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* Use one desktop gap between the course's main sections. The hero and its
+   benefit cards remain a single visual group with their existing 16px gap. */
+@media (min-width: 1101px) {
+  .vb-course-page { --vb-course-section-gap: 100px; padding-bottom: 100px; }
+  .vb-course-page > .vb-course-section { margin-top: 0; margin-bottom: 100px; }
+  .vb-course-page > .vb-course-section:last-child { margin-bottom: 0; }
+}
+
+/* Reuse the original pathology-card layout with copy for the therapy course. */
+.vb-course-section--pathology {
+  --vb-pathology-texture: url("../../wp-content/themes/vet-brains/assets/images/main-page/hero-figma-texture.png");
+}
+@media (min-width: 1101px) {
+  .vb-course-section--pathology .vb-course-pathology-hero-text {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    font-size: 24px;
+  }
+}
+.vb-course-section--pathology .vb-course-pathology-cell:not(.vb-course-pathology-cell--cta) {
+  padding: clamp(14px, 1.5vw, 24px);
+  font-size: clamp(18px, 1.55vw, 26px);
+  line-height: 1.3;
+  /* Keep each medical term whole; wrap only at spaces. */
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+.vb-course-section--pathology .vb-course-pathology-cta-text {
+  font-size: clamp(20px, 1.5vw, 26px);
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+@media (min-width: 1101px) {
+  .vb-course-section--pathology .vb-course-pathology-layout { --vb-pathology-layout-h: 680px; }
+  .vb-course-section--pathology .vb-course-pathology-cell:not(.vb-course-pathology-cell--cta) {
+    padding: 12px;
+    font-size: 24px;
+    line-height: 1.12;
+    overflow-wrap: normal;
+  }
+  .vb-course-section--pathology .vb-course-pathology-cta-text { font-size: 24px; }
+  .vb-course-section--pathology .vb-course-pathology-hero-card picture { justify-content: flex-start; }
+  .vb-course-section--pathology .vb-course-pathology-hero-image { width: 100%; max-width: 100%; }
+}
+@media (min-width: 1001px) and (max-width: 1100px) {
+  .vb-course-section--pathology .vb-course-pathology-layout { --vb-pathology-hero-w: 340px; }
+  .vb-course-section--pathology .vb-course-pathology-hero-card picture { justify-content: flex-start; }
+  .vb-course-section--pathology .vb-course-pathology-hero-image { width: 100%; height: auto; max-width: 100%; max-height: 50%; object-fit: contain; }
+}
+@media (min-width: 769px) and (max-width: 1000px) {
+  .vb-course-section--pathology .vb-course-pathology-hero-card { min-height: 160px; height: 160px; }
+  .vb-course-section--pathology .vb-course-pathology-hero-card picture { width: 28%; max-width: 28%; }
+  .vb-course-section--pathology .vb-course-pathology-hero-image { width: auto; height: 100%; max-width: 100%; }
+}
+@media (max-width: 768px) {
+  .vb-course-section--pathology .vb-course-pathology-cell:not(.vb-course-pathology-cell--cta) { font-size: 18px; }
+}
+
+/* Course outcomes: compact illustrated cards in the Vet Brain palette. */
+.vb-course-section--outcomes .vb-course-outcomes-grid {
+  align-items: stretch;
+  gap: 20px !important;
+}
+.vb-course-section--outcomes .vb-course-outcome-card {
+  min-width: 0;
+  background: #fff !important;
+}
+.vb-course-section--outcomes .vb-course-outcome-card__media {
+  box-sizing: border-box;
+  height: 148px !important;
+  padding: 24px 28px 0;
+  justify-content: flex-start;
+  background: #fff !important;
+  overflow: visible;
+}
+.vb-course-section--outcomes .vb-course-outcome-card__media img {
+  display: block;
+  width: 124px !important;
+  max-width: 100% !important;
+  height: 124px !important;
+  max-height: 124px !important;
+  object-fit: contain;
+  object-position: left center;
+}
+.vb-course-section--outcomes .vb-course-outcome-title {
+  padding: 12px 28px 0 !important;
+  font-size: 24px !important;
+  line-height: 1.22 !important;
+}
+.vb-course-section--outcomes .vb-course-outcome-body {
+  padding: 16px 28px 30px !important;
+  font-size: 18px !important;
+  line-height: 1.45 !important;
+  color: #71858a !important;
+}
+@media (max-width: 760px) {
+  .vb-course-section--outcomes .vb-course-outcome-card__media {
+    height: 158px !important;
+    padding: 18px 20px 0;
+  }
+  .vb-course-section--outcomes .vb-course-outcome-card__media img {
+    width: 140px !important;
+    height: 140px !important;
+    max-height: 140px !important;
+  }
+  .vb-course-section--outcomes .vb-course-outcome-title {
+    padding: 8px 20px 0 !important;
+    font-size: 21px !important;
+  }
+  .vb-course-section--outcomes .vb-course-outcome-body {
+    padding: 12px 20px 24px !important;
+    font-size: 16px !important;
+  }
+}
+
+/* Align tariffs with the other course sections on desktop. */
+@media (min-width: 1001px) {
+  .vb-course-page .vb-course-tariffs-wrap { padding-inline: 0; }
+}
+
+/* The program uses the same outer container width as adjacent sections. */
+@media (min-width: 1001px) and (max-width: 1440px) {
+  .vb-course-page .vb-course-section--program { margin-inline: 0; }
+}
+
+/* At 1024px, bring the remaining 24px course copy down to 20px. */
+@media (min-width: 1001px) and (max-width: 1024px) {
+  .vb-course-page .vb-course-pathology-hero-text,
+  .vb-course-page .vb-course-section--teachers .vb-course-teacher-name,
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__list li:not(.vb-course-acc-module__more),
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__topics-more-btn,
+  .vb-course-page .vb-course-section--program .vb-course-program-footer__body,
+  .vb-course-page .vb-course-section--outcomes .vb-course-outcome-title,
+  .vb-course-page .vb-course-tariff-feature__text,
+  .vb-course-page .vb-course-tariff-installment-formula,
+  .vb-course-page .vb-course-tariff-cta {
+    font-size: 20px !important;
+  }
+}
+
+/* Audience: one shared panel with aligned rows and clear separators. */
+.vb-course-section--audience .vb-course-audience-grid {
+  display: block;
+  grid-template-columns: none;
+  grid-template-rows: none;
+  gap: 0;
+  margin-top: 48px;
+  padding: 8px 36px;
+  border-radius: 24px;
+  background: #fff;
+}
+
+.vb-course-section--audience .vb-course-audience-card {
+  display: grid !important;
+  grid-row: auto;
+  grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  grid-template-rows: auto;
+  align-items: start;
+  column-gap: 32px;
+  row-gap: 0;
+  margin: 0;
+  padding: 28px 0 !important;
+  border: 0;
+  border-bottom: 1px solid #e6eff1;
+  border-radius: 0;
+  background: transparent;
+}
+
+.vb-course-section--audience .vb-course-audience-card:last-child {
+  border-bottom: 0;
+}
+
+.vb-course-section--audience .vb-course-audience-title,
+.vb-course-section--audience .vb-course-audience-list {
+  grid-column: auto;
+  grid-row: auto;
+  align-self: start;
+  width: auto;
+}
+
+.vb-course-section--audience .vb-course-audience-title {
+  font-size: 24px;
+  line-height: 1.25;
+  color: #232929;
+}
+
+.vb-course-section--audience .vb-course-audience-list {
+  gap: 8px;
+}
+
+.vb-course-section--audience .vb-course-audience-list li {
+  padding-left: 30px;
+  font-size: 18px;
+  line-height: 1.35;
+  color: #647f89;
+}
+
+.vb-course-section--audience .vb-course-audience-list li::before {
+  top: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .vb-course-section--audience .vb-course-audience-grid {
+    margin-top: 28px;
+    padding: 4px 24px;
+  }
+
+  .vb-course-section--audience .vb-course-audience-card {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+    padding: 24px 0 !important;
+  }
+
+  .vb-course-section--audience .vb-course-audience-title {
+    font-size: 22px;
+  }
+
+  .vb-course-section--audience .vb-course-audience-list li {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vb-course-section--audience .vb-course-audience-grid {
+    padding-inline: 18px;
+    border-radius: 20px;
+  }
+
+  .vb-course-section--audience .vb-course-audience-title {
+    font-size: 20px;
+  }
+
+  .vb-course-section--audience .vb-course-audience-list li {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .vb-course-page .vb-course-section-title,
+  .vb-course-page .vb-course-program-title,
+  .vb-course-page .vb-course-outcomes-title,
+  .vb-course-page .vb-course-tariffs-title,
+  .home-feedback__title {
+    font-size: 52px !important;
+  }
+}
+
+/* Typical consultation situations, following the four-card gastro course layout. */
+.vb-course-situations .vb-course-section-title {
+  margin-bottom: 52px;
+}
+.vb-course-situations__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.vb-course-situation {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fff;
+}
+.vb-course-situation__media {
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 1.22;
+  overflow: hidden;
+  isolation: isolate;
+  background: radial-gradient(circle at 48% 48%, #8ed5de 0, #51bac9 52%, #229bb0 100%);
+}
+.vb-course-situation__media::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  background: url("../../wp-content/themes/vet-brains/assets/images/main-page/hero-figma-texture.png") center / cover no-repeat;
+  opacity: .15;
+}
+.vb-course-situation__media::after {
+  position: absolute;
+  z-index: 0;
+  top: 16%;
+  left: 13%;
+  width: 74%;
+  height: 68%;
+  border-radius: 50%;
+  content: "";
+  background: radial-gradient(ellipse, rgba(226, 253, 255, .66) 0%, rgba(199, 244, 248, .31) 45%, transparent 72%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+.vb-course-situation__media img {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  inset: 16px;
+  width: calc(100% - 32px);
+  height: calc(100% - 32px);
+  object-fit: contain;
+  object-position: center center;
+  filter: none;
+}
+.vb-course-situation h3 {
+  box-sizing: border-box;
+  min-height: 210px;
+  margin: 0;
+  padding: 26px 24px 30px;
+  font-size: clamp(19px, 1.45vw, 28px);
+  font-weight: 700;
+  line-height: 1.28;
+  color: #232929;
+}
+@media (max-width: 1100px) {
+  .vb-course-situations__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .vb-course-situation__media { aspect-ratio: 1.5; }
+  .vb-course-situation h3 { min-height: 150px; font-size: 20px; }
+}
+@media (max-width: 640px) {
+  .vb-course-situations .vb-course-section-title { margin-bottom: 28px; }
+  .vb-course-situations__grid { grid-template-columns: 1fr; gap: 16px; }
+  .vb-course-situation__media { aspect-ratio: 1.5; }
+  .vb-course-situation h3 { min-height: 0; padding: 22px 20px 26px; font-size: 20px; }
+}
+
+/* Consistent type scale and section rhythm at the 1024px desktop breakpoint. */
+@media (min-width: 1001px) and (max-width: 1024px) {
+  .vb-course-page {
+    --vb-course-title-section: 40px;
+    --vb-course-section-gap: 100px;
+    padding-bottom: 100px;
+  }
+  .vb-course-curator__card { grid-template-columns: minmax(0, 35%) minmax(0, 1fr); }
+  .vb-course-page > .vb-course-section { margin-bottom: 100px; }
+  .vb-course-page > .vb-course-section:last-child { margin-bottom: 0; }
+
+  .vb-course-page .vb-course-section-title,
+  .vb-course-page .vb-course-program-title,
+  .vb-course-page .vb-course-outcomes-title,
+  .vb-course-page .vb-course-tariffs-title,
+  body.single-courses .home-feedback__title {
+    font-size: 40px !important;
+    line-height: 1.2 !important;
+  }
+
+  .vb-course-page .vb-course-audience-title,
+  .vb-course-page .vb-course-step__content h3,
+  .vb-course-page .vb-course-curator__content h3,
+  .vb-course-page .vb-learning-timeline__copy h3,
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__title,
+  .vb-course-page .vb-course-program-footer__heading,
+  .vb-course-page .vb-course-tariff-name {
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+  }
+
+  .vb-course-page .vb-course-pathology-cell:not(.vb-course-pathology-cell--cta),
+  .vb-course-page .vb-course-pathology-cta-text,
+  .vb-course-page .vb-course-situation h3,
+  .vb-course-page .vb-course-section--teachers .vb-course-teacher-name,
+  .vb-course-page .vb-course-section--outcomes .vb-course-outcome-title {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+  }
+
+  .vb-course-page .vb-course-audience-list li,
+  .vb-course-page .vb-course-step__content p,
+  .vb-course-page .vb-course-curator__content p,
+  .vb-course-page .vb-learning-timeline__copy p,
+  .vb-course-page .vb-course-section--teachers .vb-course-teacher-bio,
+  .vb-course-page .vb-course-section--outcomes .vb-course-outcome-body,
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__list li:not(.vb-course-acc-module__more),
+  .vb-course-page .vb-course-tariff-feature__text {
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* Consistent desktop type scale from 1440px: 52 section, 28 feature, 24 card, 20 copy. */
+@media (min-width: 1440px) {
+  .vb-course-page .vb-course-section-title,
+  .vb-course-page .vb-course-program-title,
+  .vb-course-page .vb-course-outcomes-title,
+  .vb-course-page .vb-course-tariffs-title {
+    font-size: 52px !important;
+    line-height: 1.18 !important;
+  }
+
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__title,
+  .vb-course-page .vb-course-tariff-name,
+  .vb-course-page .vb-learning-timeline__copy h3 {
+    font-size: 28px !important;
+    line-height: 1.25 !important;
+  }
+
+  .vb-course-page .vb-course-audience-title,
+  .vb-course-page .vb-course-situation h3,
+  .vb-course-page .vb-course-section--teachers .vb-course-teacher-name,
+  .vb-course-page .vb-course-section--outcomes .vb-course-outcome-title {
+    font-size: 24px !important;
+    line-height: 1.3 !important;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cell:not(.vb-course-pathology-cell--cta),
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-text {
+    font-size: 28px !important;
+    line-height: 1.15 !important;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cell:not(.vb-course-pathology-cell--cta) {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-text {
+    box-sizing: border-box;
+    z-index: 3;
+    flex: 0 0 calc(100% - 60px);
+    align-items: center;
+    padding: 16px 0 16px 16px;
+    text-align: left;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-media {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-image--desktop {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: right bottom;
+  }
+
+  .vb-course-page .vb-course-audience-list li,
+  .vb-course-page .vb-course-curator__content p,
+  .vb-course-page .vb-learning-timeline__copy p,
+  .vb-course-page .vb-course-section--teachers .vb-course-teacher-bio,
+  .vb-course-page .vb-course-section--outcomes .vb-course-outcome-body,
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__list li:not(.vb-course-acc-module__more),
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__topics-more-btn,
+  .vb-course-page .vb-course-program-footer__body,
+  .vb-course-page .vb-course-tariff-feature__text,
+  .vb-course-page .vb-course-tariff-installment-line {
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+  }
+
+  .vb-course-page .vb-course-tariff-promo {
+    --vb-promo-text-size: 24px;
+    --vb-promo-text-lh: 1.2;
+  }
+}
+
+/* Qualification banner: large diploma on the left, two clear proof points on the right. */
+.vb-course-page #vb-course-program-qualification {
+  grid-template-columns: minmax(0, 46%) minmax(0, 1fr);
+  column-gap: 32px;
+  min-height: 350px;
+  padding: 32px 40px;
+}
+.vb-course-page #vb-course-program-qualification::after {
+  background: radial-gradient(ellipse 38% 85% at 24% 52%, rgba(204, 252, 253, 0.42), transparent 100%);
+}
+.vb-course-page #vb-course-program-qualification .vb-course-program-footer__icon {
+  width: 100%;
+  height: 330px;
+  min-height: 0;
+}
+.vb-course-page #vb-course-program-qualification .vb-course-program-footer__diploma {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+  overflow: visible;
+}
+.vb-course-page #vb-course-program-qualification .vb-course-program-footer__diploma img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center;
+}
+.vb-course-page #vb-course-program-qualification .vb-course-program-footer__text {
+  min-height: 0;
+  gap: 26px;
+}
+.vb-course-page #vb-course-program-qualification .vb-course-program-footer__heading {
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.12;
+}
+.vb-course-page #vb-course-program-qualification .vb-course-program-footer__points {
+  display: grid;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.vb-course-page #vb-course-program-qualification .vb-course-program-footer__points li {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.vb-course-page #vb-course-program-qualification .vb-course-program-footer__check {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: #d9f7f9;
+  color: #169bb1;
+}
+.vb-course-page #vb-course-program-qualification .vb-course-program-footer__check svg {
+  display: block;
+  width: 23px;
+  height: 23px;
+}
+@media (max-width: 1100px) {
+  .vb-course-page #vb-course-program-qualification {
+    grid-template-columns: minmax(0, 44%) minmax(0, 1fr);
+    min-height: 290px;
+    padding: 28px;
+  }
+  .vb-course-page #vb-course-program-qualification .vb-course-program-footer__icon { height: 270px; }
+  .vb-course-page #vb-course-program-qualification .vb-course-program-footer__heading { font-size: 28px !important; }
+  .vb-course-page #vb-course-program-qualification .vb-course-program-footer__points li {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 12px;
+    font-size: 18px;
+  }
+  .vb-course-page #vb-course-program-qualification .vb-course-program-footer__check { width: 30px; height: 30px; }
+  .vb-course-page #vb-course-program-qualification .vb-course-program-footer__check svg { width: 20px; height: 20px; }
+}
+@media (max-width: 768px) {
+  .vb-course-page #vb-course-program-qualification {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: 'diploma' 'copy' !important;
+    min-height: 0;
+    gap: 18px;
+    padding: 24px;
+  }
+  .vb-course-page #vb-course-program-qualification .vb-course-program-footer__icon {
+    width: 100%;
+    max-width: 320px;
+    height: min(62vw, 260px);
+    margin-inline: auto;
+  }
+  .vb-course-page #vb-course-program-qualification .vb-course-program-footer__text { gap: 18px; }
+  .vb-course-page #vb-course-program-qualification .vb-course-program-footer__heading { font-size: 24px !important; }
+  .vb-course-page #vb-course-program-qualification .vb-course-program-footer__points { gap: 16px; }
+  .vb-course-page #vb-course-program-qualification .vb-course-program-footer__points li { font-size: 16px; }
+}
+
+/* Keep the audience names in the same visual type scale as the hero benefit cards. */
+@media (min-width: 769px) {
+  .vb-course-page .vb-course-section--audience .vb-course-audience-card {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+}
+@media (min-width: 1101px) and (max-width: 1439px) {
+  .vb-course-page .vb-course-section--audience .vb-course-audience-title {
+    font-size: 21px !important;
+    line-height: 1.25 !important;
+  }
+}
+@media (min-width: 1440px) {
+  .vb-course-page .vb-course-hero-benefits .main-banner-grid-feature__title,
+  .vb-course-page .vb-course-section--audience .vb-course-audience-title {
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+  }
+}
+
+/* Stack the pathology introduction above its disease tiles on tablet sizes. */
+@media (max-width: 1024px) {
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-layout {
+    --vb-pathology-layout-h: auto;
+    --vb-pathology-hero-w: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    height: auto;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 250px;
+    height: auto;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-grid {
+    grid-column: 1;
+    grid-row: 2;
+    grid-template-rows: auto;
+    grid-auto-rows: minmax(116px, auto);
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-text {
+    box-sizing: border-box;
+    width: 64%;
+    max-width: none;
+    margin-left: 36%;
+    padding: 26px 30px 26px 8px;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card picture {
+    position: absolute;
+    inset: auto auto 12px 14px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 34%;
+    max-width: none;
+    height: calc(100% - 24px);
+    max-height: none;
+    pointer-events: none;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+}
+
+@media (max-width: 480px) {
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card {
+    min-height: 360px;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-text {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card picture {
+    inset: auto auto 12px 16px;
+    width: 42%;
+    height: 44%;
+  }
+}
+
+/* On touch sized screens, vertical page scrolling advances the overlaid cards. */
+.vb-course-steps__runway { display: contents; }
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .vb-course-steps.is-horizontal .vb-course-steps__runway { display: block; position: relative; }
+  .vb-course-steps.is-horizontal .vb-course-steps__stack {
+    position: sticky;
+    top: 16px;
+    display: block;
+    height: min(720px, calc(100svh - 32px));
+    min-height: 430px;
+    padding: 0;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .vb-course-steps.is-horizontal .vb-course-step {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) minmax(160px, 44%);
+    transform: translateX(var(--vb-step-x, 105%)) scale(var(--vb-step-mobile-scale, 1));
+    transform-origin: center center;
+    will-change: transform;
+  }
+  .vb-course-steps.is-horizontal .vb-course-step:first-child { --vb-step-x: 0%; }
+  .vb-course-steps.is-horizontal .vb-course-step__content { min-height: 0; padding: 18px 20px; }
+  .vb-course-steps.is-horizontal .vb-course-step__visual { min-height: 0; }
+}
+@media (max-width: 540px) and (prefers-reduced-motion: no-preference) {
+  .vb-course-steps.is-horizontal .vb-course-steps__stack { height: calc(100svh - 24px); min-height: 390px; top: 12px; }
+  .vb-course-steps.is-horizontal .vb-course-step { grid-template-rows: minmax(0, 1fr) minmax(130px, 40%); }
+  .vb-course-steps.is-horizontal .vb-course-step__number { width: 42px; height: 42px; margin-bottom: 12px; font-size: 19px; }
+  .vb-course-steps.is-horizontal .vb-course-step__content h3 { margin-bottom: 10px; font-size: clamp(21px, 6vw, 27px); }
+  .vb-course-steps.is-horizontal .vb-course-step__content p { font-size: 15px; line-height: 1.35; }
+}
+
+/* Tablet pathology layout: copy and resting cat share one shallow banner. */
+@media (max-width: 1024px) {
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card { min-height: 220px; }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-text {
+    display: flex;
+    align-items: center;
+    width: 59%;
+    min-height: 220px;
+    margin: 0;
+    padding: 22px 12px 22px 24px;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card picture {
+    inset: 12px 14px 12px auto;
+    width: 40%;
+    height: calc(100% - 24px);
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-image { object-position: center; }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-grid {
+    grid-template-rows: none;
+    grid-auto-rows: minmax(130px, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card { min-height: 300px; }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-text {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    padding: 18px 18px 0;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card picture {
+    inset: auto 12px 8px auto;
+    width: min(70%, 280px);
+    height: 46%;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(136px, 1fr);
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cell--cta {
+    grid-column: 1 / -1;
+    min-height: 100px;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-media { flex-basis: 110px; width: 110px; }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-image--mobile { object-position: right center; }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .vb-course-page .vb-course-section--outcomes .vb-course-outcomes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch;
+  }
+}
+
+/* Paper 768 layout: a separate 178px intro, two disease columns, and a full-width ending tile. */
+@media (min-width: 481px) and (max-width: 768px) {
+  .vb-course-page .vb-course-section--pathology .vb-course-section-title {
+    font-size: 36px !important;
+    line-height: 1.3 !important;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-layout {
+    --vb-pathology-cta-img-w: 67px;
+    gap: 8px;
+    margin-top: 32px;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card {
+    display: flex;
+    align-items: stretch;
+    min-height: 178px;
+    height: auto;
+    background: radial-gradient(ellipse 45.68% 134.06% at 85.38% 58.55%, #ffffffd1 0%, #ffffff00 100%), linear-gradient(146deg, #54bfd1 0%, #239cb1 100%);
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-text {
+    display: flex;
+    flex: 0 0 60.5%;
+    align-items: center;
+    width: 60.5%;
+    min-width: 0;
+    min-height: 178px;
+    margin: 0;
+    padding: 24px;
+    font-size: clamp(16px, 2.6vw, 20px);
+    line-height: 1.3;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card picture {
+    box-sizing: border-box;
+    position: relative;
+    inset: auto;
+    flex: 0 0 39.5%;
+    align-items: center;
+    justify-content: flex-start;
+    width: 39.5%;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    max-height: none;
+    padding-right: 24px;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 130px;
+    object-fit: contain;
+    object-position: center;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+    gap: 8px;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cell:not(.vb-course-pathology-cell--cta) {
+    min-height: 116px;
+    padding: 24px;
+    font-size: clamp(18px, 3.125vw, 24px);
+    line-height: 1.4;
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cell--cta {
+    grid-column: 1 / -1;
+    min-height: 86px;
+    height: 86px;
+    background: radial-gradient(ellipse 32.66% 141.745% at 83.48% 62.38%, #ffffffd1 0%, #ffffff00 100%), linear-gradient(146deg, #54bfd1 0%, #239cb1 100%);
+  }
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-text {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+  }
+}
+

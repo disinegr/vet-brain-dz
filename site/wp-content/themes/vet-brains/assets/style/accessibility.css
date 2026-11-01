@@ -1,0 +1,517 @@
+/* Ð’ÐµÑ€ÑÐ¸Ñ Ð´Ð»Ñ ÑÐ»Ð°Ð±Ð¾Ð²Ð¸Ð´ÑÑ‰Ð¸Ñ… (Ð“ÐžÐ¡Ð¢) â€” Ð·Ð°Ð³Ñ€ÑƒÐ¶Ð°ÐµÑ‚ÑÑ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ¹, Ð¿ÐµÑ€ÐµÐ±Ð¸Ð²Ð°ÐµÑ‚ ÑÑ‚Ð¸Ð»Ð¸ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†. */
+
+/* ÐŸÐ°Ð½ÐµÐ»ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð¾ÐµÐº â€” Ñ„Ð¸ÐºÑÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ Ñ†Ð²ÐµÑ‚Ð° UI (Ð½Ðµ Ð·Ð°Ð²Ð¸ÑÑÑ‚ Ð¾Ñ‚ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ð¾Ð¹ Ñ‚ÐµÐ¼Ñ‹ ÑÐ°Ð¹Ñ‚Ð°). */
+html.vb-a11y .vb-a11y-toolbar,
+html.vb-a11y-toolbar-open .vb-a11y-toolbar {
+    background: #f5f5f5 !important;
+    color: #232929 !important;
+    border-color: #232929 !important;
+}
+
+html.vb-a11y .vb-a11y-toolbar__title,
+html.vb-a11y .vb-a11y-toolbar__label,
+html.vb-a11y .vb-a11y-toolbar__btn-text {
+    color: #232929 !important;
+}
+
+html.vb-a11y .vb-a11y-toolbar__btn-text {
+    background: #ffffff !important;
+    border-color: #232929 !important;
+}
+
+.vb-a11y-swatch--bw .vb-a11y-swatch__preview,
+html.vb-a11y .vb-a11y-swatch--bw .vb-a11y-swatch__preview {
+    background: linear-gradient(135deg, #ffffff 50%, #000000 50%) !important;
+}
+
+.vb-a11y-swatch--wb .vb-a11y-swatch__preview,
+html.vb-a11y .vb-a11y-swatch--wb .vb-a11y-swatch__preview {
+    background: linear-gradient(135deg, #000000 50%, #ffffff 50%) !important;
+}
+
+.vb-a11y-swatch--blue .vb-a11y-swatch__preview,
+html.vb-a11y .vb-a11y-swatch--blue .vb-a11y-swatch__preview {
+    background: linear-gradient(135deg, #9dd1ff 50%, #063462 50%) !important;
+}
+
+.vb-a11y-swatch--brown .vb-a11y-swatch__preview,
+html.vb-a11y .vb-a11y-swatch--brown .vb-a11y-swatch__preview {
+    background: linear-gradient(135deg, #f7f3d6 50%, #4d4b43 50%) !important;
+}
+
+html.vb-a11y .vb-a11y-swatch__preview {
+    border-color: #232929 !important;
+}
+
+html.vb-a11y .vb-a11y-toolbar__reset {
+    background: #ffffff !important;
+    color: #232929 !important;
+    border-color: #232929 !important;
+}
+
+/* --- Ð¢Ð¾ÐºÐµÐ½Ñ‹ Ñ†Ð²ÐµÑ‚Ð¾Ð²Ñ‹Ñ… ÑÑ…ÐµÐ¼ --- */
+html.vb-a11y.vb-a11y--theme-bw {
+    --vb-a11y-bg: #ffffff;
+    --vb-a11y-fg: #000000;
+    --vb-a11y-link: #0000cc;
+    --vb-a11y-link-hover: #000099;
+    --vb-a11y-border: #000000;
+    --vb-a11y-surface: #ffffff;
+    --vb-a11y-btn-bg: #000000;
+    --vb-a11y-btn-fg: #ffffff;
+    --vb-a11y-input-bg: #ffffff;
+    --vb-a11y-input-fg: #000000;
+    --vb-a11y-muted: #333333;
+}
+
+html.vb-a11y.vb-a11y--theme-wb {
+    --vb-a11y-bg: #000000;
+    --vb-a11y-fg: #ffffff;
+    --vb-a11y-link: #ffff00;
+    --vb-a11y-link-hover: #ffff99;
+    --vb-a11y-border: #ffffff;
+    --vb-a11y-surface: #1a1a1a;
+    --vb-a11y-btn-bg: #ffffff;
+    --vb-a11y-btn-fg: #000000;
+    --vb-a11y-input-bg: #000000;
+    --vb-a11y-input-fg: #ffffff;
+    --vb-a11y-muted: #cccccc;
+}
+
+html.vb-a11y.vb-a11y--theme-blue {
+    --vb-a11y-bg: #9dd1ff;
+    --vb-a11y-fg: #063462;
+    --vb-a11y-link: #0000cc;
+    --vb-a11y-link-hover: #000099;
+    --vb-a11y-border: #063462;
+    --vb-a11y-surface: #c8e4ff;
+    --vb-a11y-btn-bg: #063462;
+    --vb-a11y-btn-fg: #9dd1ff;
+    --vb-a11y-input-bg: #c8e4ff;
+    --vb-a11y-input-fg: #063462;
+    --vb-a11y-muted: #063462;
+}
+
+html.vb-a11y.vb-a11y--theme-brown {
+    --vb-a11y-bg: #f7f3d6;
+    --vb-a11y-fg: #4d4b43;
+    --vb-a11y-link: #6b0000;
+    --vb-a11y-link-hover: #990000;
+    --vb-a11y-border: #4d4b43;
+    --vb-a11y-surface: #ede8c8;
+    --vb-a11y-btn-bg: #4d4b43;
+    --vb-a11y-btn-fg: #f7f3d6;
+    --vb-a11y-input-bg: #ede8c8;
+    --vb-a11y-input-fg: #4d4b43;
+    --vb-a11y-muted: #4d4b43;
+}
+
+/* --- ÐœÐ°ÑÑˆÑ‚Ð°Ð± ÑˆÑ€Ð¸Ñ„Ñ‚Ð° (px Ð² Ñ‚ÐµÐ¼Ðµ Ð½Ðµ Ð½Ð°ÑÐ»ÐµÐ´ÑƒÑŽÑ‚ % Ñ html â€” Ð¼Ð°ÑÑˆÑ‚Ð°Ð±Ð¸Ñ€ÑƒÐµÐ¼ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚) --- */
+html.vb-a11y {
+    --vb-a11y-fs-mul: 1;
+    line-height: 1.7;
+}
+
+html.vb-a11y.vb-a11y--font-lg {
+    --vb-a11y-fs-mul: 1.15;
+}
+
+html.vb-a11y.vb-a11y--font-xl {
+    --vb-a11y-fs-mul: 1.3;
+}
+
+html.vb-a11y.vb-a11y--font-lg .site-header,
+html.vb-a11y.vb-a11y--font-lg .site-main,
+html.vb-a11y.vb-a11y--font-lg .site-footer {
+    zoom: 1.15;
+}
+
+html.vb-a11y.vb-a11y--font-xl .site-header,
+html.vb-a11y.vb-a11y--font-xl .site-main,
+html.vb-a11y.vb-a11y--font-xl .site-footer {
+    zoom: 1.3;
+}
+
+@supports not (zoom: 1) {
+    html.vb-a11y .site-header,
+    html.vb-a11y .site-main,
+    html.vb-a11y .site-footer {
+        zoom: unset;
+    }
+
+    html.vb-a11y .site-header :where(
+            p,
+            a,
+            li,
+            label,
+            button,
+            input,
+            textarea,
+            select,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            td,
+            th
+        ),
+    html.vb-a11y .site-main :where(
+            p,
+            a,
+            li,
+            label,
+            button,
+            input,
+            textarea,
+            select,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            td,
+            th,
+            .home-catalog__title,
+            .home-catalog__subtitle,
+            .home-course-card__course-title,
+            .home-course-card__chip,
+            .vb-catalog-hero__title,
+            .vb-catalog-hero__lead,
+            .vb-course-hero-info h1
+        ),
+    html.vb-a11y .site-footer :where(p, a, li, label, button, input, h1, h2, h3, h4, h5, h6) {
+        font-size: calc(1em * var(--vb-a11y-fs-mul, 1)) !important;
+    }
+}
+
+html.vb-a11y.vb-a11y--font-serif body,
+html.vb-a11y.vb-a11y--font-serif .site-shell {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+html.vb-a11y.vb-a11y--spacing-wide body {
+    letter-spacing: 0.08em;
+    word-spacing: 0.12em;
+}
+
+/* --- Ð“Ð»Ð¾Ð±Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ð¿Ñ€Ð°Ð²Ð¸Ð»Ð° --- */
+html.vb-a11y body,
+html.vb-a11y .site-shell,
+html.vb-a11y .site-main {
+    background: var(--vb-a11y-bg) !important;
+    color: var(--vb-a11y-fg) !important;
+}
+
+html.vb-a11y * {
+    transition: none !important;
+    animation: none !important;
+}
+
+html.vb-a11y :where(
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    dt,
+    dd,
+    figcaption,
+    blockquote,
+    label,
+    legend,
+    td,
+    th,
+    .home-catalog__title,
+    .home-catalog__subtitle,
+    .home-course-card__course-title,
+    .home-course-card__chip,
+    .home-course-card__strike,
+    .home-course-card__installment,
+    .home-course-card__row--current,
+    .vb-catalog-empty,
+    .vb-licenses-menu__link,
+    .vb-licenses-section__title,
+    .footer-help-consult .home-map-cta__title,
+    .footer-help-consult .home-map-cta__lead,
+    .vb-course-hero-info h1,
+    .vb-course-hero-text,
+    .vb-catalog-hero__title,
+    .vb-catalog-hero__lead
+) {
+    color: var(--vb-a11y-fg) !important;
+}
+
+html.vb-a11y a:not(.header__accessibility-toggle):not(.header__messenger):not(.vb-a11y-toolbar__reset):not(.home-partners__card) {
+    color: var(--vb-a11y-link) !important;
+    text-decoration: underline !important;
+    text-underline-offset: 0.15em;
+}
+
+html.vb-a11y a:not(.header__accessibility-toggle):not(.header__messenger):not(.vb-a11y-toolbar__reset):not(.home-partners__card):hover,
+html.vb-a11y a:not(.header__accessibility-toggle):not(.header__messenger):not(.vb-a11y-toolbar__reset):not(.home-partners__card):focus-visible {
+    color: var(--vb-a11y-link-hover) !important;
+}
+
+html.vb-a11y :focus-visible {
+    outline: 3px solid var(--vb-a11y-fg) !important;
+    outline-offset: 2px;
+}
+
+html.vb-a11y button,
+html.vb-a11y .home-btn,
+html.vb-a11y .vb-course-tariff-card__cta,
+html.vb-a11y input[type='submit'],
+html.vb-a11y input[type='button'] {
+    border: 2px solid var(--vb-a11y-border) !important;
+}
+
+html.vb-a11y input:not([type='checkbox']):not([type='radio']),
+html.vb-a11y textarea,
+html.vb-a11y select {
+    background: var(--vb-a11y-input-bg) !important;
+    color: var(--vb-a11y-input-fg) !important;
+    border: 2px solid var(--vb-a11y-border) !important;
+}
+
+/* --- Ð˜Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ --- */
+html.vb-a11y--images-off img:not(.vb-a11y-keep),
+html.vb-a11y--images-off picture:not(:has(.vb-a11y-keep)),
+html.vb-a11y--images-off video:not(.vb-a11y-keep) {
+    visibility: hidden !important;
+}
+
+html.vb-a11y--images-off .main-hero__layers,
+html.vb-a11y--images-off .home-course-card__media,
+html.vb-a11y--images-off [style*='background-image']:not(.vb-a11y-keep) {
+    background-image: none !important;
+}
+
+/* --- Ð¨Ð°Ð¿ÐºÐ° Ð¸ Ð½Ð°Ð²Ð¸Ð³Ð°Ñ†Ð¸Ñ --- */
+html.vb-a11y .site-header,
+html.vb-a11y .site-header__bar,
+html.vb-a11y .header-nav {
+    background: var(--vb-a11y-surface) !important;
+    border-color: var(--vb-a11y-border) !important;
+}
+
+html.vb-a11y .header-nav .menu a,
+html.vb-a11y .header-nav > ul a {
+    color: var(--vb-a11y-fg) !important;
+    text-decoration: underline !important;
+}
+
+html.vb-a11y .header__menu-toggle-line {
+    background: var(--vb-a11y-fg) !important;
+}
+
+html.vb-a11y .header__accessibility-toggle,
+html.vb-a11y .header__messenger,
+html.vb-a11y .header__menu-toggle {
+    background: var(--vb-a11y-surface) !important;
+    border-color: var(--vb-a11y-border) !important;
+}
+
+html.vb-a11y .header__backdrop {
+    background: rgba(0, 0, 0, 0.55) !important;
+}
+
+/* --- Ð“ÐµÑ€Ð¾Ð¹ Ð³Ð»Ð°Ð²Ð½Ð¾Ð¹ --- */
+html.vb-a11y .main-banner-background,
+html.vb-a11y .main-banner-container {
+    background: var(--vb-a11y-surface) !important;
+    min-height: auto !important;
+    height: auto !important;
+    max-height: none !important;
+}
+
+html.vb-a11y .main-hero__layers,
+html.vb-a11y .main-hero__gradient,
+html.vb-a11y .main-hero__radial,
+html.vb-a11y .main-hero__texture {
+    display: none !important;
+}
+
+html.vb-a11y .main-image-content-text-label h1,
+html.vb-a11y .main-image-content-text-description p {
+    color: var(--vb-a11y-fg) !important;
+    text-shadow: none !important;
+}
+
+html.vb-a11y .main-page-container {
+    background: transparent !important;
+}
+
+/* --- ÐšÐ°Ñ€Ñ‚Ð¾Ñ‡ÐºÐ¸ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ð° --- */
+html.vb-a11y .home-course-card,
+html.vb-a11y .home-course-card--teal,
+html.vb-a11y .home-course-card--light {
+    background: var(--vb-a11y-surface) !important;
+    border: 2px solid var(--vb-a11y-border) !important;
+}
+
+html.vb-a11y .home-course-card__media::before {
+    display: none !important;
+    background: none !important;
+}
+
+html.vb-a11y .home-course-card__link {
+    color: var(--vb-a11y-fg) !important;
+}
+
+html.vb-a11y .home-course-card__chip {
+    background: var(--vb-a11y-bg) !important;
+    border: 1px solid var(--vb-a11y-border) !important;
+    color: var(--vb-a11y-fg) !important;
+}
+
+html.vb-a11y .home-catalog-tab,
+html.vb-a11y .home-catalog-tab.is-active {
+    background: var(--vb-a11y-surface) !important;
+    color: var(--vb-a11y-fg) !important;
+    border: 2px solid var(--vb-a11y-border) !important;
+}
+
+html.vb-a11y .home-btn--primary,
+html.vb-a11y .home-btn--secondary {
+    background: var(--vb-a11y-btn-bg) !important;
+    color: var(--vb-a11y-btn-fg) !important;
+    border: 2px solid var(--vb-a11y-border) !important;
+    box-shadow: none !important;
+}
+
+/* --- ÐÑ€Ñ…Ð¸Ð² ÐºÑƒÑ€ÑÐ¾Ð² --- */
+html.vb-a11y .vb-catalog-page,
+html.vb-a11y .vb-catalog-layout,
+html.vb-a11y .vb-catalog-filters {
+    background: var(--vb-a11y-bg) !important;
+    color: var(--vb-a11y-fg) !important;
+}
+
+html.vb-a11y .vb-catalog-hero__layers,
+html.vb-a11y .vb-catalog-hero__ellipse,
+html.vb-a11y .vb-catalog-hero__pattern,
+html.vb-a11y .vb-catalog-hero-card__accent-layers {
+    display: none !important;
+}
+
+html.vb-a11y .vb-catalog-hero,
+html.vb-a11y .vb-catalog-hero-card {
+    background: var(--vb-a11y-surface) !important;
+    border: 2px solid var(--vb-a11y-border) !important;
+}
+
+html.vb-a11y .vb-catalog-filters label,
+html.vb-a11y .vb-catalog-filters input,
+html.vb-a11y .vb-catalog-search input {
+    color: var(--vb-a11y-fg) !important;
+    background: var(--vb-a11y-input-bg) !important;
+    border-color: var(--vb-a11y-border) !important;
+}
+
+/* --- Ð¡Ñ‚Ñ€Ð°Ð½Ð¸Ñ†Ð° ÐºÑƒÑ€ÑÐ° --- */
+html.vb-a11y .vb-course-hero-wrap,
+html.vb-a11y .vb-course-section,
+html.vb-a11y .vb-course-tariff-card,
+html.vb-a11y .vb-course-program,
+html.vb-a11y .vb-course-faq {
+    background: var(--vb-a11y-surface) !important;
+    color: var(--vb-a11y-fg) !important;
+    border-color: var(--vb-a11y-border) !important;
+}
+
+html.vb-a11y .vb-course-hero-wrap::before,
+html.vb-a11y .vb-course-hero-visual-atmosphere {
+    display: none !important;
+}
+
+html.vb-a11y .vb-course-tariff-card--featured,
+html.vb-a11y .vb-course-tariff-card {
+    background: var(--vb-a11y-bg) !important;
+    border: 2px solid var(--vb-a11y-border) !important;
+    box-shadow: none !important;
+}
+
+html.vb-a11y .vb-course-program__item,
+html.vb-a11y .vb-course-program__chapter {
+    border-color: var(--vb-a11y-border) !important;
+}
+
+/* --- Ð›Ð¸Ñ†ÐµÐ½Ð·Ð¸Ð¸ --- */
+html.vb-a11y [data-vb-licenses],
+html.vb-a11y .vb-licenses-layout,
+html.vb-a11y .vb-licenses-content,
+html.vb-a11y .vb-licenses-menu {
+    background: var(--vb-a11y-bg) !important;
+    color: var(--vb-a11y-fg) !important;
+}
+
+html.vb-a11y .vb-licenses-menu__link.is-active,
+html.vb-a11y .vb-licenses-menu__link[aria-current='location'] {
+    background: var(--vb-a11y-surface) !important;
+    border: 2px solid var(--vb-a11y-border) !important;
+    font-weight: 700;
+    color: var(--vb-a11y-fg) !important;
+}
+
+html.vb-a11y .vb-licenses-section {
+    border-color: var(--vb-a11y-border) !important;
+}
+
+/* --- ÐŸÐ¾Ð´Ð²Ð°Ð» --- */
+html.vb-a11y .site-footer,
+html.vb-a11y .footer-help-consult .home-map-cta__card,
+html.vb-a11y .footer-columns {
+    background: var(--vb-a11y-surface) !important;
+    color: var(--vb-a11y-fg) !important;
+}
+
+html.vb-a11y .footer-help-consult .home-map-cta__card {
+    border: 2px solid var(--vb-a11y-border) !important;
+}
+
+/* --- ÐœÐ¾Ð´Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ð¾ÐºÐ½Ð° --- */
+html.vb-a11y dialog,
+html.vb-a11y .vb-tariff-promo-modal,
+html.vb-a11y #vb-course-signup-dialog {
+    background: var(--vb-a11y-bg) !important;
+    color: var(--vb-a11y-fg) !important;
+    border: 3px solid var(--vb-a11y-border) !important;
+}
+
+html.vb-a11y dialog::backdrop,
+html.vb-a11y .vb-tariff-promo-modal::backdrop {
+    background: rgba(0, 0, 0, 0.7) !important;
+}
+
+html.vb-a11y .vb-tariff-promo-modal--discount .vb-tariff-promo-modal__main,
+html.vb-a11y .vb-tariff-promo-modal--discount .vb-tariff-promo-modal__visual {
+    background: var(--vb-a11y-surface) !important;
+}
+
+/* --- ÐžÑ‚Ð·Ñ‹Ð²Ñ‹ / teachers / Ð¿Ñ€Ð¾Ñ‡Ð¸Ðµ ÑÐµÐºÑ†Ð¸Ð¸ Ð³Ð»Ð°Ð²Ð½Ð¾Ð¹ --- */
+html.vb-a11y .home-reviews,
+html.vb-a11y .home-teachers,
+html.vb-a11y .home-map-cta,
+html.vb-a11y section {
+    background-color: var(--vb-a11y-bg);
+}
+
+html.vb-a11y .home-review-card,
+html.vb-a11y .home-teacher-card {
+    background: var(--vb-a11y-surface) !important;
+    border: 2px solid var(--vb-a11y-border) !important;
+    color: var(--vb-a11y-fg) !important;
+}
+
+/* --- ÐšÐ½Ð¾Ð¿ÐºÐ° Â«Ð½Ð°Ð²ÐµÑ€Ñ…Â» --- */
+html.vb-a11y .vb-scroll-top {
+    background: var(--vb-a11y-btn-bg) !important;
+    color: var(--vb-a11y-btn-fg) !important;
+    border: 2px solid var(--vb-a11y-border) !important;
+}

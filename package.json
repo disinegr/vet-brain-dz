@@ -1,0 +1,8 @@
+{
+  "name": "vet-brain-home-prototype",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}

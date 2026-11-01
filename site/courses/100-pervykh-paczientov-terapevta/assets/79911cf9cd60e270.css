@@ -1,0 +1,503 @@
+/* Webinar single course page — sections below hero */
+
+.vb-course--webinar {
+    background: #f0f8fa;
+}
+
+/* Горизонтальные отступы секций — только от body; hero — как на странице курса */
+.vb-webinar-page.vb-course-page {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.vb-webinar-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.vb-webinar-page .vb-course-inner:not(.vb-course-hero-inner) {
+    width: 100%;
+    max-width: 1760px;
+    margin-inline: auto;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+}
+
+.vb-webinar-lecturers.vb-course-section--teachers {
+    margin-top: 0;
+}
+
+.vb-webinar-sections {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.vb-webinar-about,
+.vb-webinar-lecturers,
+.vb-webinar-learn {
+    width: 100%;
+    min-width: 0;
+}
+
+.vb-webinar-section-title {
+    margin: 0 0 42px;
+    font-family: Onest, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 1.2;
+    color: #232929;
+    text-align: center;
+}
+
+.vb-webinar-section-title--center {
+    margin-bottom: 52px;
+}
+
+/* ── Block 1: About ─────────────────────────────────────────────────────── */
+
+.vb-webinar-about__title--mobile {
+    display: none;
+}
+
+.vb-webinar-about__card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+}
+
+.vb-webinar-about__media {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    min-height: 0;
+    min-width: 0;
+    align-self: stretch;
+}
+
+.vb-webinar-about__img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.vb-webinar-about__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #fff;
+    border-radius: 32px;
+    padding: 32px;
+    color: #232929;
+}
+
+.vb-webinar-about__title {
+    margin: 0;
+    font-family: Onest, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 1.3;
+}
+
+.vb-webinar-about__body {
+    font-family: Onest, system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+.vb-webinar-about__intro,
+.vb-webinar-about__topics {
+    margin: 0;
+}
+
+.vb-webinar-about__intro + .vb-webinar-about__topics {
+    margin-top: 1.3em;
+}
+
+.vb-webinar-about__list {
+    margin: 0;
+    padding-left: 36px;
+    list-style: disc;
+}
+
+.vb-webinar-about__list li {
+    margin: 0;
+}
+
+/* ── Block 2: Lecturers — как было, без растягивания ───────────────────── */
+
+.vb-webinar-lecturers__grid {
+    justify-content: center;
+    justify-items: center;
+}
+
+.vb-webinar-lecturer-card {
+    max-width: 425px;
+}
+
+/* ── Block 3: Learn — Figma: 1920/1440 base → 1000 → 768 → 480 → 320 ───── */
+
+.vb-webinar-learn__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.vb-webinar-learn__card {
+    display: grid;
+    grid-template-columns: 256px minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    background: #fff;
+    border-radius: 32px;
+    padding: 16px 32px;
+    min-height: 0;
+    box-sizing: border-box;
+}
+
+.vb-webinar-learn__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 256px;
+    height: 256px;
+    min-width: 0;
+}
+
+.vb-webinar-learn__icon img {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 9px;
+    object-fit: contain;
+}
+
+.vb-webinar-learn__text {
+    margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-family: Onest, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.2;
+    color: #232929;
+}
+
+.vb-webinar-about { order: 1; margin: 82px 0;}
+.vb-webinar-lecturers { order: 2; margin-bottom: 82px;}
+.vb-webinar-learn { order: 3; margin-bottom: 82px; }
+
+.vb-webinar-page .vb-course-section--tariffs {
+    margin-bottom: 82px;
+}
+
+.vb-webinar-page .vb-course-section--tariffs .vb-course-tariffs-wrap {
+    align-items: center;
+}
+
+.vb-webinar-page .vb-course-tariffs-grid {
+    width: 100%;
+    max-width: 720px;
+    margin-inline: auto;
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: center;
+    justify-items: center;
+}
+
+.vb-webinar-page .vb-course-tariff-card {
+    width: 100%;
+}
+
+.vb-webinar-page .vb-course-tariff-promo {
+    width: 100%;
+    max-width: 720px;
+}
+
+/* Desktop order: about → learn → lecturers */
+@media (min-width: 1000px) {
+    .vb-webinar-about { order: 1; margin: 82px 0;}
+    .vb-webinar-lecturers { order: 2; margin-bottom: 82px;}
+    .vb-webinar-learn { order: 3; margin-bottom: 82px; }
+}
+
+@media (max-width: 1199px) {
+    .vb-webinar-about__title--mobile {
+        display: block;
+        margin: 0 0 32px;
+        font-size: 42px;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    .vb-webinar-about__title--desktop {
+        display: none;
+    }
+
+    .vb-webinar-about__card {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 0;
+        background: #fff;
+        border-radius: 32px;
+        overflow: hidden;
+    }
+
+    .vb-webinar-about__content {
+        background: transparent;
+        border-radius: 0;
+        padding: 24px;
+        gap: 0;
+    }
+
+    .vb-webinar-about__media {
+        position: static;
+        border-radius: 0;
+        height: auto;
+    }
+
+    .vb-webinar-about__img {
+        position: static;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 852 / 512;
+        object-fit: cover;
+    }
+
+    .vb-webinar-about__body {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 1000px) {
+    .vb-webinar-section-title {
+        font-size: 42px;
+        margin-bottom: 52px;
+    }
+
+    /* 3 карточки сверху (картинка сверху), 4-я на всю ширину (картинка слева) */
+    .vb-webinar-learn__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .vb-webinar-learn__card:nth-child(-n + 3) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 24px 32px;
+    }
+
+    .vb-webinar-learn__card:nth-child(-n + 3) .vb-webinar-learn__icon {
+        align-self: stretch;
+        width: 100%;
+        height: 256px;
+    }
+
+    .vb-webinar-learn__card:nth-child(-n + 3) .vb-webinar-learn__text {
+        /* align-self: stretch; */
+        font-size: 24px;
+        line-height: 1.4;
+    }
+
+    .vb-webinar-learn__card:nth-child(4) {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 284px) minmax(0, 1fr);
+        align-items: center;
+        gap: 0;
+        padding: 16px 24px;
+    }
+
+    .vb-webinar-learn__card:nth-child(4) .vb-webinar-learn__icon {
+        width: 100%;
+        height: 256px;
+    }
+
+    .vb-webinar-learn__card:nth-child(4) .vb-webinar-learn__text {
+        padding: 32px 0 32px 24px;
+        font-size: 24px;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Tablet/mobile order: about → lecturers → learn */
+    .vb-webinar-about { order: 1; margin: 82px 0;}
+    .vb-webinar-lecturers { order: 2; margin-bottom: 82px;}
+    .vb-webinar-learn { order: 3; margin-bottom: 82px; }
+
+    .vb-webinar-about__title--mobile {
+        font-size: 36px;
+        margin-bottom: 32px;
+    }
+
+    .vb-webinar-about__content {
+        padding: 24px;
+    }
+
+    .vb-webinar-about__list {
+        padding-left: 30px;
+    }
+
+    .vb-webinar-section-title {
+        font-size: 32px;
+        margin-bottom: 32px;
+    }
+
+    .vb-webinar-lecturers__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .vb-webinar-learn__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .vb-webinar-learn__card,
+    .vb-webinar-learn__card:nth-child(-n + 3),
+    .vb-webinar-learn__card:nth-child(4) {
+        display: grid;
+        grid-column: auto;
+        grid-template-columns: 256px minmax(0, 1fr);
+        align-items: center;
+        gap: 24px;
+        padding: 16px 24px;
+    }
+
+    .vb-webinar-learn__card .vb-webinar-learn__icon,
+    .vb-webinar-learn__card:nth-child(4) .vb-webinar-learn__icon {
+        width: 256px;
+        height: 172px;
+    }
+
+    .vb-webinar-learn__card .vb-webinar-learn__text,
+    .vb-webinar-learn__card:nth-child(4) .vb-webinar-learn__text {
+        padding: 0;
+        font-size: 22px !important;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 767px) {
+    .vb-webinar-about__content {
+        padding: 16px;
+    }
+
+    .vb-webinar-about__body {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 480px) {
+    .vb-webinar-about__title--mobile,
+    .vb-webinar-section-title {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .vb-webinar-about__content {
+        padding: 16px;
+    }
+
+    .vb-webinar-about__body {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .vb-webinar-lecturers__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vb-webinar-learn__grid {
+        gap: 16px;
+    }
+
+    .vb-webinar-learn__card,
+    .vb-webinar-learn__card:nth-child(-n + 3),
+    .vb-webinar-learn__card:nth-child(4) {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 16px 24px 32px;
+    }
+
+    .vb-webinar-learn__card .vb-webinar-learn__icon,
+    .vb-webinar-learn__card:nth-child(4) .vb-webinar-learn__icon {
+        align-self: stretch;
+        width: 100%;
+        height: 152px;
+    }
+
+    .vb-webinar-learn__card .vb-webinar-learn__text,
+    .vb-webinar-learn__card:nth-child(4) .vb-webinar-learn__text {
+        padding: 0;
+        font-size: 20px !important;
+        line-height: 28px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .vb-webinar-about { order: 1; margin: 72px 0;}
+    .vb-webinar-lecturers { order: 2; margin-bottom: 72px;}
+    .vb-webinar-learn { order: 3; margin-bottom: 72px; }
+    .vb-webinar-about__card {
+        border-radius: 24px;
+    }
+
+    .vb-webinar-about__content {
+        padding: 16px;
+    }
+
+    .vb-webinar-about__body {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+
+    .vb-webinar-learn__grid {
+        gap: 12px;
+    }
+
+    .vb-webinar-learn__card,
+    .vb-webinar-learn__card:nth-child(-n + 3),
+    .vb-webinar-learn__card:nth-child(4) {
+        border-radius: 24px;
+        gap: 12px;
+        padding: 12px 16px 24px;
+    }
+
+    .vb-webinar-learn__card .vb-webinar-learn__text,
+    .vb-webinar-learn__card:nth-child(4) .vb-webinar-learn__text {
+        font-size: 18px !important;
+        line-height: 1.4;
+    }
+}

@@ -1,0 +1,1863 @@
+<!doctype html>
+<html lang="ru-RU" style="--vb-header-bottom: 78px;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+    (function () {
+        try {
+            var key = 'vet-brains-a11y';
+            var legacy = 'vet-brains-accessibility-mode';
+            var html = document.documentElement;
+            var raw = localStorage.getItem(key);
+            var state = null;
+            if (raw) {
+                state = JSON.parse(raw);
+            } else if (localStorage.getItem(legacy) === 'true') {
+                state = { enabled: true, toolbarOpen: true, theme: 'bw', fontScale: 'normal', fontFamily: 'sans', spacing: 'normal', images: true };
+                localStorage.removeItem(legacy);
+            }
+            if (!state) {
+                return;
+            }
+            var toolbarOpen = state.toolbarOpen !== false && (state.toolbarOpen === true || state.enabled === true);
+            if (toolbarOpen) {
+                html.classList.add('vb-a11y-toolbar-open');
+            }
+            if (!state.enabled) {
+                return;
+            }
+            var remove = [];
+            html.classList.forEach(function (cls) {
+                if (cls === 'vb-a11y' || cls.indexOf('vb-a11y--') === 0) {
+                    remove.push(cls);
+                }
+            });
+            remove.forEach(function (cls) {
+                html.classList.remove(cls);
+            });
+            html.classList.add('vb-a11y');
+            var scale = state.fontScale || 'normal';
+            if (scale === 'large') {
+                html.classList.add('vb-a11y--font-lg');
+            } else if (scale === 'xlarge') {
+                html.classList.add('vb-a11y--font-xl');
+            }
+            var themes = ['bw', 'wb', 'blue', 'brown'];
+            var theme = themes.indexOf(state.theme) >= 0 ? state.theme : 'bw';
+            html.classList.add('vb-a11y--theme-' + theme);
+            if (state.fontFamily === 'serif') {
+                html.classList.add('vb-a11y--font-serif');
+            }
+            if (state.spacing === 'wide') {
+                html.classList.add('vb-a11y--spacing-wide');
+            }
+            if (state.images === false) {
+                html.classList.add('vb-a11y--images-off');
+            }
+        } catch (e) {
+            /* ignore */
+        }
+    })();
+    </script>
+    <title>vet-brain</title>
+<meta name="robots" content="noindex, nofollow">
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="vet-brains-style-css" href="./wp-content/themes/vet-brains/style.css?ver=1.0.18" media="all">
+<link rel="stylesheet" id="header-style-css" href="./wp-content/themes/vet-brains/assets/style/header.css?ver=1.0.18" media="all">
+<link rel="stylesheet" id="footer-style-css" href="./wp-content/themes/vet-brains/assets/style/footer.css?ver=1.0.18" media="all">
+<link rel="stylesheet" id="home-page-style-css" href="./wp-content/themes/vet-brains/assets/style/home-page.css?ver=1.0.18" media="all">
+<link rel="stylesheet" id="home-page-responsive-style-css" href="./wp-content/themes/vet-brains/assets/style/home-page-responsive.css?ver=1.0.18" media="all">
+<link rel="stylesheet" id="vet-brains-a11y-css" href="./wp-content/themes/vet-brains/assets/style/accessibility.css?ver=1.0.18" media="all">
+<link rel="stylesheet" id="vet-brains-media-css" href="./wp-content/themes/vet-brains/assets/style/media.css?ver=1.0.18" media="all">
+<link rel="stylesheet" id="vet-brains-home-social-cta-photo-css" href="./wp-content/themes/vet-brains/assets/style/home-social-cta-photo.css?ver=1.0.18" media="all">
+<link rel="stylesheet" id="vet-brains-home-overrides-css" href="./wp-content/themes/vet-brains/assets/style/home-page-overrides.css?ver=1.0.18" media="all">
+<link rel="stylesheet" href="./custom.css" media="all">
+<link rel="stylesheet" href="./two-weight-typography.css" media="all">
+
+<meta name="generator" content="WordPress 7.1.4">
+<link rel="canonical" href="/">
+<link rel="shortlink" href="/">
+<link rel="icon" href="./wp-content/uploads/2026/06/cropped-favicon_Vet_Brain-32x32.png" sizes="32x32">
+<link rel="icon" href="./wp-content/uploads/2026/06/cropped-favicon_Vet_Brain-32x32.png" sizes="192x192">
+<link rel="apple-touch-icon" href="./wp-content/uploads/2026/06/cropped-favicon_Vet_Brain-32x32.png">
+
+</head>
+<body class="home wp-singular page-template-default page page-id-16 wp-theme-vet-brains">
+<div class="site-shell">
+    <div id="vb-a11y-panel" class="vb-a11y-toolbar" role="region" aria-labelledby="vb-a11y-panel-title" data-msg-reset="Обычная версия сайта включена.">
+        <div class="vb-a11y-toolbar__inner">
+            <p id="vb-a11y-panel-title" class="vb-a11y-toolbar__title">
+                Версия для слабовидящих            </p>
+            <div class="vb-a11y-toolbar__controls">
+                <div class="vb-a11y-toolbar__group" role="group" aria-labelledby="vb-a11y-lbl-font">
+                    <span id="vb-a11y-lbl-font" class="vb-a11y-toolbar__label">Размер шрифта</span>
+                    <div class="vb-a11y-toolbar__btns vb-a11y-toolbar__btns--font">
+                        <label class="vb-a11y-toolbar__btn is-active" title="Обычный размер">
+                            <input type="radio" name="vb-a11y-font" value="normal" data-vb-a11y-field="fontScale" checked="">
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true">А</span>
+                            <span class="screen-reader-text">Обычный размер</span>
+                        </label>
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--lg" title="Увеличенный">
+                            <input type="radio" name="vb-a11y-font" value="large" data-vb-a11y-field="fontScale">
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true">А</span>
+                            <span class="screen-reader-text">Увеличенный</span>
+                        </label>
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--xl" title="Очень увеличенный">
+                            <input type="radio" name="vb-a11y-font" value="xlarge" data-vb-a11y-field="fontScale">
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true">А</span>
+                            <span class="screen-reader-text">Очень увеличенный</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="vb-a11y-toolbar__group" role="group" aria-labelledby="vb-a11y-lbl-theme">
+                    <span id="vb-a11y-lbl-theme" class="vb-a11y-toolbar__label">Цветовая схема</span>
+                    <div class="vb-a11y-toolbar__btns vb-a11y-toolbar__btns--theme">
+                        <label class="vb-a11y-swatch vb-a11y-swatch--bw is-active" title="Чёрным по белому">
+                            <input type="radio" name="vb-a11y-theme" value="bw" data-vb-a11y-field="theme" checked="">
+                            <span class="vb-a11y-swatch__preview" aria-hidden="true"></span>
+                            <span class="screen-reader-text">Чёрным по белому</span>
+                        </label>
+                        <label class="vb-a11y-swatch vb-a11y-swatch--wb" title="Белым по чёрному">
+                            <input type="radio" name="vb-a11y-theme" value="wb" data-vb-a11y-field="theme">
+                            <span class="vb-a11y-swatch__preview" aria-hidden="true"></span>
+                            <span class="screen-reader-text">Белым по чёрному</span>
+                        </label>
+                        <label class="vb-a11y-swatch vb-a11y-swatch--blue" title="Синим по голубому">
+                            <input type="radio" name="vb-a11y-theme" value="blue" data-vb-a11y-field="theme">
+                            <span class="vb-a11y-swatch__preview" aria-hidden="true"></span>
+                            <span class="screen-reader-text">Синим по голубому</span>
+                        </label>
+                        <label class="vb-a11y-swatch vb-a11y-swatch--brown" title="Коричневым по бежевому">
+                            <input type="radio" name="vb-a11y-theme" value="brown" data-vb-a11y-field="theme">
+                            <span class="vb-a11y-swatch__preview" aria-hidden="true"></span>
+                            <span class="screen-reader-text">Коричневым по бежевому</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="vb-a11y-toolbar__group" role="group" aria-labelledby="vb-a11y-lbl-font-family">
+                    <span id="vb-a11y-lbl-font-family" class="vb-a11y-toolbar__label">Шрифт</span>
+                    <div class="vb-a11y-toolbar__btns">
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--wide is-active" title="Без засечек">
+                            <input type="radio" name="vb-a11y-font-family" value="sans" data-vb-a11y-field="fontFamily" checked="">
+                            <span class="vb-a11y-toolbar__btn-text vb-a11y-toolbar__btn-text--sans" aria-hidden="true">Аа</span>
+                            <span class="screen-reader-text">Без засечек</span>
+                        </label>
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--wide" title="С засечками">
+                            <input type="radio" name="vb-a11y-font-family" value="serif" data-vb-a11y-field="fontFamily">
+                            <span class="vb-a11y-toolbar__btn-text vb-a11y-toolbar__btn-text--serif" aria-hidden="true">Аа</span>
+                            <span class="screen-reader-text">С засечками</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="vb-a11y-toolbar__group" role="group" aria-labelledby="vb-a11y-lbl-spacing">
+                    <span id="vb-a11y-lbl-spacing" class="vb-a11y-toolbar__label">Кернинг</span>
+                    <div class="vb-a11y-toolbar__btns">
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--wide is-active" title="Обычный интервал">
+                            <input type="radio" name="vb-a11y-spacing" value="normal" data-vb-a11y-field="spacing" checked="">
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true">Аа</span>
+                            <span class="screen-reader-text">Обычный интервал</span>
+                        </label>
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--wide vb-a11y-toolbar__btn--kern-wide" title="Увеличенный интервал">
+                            <input type="radio" name="vb-a11y-spacing" value="wide" data-vb-a11y-field="spacing">
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true">А&nbsp;а</span>
+                            <span class="screen-reader-text">Увеличенный интервал</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="vb-a11y-toolbar__group" role="group" aria-labelledby="vb-a11y-lbl-images">
+                    <span id="vb-a11y-lbl-images" class="vb-a11y-toolbar__label">Изображения</span>
+                    <div class="vb-a11y-toolbar__btns">
+                        <label class="vb-a11y-toolbar__btn vb-a11y-toolbar__btn--wide is-active" title="Показывать изображения">
+                            <input type="checkbox" data-vb-a11y-field="images" checked="">
+                            <span class="vb-a11y-toolbar__btn-text" aria-hidden="true" data-label-on="Вкл." data-label-off="Выкл.">Вкл.</span>
+                            <span class="screen-reader-text">Показывать изображения</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="vb-a11y-toolbar__reset" data-vb-a11y-reset="">
+                Обычная версия            </button>
+        </div>
+    </div>
+    <p id="vb-a11y-live" class="vb-a11y-live" aria-live="polite" aria-atomic="true"></p>
+
+    <header class="site-header" id="vb-site-header">
+        <div class="site-header__bar">
+            <a href="./index.html" class="header__logo" aria-label="Vet-Brains">
+                <img class="header__logo_img vb-a11y-keep" src="./wp-content/themes/vet-brains/assets/images/header/logo.svg" alt="Vet-Brains —
+                         главная страница" width="97" height="42">
+            </a>
+
+            <div class="header__actions">
+                <a class="header__messenger" href="#" data-prototype-disabled="" rel="noopener noreferrer" aria-label="Telegram">
+                    <img class="vb-a11y-keep" src="./wp-content/themes/vet-brains/assets/images/header/icon-telegram1.svg" alt="" aria-hidden="true" width="32" height="32">
+                </a>
+                <a class="header__messenger" href="#" data-prototype-disabled="" rel="noopener noreferrer" aria-label="MAX">
+                    <img class="vb-a11y-keep" src="./wp-content/themes/vet-brains/assets/images/header/icon-max1.svg" alt="" aria-hidden="true" width="32" height="32">
+                </a>
+                <button class="header__accessibility-toggle" type="button" aria-pressed="false" aria-expanded="false" aria-controls="vb-a11y-panel" aria-label="Версия для слабовидящих">
+                    <img class="vb-a11y-keep" src="./wp-content/themes/vet-brains/assets/images/header/accessible_version.svg" alt="" aria-hidden="true" width="32" height="32">
+                </button>
+                <button class="header__menu-toggle" type="button" aria-expanded="false" aria-controls="vb-header-primary-nav" aria-label="Открыть меню" data-label-close="Закрыть меню">
+                    <span class="header__menu-toggle-box" aria-hidden="true">
+                        <span class="header__menu-toggle-line"></span>
+                        <span class="header__menu-toggle-line"></span>
+                        <span class="header__menu-toggle-line"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="header-nav" id="vb-header-primary-nav" aria-label="Primary navigation">
+            <ul id="menu-menyu-1" class="menu"><li id="menu-item-493" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-493"><a href="#home-catalog" data-prototype-tab="free_seminar">ДПО</a></li>
+<li id="menu-item-50" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-50"><a href="#home-catalog" data-prototype-tab="course">Курсы</a></li>
+<li id="menu-item-51" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-51"><a href="#home-catalog" data-prototype-tab="webinar">Вебинары</a></li>
+<li id="menu-item-49" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49"><a href="#" data-prototype-disabled="">Сведения об организации</a></li>
+<li id="menu-item-494" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-494"><a href="#footer-info">Контакты</a></li>
+</ul>        </nav>
+
+        <div class="header__backdrop" aria-hidden="true"></div>
+    </header>
+    <main class="site-main">
+
+    <div class="main-page-container">
+
+        <div class="main-banner-container">
+
+            <section class="main-banner-background" id="home-hero" aria-labelledby="main-hero-title">
+                <div class="main-hero__layers" aria-hidden="true">
+                    <div class="main-hero__gradient"></div>
+                    <div class="main-hero__texture" style="background-image: url('./wp-content/themes/vet-brains/assets/images/main-page/hero-figma-texture.png');"></div>
+                </div>
+
+                <div class="main-banner-content-container">
+                    <div class="main-image-content-text-container">
+                        <div class="main-image-content-text-label">
+                            <h1 id="main-hero-title"><span class="main-hero-title__w">Развиваем клиническое мышление</span><br class="main-hero-title__br" aria-hidden="true"><span class="main-hero-title__w">ветеринарных врачей</span></h1>
+                        </div>
+                        <div class="main-image-content-text-description">
+                            <div class="main-hero-desc-stack main-hero-desc-stack--xl">
+                                <p>Практико-ориентированное обучение, которое помогает принимать уверенные клинические решения и повышать качество ветеринарной помощи</p>
+                            </div>
+                            <div class="main-hero-desc-stack main-hero-desc-stack--lg">
+                                <p>Практико-ориентированное обучение, которое помогает принимать уверенные клинические решения и повышать качество ветеринарной помощи</p>
+                            </div>
+                            <div class="main-hero-desc-stack main-hero-desc-stack--md">
+                                <p>Практико-ориентированное обучение, которое помогает принимать уверенные клинические решения и повышать качество ветеринарной помощи</p>
+                            </div>
+                            <div class="main-hero-desc-stack main-hero-desc-stack--sm">
+                                <p>Практико-ориентированное обучение, которое помогает принимать уверенные клинические решения и повышать качество ветеринарной помощи</p>
+                            </div>
+                            <div class="main-hero-desc-stack main-hero-desc-stack--xs">
+                                <p>Практико-ориентированное обучение, которое помогает принимать уверенные клинические решения и повышать качество ветеринарной помощи</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="main-image-content-button" href="#" data-prototype-disabled="">Подобрать курс</a>
+                </div>
+
+                <div class="main-banner-right-container">
+                    <div class="main-banner-background-vector" aria-hidden="true">
+                        <div class="main-hero__radial"></div>
+                        <img class="main-hero__pattern" src="./wp-content/themes/vet-brains/assets/images/main-page/hero-figma-pattern.png" width="602" height="676" alt="">
+                        <div class="main-hero__photo-wrap">
+                            <div class="main-hero__photo-frame">
+                                <img class="main-hero__photo" src="./wp-content/themes/vet-brains/assets/images/main-page/hero-figma-photo22.png" width="2667" height="50" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="main-banner-grid-container" id="home-stats">
+                <ul class="main-banner-grid-features">
+                    <li class="main-banner-grid-feature">
+                        <div class="main-banner-grid-feature__icon-wrap">
+                            <img class="main-banner-grid-feature__icon" src="./assets/home-feature-medicine-3d-minimal.png" alt="" width="1254" height="1254" decoding="async">
+                        </div>
+                        <div class="main-banner-grid-feature__body">
+                            <h3 class="main-banner-grid-feature__title">Ветеринарная медицина<br>и образование</h3>
+                            <p class="main-banner-grid-feature__text">Профессиональное обучение для ветеринарных специалистов на всех этапах карьеры.</p>
+                        </div>
+                    </li>
+                    <li class="main-banner-grid-feature">
+                        <div class="main-banner-grid-feature__icon-wrap">
+                            <img class="main-banner-grid-feature__icon" src="./assets/home-feature-license-3d-v3.png" alt="" width="1254" height="1254" decoding="async">
+                        </div>
+                        <div class="main-banner-grid-feature__body">
+                            <h3 class="main-banner-grid-feature__title">Лицензированный<br>центр</h3>
+                            <p class="main-banner-grid-feature__text">Образовательная деятельность ведётся на основании официальной лицензии. (№ Л035-01298-77/04357828 от 12.02.2026)</p>
+                        </div>
+                    </li>
+                    <li class="main-banner-grid-feature">
+                        <div class="main-banner-grid-feature__icon-wrap">
+                            <img class="main-banner-grid-feature__icon" src="./assets/home-feature-programs-3d-v3.png" alt="" width="1254" height="1254" decoding="async">
+                        </div>
+                        <div class="main-banner-grid-feature__body">
+                            <h3 class="main-banner-grid-feature__title">Уникальные<br>программы</h3>
+                            <p class="main-banner-grid-feature__text">Программы профессиональной переподготовки и повышения квалификации, разработанные практикующими ветеринарными врачами.</p>
+                        </div>
+                    </li>
+                    <li class="main-banner-grid-feature main-banner-grid-feature--stat">
+                        <div class="main-banner-grid-feature__icon-wrap">
+                            <img class="main-banner-grid-feature__icon" src="./assets/home-feature-graduates-3d-v3.png" alt="" width="1254" height="1254" decoding="async">
+                        </div>
+                        <div class="main-banner-grid-feature__body">
+                            <p class="main-banner-grid-feature__stat">1000+</p>
+                            <p class="main-banner-grid-feature__text">Более 1000 ветеринарных специалистов уже выбрали обучение в нашем образовательном центре.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <article class="main-banner-grid-hero">
+                    <div class="main-banner-grid-hero__layers" aria-hidden="true">
+                        <span class="main-banner-grid-hero__gradient"></span>
+                        <span class="main-banner-grid-hero__texture" style="background-image: url('./wp-content/themes/vet-brains/assets/images/main-page/grid-wide-figma-texture.png');"></span>
+                        <span class="main-banner-grid-hero__radial"></span>
+                    </div>
+                    <div class="main-banner-grid-hero__inner">
+                        <div class="main-banner-grid-hero__text">
+                            <h2 class="main-banner-grid-hero__title">Реальная практика</h2>
+                            <p class="main-banner-grid-hero__desc">Учебный центр «Vet Brain» работает на базе ветеринарных центров «Dr.&nbsp;Hug», где для наших выпускников проводится стажировка, очные мастер-классы в Москве, визитёрство в клиниках Dr.&nbsp;Hug, разбор реальных случаев.</p>
+                        </div>
+                        <div class="main-banner-grid-hero__media">
+                            <img class="main-banner-grid-hero__photo" src="./wp-content/themes/vet-brains/assets/images/main-page/grid-wide-figma-team22.png" alt="" width="749" height="452" decoding="async">
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
+        <section class="home-catalog" id="home-catalog" aria-labelledby="home-catalog-title">
+            <div class="home-catalog__body">
+            <div class="home-catalog__intro">
+                <h1 id="home-catalog-title" class="home-catalog__title">Программы и курсы Vet Brain</h1>
+
+                <div class="home-catalog__subtitle">
+                    <p>Эксперты курсов&nbsp;— практикующие ветеринары из&nbsp;лучших клиник России и&nbsp;СНГ</p>
+                </div>
+            </div>
+                        <div class="home-catalog-tabs-shell is-thumb-ready" role="tablist" aria-label="Тип обучения">
+                <span class="home-catalog-tabs-thumb" aria-hidden="true" style="width: 228px; height: 79px; transform: translate(236px, 8px);"></span>
+                <button type="button" class="home-catalog-tab" role="tab" aria-selected="false" data-tab="free_seminar">
+                    <span class="home-catalog-tab__icon" aria-hidden="true"><svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame" clip-path="url(#clip0_tab_seminar)">
+<rect x="3" y="4" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"></rect>
+<path d="M10 6.5V13.5L16 10L10 6.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+<path d="M8 20H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+<path d="M12 16V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+</g>
+<defs>
+<clipPath id="clip0_tab_seminar">
+<rect width="24" height="24" fill="white"></rect>
+</clipPath>
+</defs>
+</svg>
+</span>
+                    <span>ДПО</span>
+                </button>
+                <button type="button" class="home-catalog-tab is-active" role="tab" aria-selected="true" data-tab="course">
+                    <span class="home-catalog-tab__icon" aria-hidden="true"><svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame" clip-path="url(#clip0_0_12)">
+<g id="Vector">
+</g>
+<path id="Vector_2" d="M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path id="Vector_3" d="M3.60156 9H20.4016" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path id="Vector_4" d="M3.60156 15H20.4016" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path id="Vector_5" d="M11.4997 3C9.81501 5.69961 8.92188 8.81787 8.92188 12C8.92188 15.1821 9.81501 18.3004 11.4997 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path id="Vector_6" d="M12.5 3C14.1847 5.69961 15.0778 8.81787 15.0778 12C15.0778 15.1821 14.1847 18.3004 12.5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</g>
+<defs>
+<clipPath id="clip0_0_12">
+<rect width="24" height="24" fill="white"></rect>
+</clipPath>
+</defs>
+</svg>
+</span>
+                    <span>Курсы</span>
+                </button>
+                <button type="button" class="home-catalog-tab" role="tab" aria-selected="false" data-tab="webinar">
+                    <span class="home-catalog-tab__icon" aria-hidden="true"><svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame" clip-path="url(#clip0_0_4)">
+<g id="Vector">
+</g>
+<path id="Vector_2" d="M10 13C10 13.5304 10.2107 14.0391 10.5858 14.4142C10.9609 14.7893 11.4696 15 12 15C12.5304 15 13.0391 14.7893 13.4142 14.4142C13.7893 14.0391 14 13.5304 14 13C14 12.4696 13.7893 11.9609 13.4142 11.5858C13.0391 11.2107 12.5304 11 12 11C11.4696 11 10.9609 11.2107 10.5858 11.5858C10.2107 11.9609 10 12.4696 10 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path id="Vector_3" d="M8 21V20C8 19.4696 8.21071 18.9609 8.58579 18.5858C8.96086 18.2107 9.46957 18 10 18H14C14.5304 18 15.0391 18.2107 15.4142 18.5858C15.7893 18.9609 16 19.4696 16 20V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path id="Vector_4" d="M15 5C15 5.53043 15.2107 6.03914 15.5858 6.41421C15.9609 6.78929 16.4696 7 17 7C17.5304 7 18.0391 6.78929 18.4142 6.41421C18.7893 6.03914 19 5.53043 19 5C19 4.46957 18.7893 3.96086 18.4142 3.58579C18.0391 3.21071 17.5304 3 17 3C16.4696 3 15.9609 3.21071 15.5858 3.58579C15.2107 3.96086 15 4.46957 15 5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path id="Vector_5" d="M17 10H19C19.5304 10 20.0391 10.2107 20.4142 10.5858C20.7893 10.9609 21 11.4696 21 12V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path id="Vector_6" d="M5 5C5 5.53043 5.21071 6.03914 5.58579 6.41421C5.96086 6.78929 6.46957 7 7 7C7.53043 7 8.03914 6.78929 8.41421 6.41421C8.78929 6.03914 9 5.53043 9 5C9 4.46957 8.78929 3.96086 8.41421 3.58579C8.03914 3.21071 7.53043 3 7 3C6.46957 3 5.96086 3.21071 5.58579 3.58579C5.21071 3.96086 5 4.46957 5 5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path id="Vector_7" d="M3 13V12C3 11.4696 3.21071 10.9609 3.58579 10.5858C3.96086 10.2107 4.46957 10 5 10H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</g>
+<defs>
+<clipPath id="clip0_0_4">
+<rect width="24" height="24" fill="white"></rect>
+</clipPath>
+</defs>
+</svg>
+</span>
+                    <span>Вебинары</span>
+                </button>
+            </div>
+                                        <div class="home-catalog__stack">
+                    <div class="home-catalog-grid-surface">
+                    <ul class="home-catalog-grid" data-catalog-filter="1">
+                                                        <li class="home-course-card home-course-card--teal" data-catalog-slot="1" data-course-kind="course">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media home-course-card__media--cover" aria-hidden="true">
+                <img class="home-course-card__media-img home-course-card__media-img--cover" src="./wp-content/uploads/2026/06/Диетология_на_каждый_день_Диетология_в_повседневной_практике_врача-1024x649.webp" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 30%</li>
+                                                    <li class="home-course-card__chip">8 лекций</li>
+                                                    <li class="home-course-card__chip">9 часов</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 год</li>
+                                                    <li class="home-course-card__chip">Курс</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Диетология на каждый день. Диетология в повседневной практике врача</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">9700₽/мес</span>
+                                                                                    <span class="home-course-card__discount">-30%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                    <span>от</span>                                    <span>565</span>
+                                    <span>₽/мес.</span>
+                                </span>
+                                                                    <span class="home-course-card__installment">Рассрочка до 12 месяцев</span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--light" data-catalog-slot="2" data-course-kind="course">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media home-course-card__media--cover" aria-hidden="true">
+                <img class="home-course-card__media-img home-course-card__media-img--cover" src="./wp-content/uploads/2026/06/Читай_не_стрессуй_Базовый_курс_по_рентгенографии_грудной_полости-1024x649.webp" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 30%</li>
+                                                    <li class="home-course-card__chip">8 лекций</li>
+                                                    <li class="home-course-card__chip">10 часов</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 год</li>
+                                                    <li class="home-course-card__chip">Курс</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Читай, не стрессуй! Базовый курс по рентгенографии грудной полости</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">14900₽/мес</span>
+                                                                                    <span class="home-course-card__discount">-30%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                    <span>от</span>                                    <span>869</span>
+                                    <span>₽/мес.</span>
+                                </span>
+                                                                    <span class="home-course-card__installment">Рассрочка до 12 месяцев</span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--light" data-catalog-slot="3" data-course-kind="course">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media home-course-card__media--cover" aria-hidden="true">
+                <img class="home-course-card__media-img home-course-card__media-img--cover" src="./wp-content/uploads/2026/06/Школа_ПРОГРЕССИВНОЙ_гастроэнтерологии_Скажи_антибиотикам_–_НЕТ-1024x649.webp" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 23%</li>
+                                                    <li class="home-course-card__chip">22 лекции</li>
+                                                    <li class="home-course-card__chip">37 часов</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 год</li>
+                                                    <li class="home-course-card__chip">Курс</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Школа ПРОГРЕССИВНОЙ гастроэнтерологии: «Скажи антибиотикам – НЕТ! Перезагрузка»</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">18070₽/мес</span>
+                                                                                    <span class="home-course-card__discount">-23%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                    <span>от</span>                                    <span>1 158</span>
+                                    <span>₽/мес.</span>
+                                </span>
+                                                                    <span class="home-course-card__installment">Рассрочка до 12 месяцев</span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--teal" data-catalog-slot="4" data-course-kind="course">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media home-course-card__media--cover" aria-hidden="true">
+                <img class="home-course-card__media-img home-course-card__media-img--cover" src="./wp-content/uploads/2026/05/Глубже_эпидермиса_базовый_курс_по_дерматологии-1024x649.webp" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 23%</li>
+                                                    <li class="home-course-card__chip">18 лекций</li>
+                                                    <li class="home-course-card__chip">9 часов</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 год</li>
+                                                    <li class="home-course-card__chip">Курс</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Глубже эпидермиса: базовый курс по дерматологии</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">12610₽/мес</span>
+                                                                                    <span class="home-course-card__discount">-23%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                    <span>от</span>                                    <span>808</span>
+                                    <span>₽/мес.</span>
+                                </span>
+                                                                    <span class="home-course-card__installment">Рассрочка до 12 месяцев</span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--teal" data-catalog-slot="5" data-course-kind="webinar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media" aria-hidden="true">
+                <img class="home-course-card__media-img" src="./wp-content/themes/vet-brains/assets/images/main-page/catalog-card-5.png" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Онлайн-мастер-класс</li>
+                                                    <li class="home-course-card__chip">8 часов лекций</li>
+                                                    <li class="home-course-card__chip">Доступ 3 месяца</li>
+                                                    <li class="home-course-card__chip">Вебинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Онлайн-мастер-класс «Гастроэнтерология и диетология»</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">900₽</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                                                        <span>1 500</span>
+                                    <span>₽</span>
+                                </span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--light" data-catalog-slot="6" data-course-kind="webinar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media" aria-hidden="true">
+                <img class="home-course-card__media-img" src="./wp-content/themes/vet-brains/assets/images/main-page/catalog-card-6.png" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">5 часов лекций</li>
+                                                    <li class="home-course-card__chip">Доступ 3 месяца</li>
+                                                    <li class="home-course-card__chip">Вебинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Онлайн-семинар «Рецидивирующие уроциститы: что делать, чтобы не достичь предела возможностей?»</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">900₽</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                                                        <span>1 500</span>
+                                    <span>₽</span>
+                                </span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--light" data-catalog-slot="7" data-course-kind="webinar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media" aria-hidden="true">
+                <img class="home-course-card__media-img" src="./wp-content/themes/vet-brains/assets/images/main-page/catalog-card-7.png" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 50%</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 месяц</li>
+                                                    <li class="home-course-card__chip">Вебинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Факты и мифы о питании кошек и собак</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">900₽</span>
+                                                                                    <span class="home-course-card__discount">-50%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                                                        <span>450</span>
+                                    <span>₽</span>
+                                </span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--light" data-catalog-slot="8" data-course-kind="webinar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media" aria-hidden="true">
+                <img class="home-course-card__media-img" src="./wp-content/themes/vet-brains/assets/images/main-page/catalog-card-8.png" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 50%</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 месяц</li>
+                                                    <li class="home-course-card__chip">Вебинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Подход к пациенту с симптомами патологий верхних дыхательных путей</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">900₽</span>
+                                                                                    <span class="home-course-card__discount">-50%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                                                        <span>450</span>
+                                    <span>₽</span>
+                                </span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--teal" data-catalog-slot="9" data-course-kind="webinar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media" aria-hidden="true">
+                <img class="home-course-card__media-img" src="./wp-content/themes/vet-brains/assets/images/main-page/catalog-card-9.png" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 50%</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 месяц</li>
+                                                    <li class="home-course-card__chip">Вебинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Подход к пациенту с симптомами патологий нижних дыхательных путей</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">900₽</span>
+                                                                                    <span class="home-course-card__discount">-50%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                                                        <span>450</span>
+                                    <span>₽</span>
+                                </span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--teal" data-catalog-slot="1" data-course-kind="webinar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media" aria-hidden="true">
+                <img class="home-course-card__media-img" src="./wp-content/themes/vet-brains/assets/images/main-page/catalog-card-1.png" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 50%</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 месяц</li>
+                                                    <li class="home-course-card__chip">Вебинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Что делать, когда на анестезии всё пошло не так: алгоритм действий врача</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">900₽</span>
+                                                                                    <span class="home-course-card__discount">-50%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                                                        <span>450</span>
+                                    <span>₽</span>
+                                </span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--light" data-catalog-slot="2" data-course-kind="webinar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media" aria-hidden="true">
+                <img class="home-course-card__media-img" src="./wp-content/themes/vet-brains/assets/images/main-page/catalog-card-2.png" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 50%</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 месяц</li>
+                                                    <li class="home-course-card__chip">Вебинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Как быстро оценить пациента перед анестезией и не попасть в осложнения</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">900₽</span>
+                                                                                    <span class="home-course-card__discount">-50%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                                                        <span>450</span>
+                                    <span>₽</span>
+                                </span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--light" data-catalog-slot="3" data-course-kind="webinar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media" aria-hidden="true">
+                <img class="home-course-card__media-img" src="./wp-content/themes/vet-brains/assets/images/main-page/catalog-card-3.png" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 50%</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 месяц</li>
+                                                    <li class="home-course-card__chip">Вебинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Нюансы и ошибки ведения урологических пациентов</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">900₽</span>
+                                                                                    <span class="home-course-card__discount">-50%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                                                        <span>450</span>
+                                    <span>₽</span>
+                                </span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--teal" data-catalog-slot="4" data-course-kind="webinar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media" aria-hidden="true">
+                <img class="home-course-card__media-img" src="./wp-content/themes/vet-brains/assets/images/main-page/catalog-card-4.png" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 50%</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 месяц</li>
+                                                    <li class="home-course-card__chip">Вебинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Моторика пищеварительной системы и эффективная прокинетическая терапия</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">900₽</span>
+                                                                                    <span class="home-course-card__discount">-50%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                                                        <span>450</span>
+                                    <span>₽</span>
+                                </span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--teal" data-catalog-slot="5" data-course-kind="free_seminar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media home-course-card__media--cover" aria-hidden="true">
+                <img class="home-course-card__media-img home-course-card__media-img--cover" src="./wp-content/uploads/2026/08/Нефрология_и_урология_мелких_домашних_животных-1024x649.webp" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Старт курса — 19 октября</li>
+                                                    <li class="home-course-card__chip">Доступна рассрочка</li>
+                                                    <li class="home-course-card__chip">Доступ в закрытый клуб</li>
+                                                    <li class="home-course-card__chip">Бесплатный семинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Нефрология и&nbsp;урология мелких домашних животных</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                    <span>от</span>                                    <span>7 917</span>
+                                    <span>₽/мес.</span>
+                                </span>
+                                                                    <span class="home-course-card__installment">Рассрочка до 12 месяцев</span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--light" data-catalog-slot="6" data-course-kind="free_seminar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media home-course-card__media--cover" aria-hidden="true">
+                <img class="home-course-card__media-img home-course-card__media-img--cover" src="./wp-content/uploads/2026/06/Гастроэнтерология_мелких_домашних_животных-1024x649.webp" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">Скидка 23%</li>
+                                                    <li class="home-course-card__chip">255 часов</li>
+                                                    <li class="home-course-card__chip">6 месяцев обучения</li>
+                                                    <li class="home-course-card__chip">Доступ на 1 год</li>
+                                                    <li class="home-course-card__chip">Бесплатный семинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Гастроэнтерология мелких домашних животных</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                    <span class="home-course-card__row home-course-card__row--strike">
+                                        <span class="home-course-card__strike">175550₽/мес</span>
+                                                                                    <span class="home-course-card__discount">-23%</span>
+                                                                            </span>
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                    <span>от</span>                                    <span>11 250</span>
+                                    <span>₽/мес.</span>
+                                </span>
+                                                                    <span class="home-course-card__installment">Рассрочка до 12 месяцев</span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--light" data-catalog-slot="7" data-course-kind="free_seminar" hidden="">
+        <a class="home-course-card__link" href="#" data-prototype-disabled="">
+            <span class="home-course-card__media home-course-card__media--cover" aria-hidden="true">
+                <img class="home-course-card__media-img home-course-card__media-img--cover" src="./wp-content/uploads/2026/08/Анестезиология_мелких_домашних_животных-1024x649.webp" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">72 часа</li>
+                                                    <li class="home-course-card__chip">3 месяца обучения</li>
+                                                    <li class="home-course-card__chip">Доступна рассрочка</li>
+                                                    <li class="home-course-card__chip">Бесплатный семинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Анестезиология мелких домашних животных</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                    <span>от</span>                                    <span>5 417</span>
+                                    <span>₽/мес.</span>
+                                </span>
+                                                                    <span class="home-course-card__installment">Рассрочка до 12 месяцев</span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                            <li class="home-course-card home-course-card--light" data-catalog-slot="8" data-course-kind="free_seminar" hidden="">
+        <a class="home-course-card__link" href="./courses/100-pervykh-paczientov-terapevta/index.html">
+            <span class="home-course-card__media home-course-card__media--cover" aria-hidden="true">
+                <img class="home-course-card__media-img home-course-card__media-img--cover" src="./wp-content/uploads/2026/08/Терапия_мелких_домашних_животных-1024x649.webp" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="home-course-card__content">
+                                    <ul class="home-course-card__chips">
+                                                    <li class="home-course-card__chip">ДПО</li>
+                                                    <li class="home-course-card__chip">Профессиональная переподготовка</li>
+                                                    <li class="home-course-card__chip">Бесплатный семинар</li>
+                                            </ul>
+                                <span class="home-course-card__course-title">Терапия мелких домашних животных</span>
+                <span class="home-course-card__bottom">
+                    <span class="home-course-card__info">
+                                                    <span class="home-course-card__price-block">
+                                                                <span class="home-course-card__row home-course-card__row--current">
+                                    <span>от</span>                                    <span>825</span>
+                                    <span>₽/мес.</span>
+                                </span>
+                                                                    <span class="home-course-card__installment">Рассрочка до 12 месяцев</span>
+                                                            </span>
+                                            </span>
+                    <span class="home-course-card__arrow" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </li>
+                                                </ul>
+                    <p class="home-catalog-tab-panel-empty" hidden="" aria-live="polite"></p>
+                    </div>
+                </div>
+                        </div>
+            <div class="home-catalog-footer">
+                <a class="home-btn home-btn--primary" href="#" data-prototype-disabled="">Смотреть больше курсов</a>
+            </div>
+        </section>
+
+        <section class="home-section home-help--consult" id="home-help" aria-labelledby="home-help-title">
+            <div class="home-help__consult">
+                <div class="home-help__consult-left">
+                    <div class="home-help__consult-card">
+                        <div class="home-help__consult-head">
+                            <h2 id="home-help-title" class="home-help__consult-title">
+                                <span>Нужна помощь</span>
+                                <span>с выбором?</span>
+                            </h2>
+                            <p class="home-help__consult-lead">
+                                <span>Напишите нам в удобный мессенджер — поможем</span>
+                                <span>выбрать программу и тариф,</span>
+                                <span>ответим на вопросы про оплату и документы</span>
+                            </p>
+                        </div>
+                        <div class="home-help__consult-links">
+                            <a class="home-help-channel home-help-channel--vk" href="#" data-prototype-disabled="" aria-label="Вконтакте">
+                                <span class="home-help-channel__bg" aria-hidden="true"></span>
+                                <span class="home-help-channel__label">ВКонтакте</span>
+                                <span class="home-help-channel__icon" aria-hidden="true">
+                                    <span class="home-help-channel__icon-frame">
+                                        <img class="home-help-channel__icon-img" src="./wp-content/themes/vet-brains/assets/images/main-page/help-icon-vk21.png" width="72" height="72" alt="">
+                                    </span>
+                                </span>
+                            </a>
+                            <a class="home-help-channel home-help-channel--telegram" href="#" data-prototype-disabled="" aria-label="Telegram">
+                                <span class="home-help-channel__bg" aria-hidden="true"></span>
+                                <span class="home-help-channel__label">Телеграм</span>
+                                <span class="home-help-channel__icon" aria-hidden="true">
+                                    <span class="home-help-channel__icon-frame">
+                                        <img class="home-help-channel__icon-img" src="./wp-content/themes/vet-brains/assets/images/main-page/help-icon-telegram21.png" width="172" height="172" alt="">
+                                    </span>
+                                </span>
+                            </a>
+                            <a class="home-help-channel home-help-channel--max" href="#" data-prototype-disabled="" aria-label="MAX">
+                                <span class="home-help-channel__bg" aria-hidden="true"></span>
+                                <span class="home-help-channel__label">Макс</span>
+                                <span class="home-help-channel__icon" aria-hidden="true">
+                                    <span class="home-help-channel__icon-frame">
+                                        <img class="home-help-channel__icon-img" src="./wp-content/themes/vet-brains/assets/images/main-page/help-icon-max21.png" width="172" height="172" alt="">
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-help__consult-visual" aria-hidden="true">
+                    <div class="home-help__consult-visual-bg"></div>
+                    <div class="home-help__consult-visual-photo">
+                        <img src="./wp-content/themes/vet-brains/assets/images/main-page/Dog.png" width="653" height="720" alt="">
+                    </div>
+                </div>
+                <p class="home-help__consult-legal">
+                    Отправляя заявку, вы принимаете условия договора оферты и позволяете нам обрабатывать ваши данные в соответствии с
+                    <a href="#" data-prototype-disabled="">Политикой конфиденциальности.</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="home-section home-reviews" id="home-reviews" aria-labelledby="home-reviews-title">
+                        <header class="home-reviews__header">
+                <h2 id="home-reviews-title" class="home-reviews__title">
+                    <span>Результаты и истории успеха</span>
+                    <span>наших учеников</span>
+                </h2>
+                <p class="home-reviews__subtitle">
+                    <span>Выпускники центра — ветеринарные врачи,</span>
+                    <span>работающие в крупнейших клиниках России.</span>
+                </p>
+            </header>
+            <div class="home-reviews__masonry">
+                <div class="home-reviews__col home-reviews__col--a">
+                                        <article class="home-review-card">
+                        <header class="home-review-card__author">
+                            <span class="home-review-card__avatar">
+                                <img src="./assets/review-avatars/3c4837d0c8f0064a.jpg" width="80" height="80" alt="">
+                            </span>
+                            <span class="home-review-card__who">
+                                <span class="home-review-card__name">Rin</span>
+                                <span class="home-review-card__role">Знаток города 3 уровня</span>
+                            </span>
+                        </header>
+                                                <div class="home-review-card__text-wrap" data-vb-review-text-wrap="" >
+                            <div class="home-review-card__text-clip" data-vb-review-text-clip="">
+                                <p class="home-review-card__text home-review-card__text--lg">Все супер, рекомендую. Преподаватели большие профессионалы. Цены вполне приемлемы в сравнении с другими образовательными сайтами. Недавно приобрела курс по гастроэнтерологии, удобно что запись будет открыта на 3 месяца, все очень доступно и понятно, есть схемы лечения от узких специалистов, что необходимо для врачей общей практики из маленьких клиник, где ты один за всех.</p>
+                            </div>
+                                                        <a href="#" data-prototype-disabled="" class="home-review-card__text-more-btn" data-vb-review-more="" rel="noopener noreferrer" aria-label="Открыть полный отзыв на Яндекс Картах" hidden="">
+                                <span class="home-review-card__text-more-label">Читать далее</span>
+                                <span class="home-review-card__text-more-chevron" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+                                </span>
+                            </a>
+                                                    </div>
+                        </article>
+                                            <article class="home-review-card">
+                        <header class="home-review-card__author">
+                            <span class="home-review-card__avatar">
+                                <img src="./assets/review-avatars/c8f2ac2305c9413b.jpg" width="80" height="80" alt="">
+                            </span>
+                            <span class="home-review-card__who">
+                                <span class="home-review-card__name">Марина Д.</span>
+                                <span class="home-review-card__role">Знаток города 6 уровня</span>
+                            </span>
+                        </header>
+                                                <div class="home-review-card__text-wrap is-truncated" data-vb-review-text-wrap="" >
+                            <div class="home-review-card__text-clip" data-vb-review-text-clip="" style="max-height: 134.4px;">
+                                <p class="home-review-card__text home-review-card__text--lg">Добрый день. Уже не первый раз слушаю вебинары у Vet Brain. Всегда интересно и познавательно! Семинар "Рецидивируюшие уроциститы" очень понравился! Жаль, что не смогу попасть к Крутицкой на очное занятие, потому что всегда слушаю ее с большим интересом. Спасибо огромное за то, что вы помогаете врачам углублять знания в интересующей области!</p>
+                            </div>
+                                                        <a href="#" data-prototype-disabled="" class="home-review-card__text-more-btn" data-vb-review-more="" rel="noopener noreferrer" aria-label="Открыть полный отзыв на Яндекс Картах">
+                                <span class="home-review-card__text-more-label">Читать далее</span>
+                                <span class="home-review-card__text-more-chevron" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+                                </span>
+                            </a>
+                                                    </div>
+                        </article>
+                    </div>
+                <div class="home-reviews__mid">
+                    <div class="home-reviews__col home-reviews__col--b">
+                                            <article class="home-review-card">
+                        <header class="home-review-card__author">
+                            <span class="home-review-card__avatar">
+                                <img src="./assets/review-avatars/7c2b89aa325f0d70.jpg" width="80" height="80" alt="">
+                            </span>
+                            <span class="home-review-card__who">
+                                <span class="home-review-card__name">Юлия Прилуцкая</span>
+                                <span class="home-review-card__role">Знаток города 2 уровня</span>
+                            </span>
+                        </header>
+                                                <div class="home-review-card__text-wrap is-truncated" data-vb-review-text-wrap="" >
+                            <div class="home-review-card__text-clip" data-vb-review-text-clip="" style="max-height: 201.6px;">
+                                <p class="home-review-card__text home-review-card__text--lg">Купила курс по гастроэнтерологии и теперь чувствую себя намнооо уверенней на приемах. Все очень доступно и понятно объяснено, лекторы на знания и опыт не жадные)</p>
+                            </div>
+                                                        <a href="#" data-prototype-disabled="" class="home-review-card__text-more-btn" data-vb-review-more="" rel="noopener noreferrer" aria-label="Открыть полный отзыв на Яндекс Картах">
+                                <span class="home-review-card__text-more-label">Читать далее</span>
+                                <span class="home-review-card__text-more-chevron" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+                                </span>
+                            </a>
+                                                    </div>
+                        </article>
+                        </div>
+                                        <article class="home-review-card home-review-card--stat-slot">
+                        <header class="home-review-card__author">
+                            <span class="home-review-card__avatar">
+                                <img src="./assets/review-avatars/353a00ea7385fd28.jpg" width="80" height="80" alt="">
+                            </span>
+                            <span class="home-review-card__who">
+                                <span class="home-review-card__name">Олеся Мерненко</span>
+                                <span class="home-review-card__role">Знаток города 2 уровня</span>
+                            </span>
+                        </header>
+                                                <div class="home-review-card__text-wrap is-truncated" data-vb-review-text-wrap="" >
+                            <div class="home-review-card__text-clip" data-vb-review-text-clip="" style="max-height: 67.2px;">
+                                <p class="home-review-card__text home-review-card__text--lg">Вебинары очень познавательные и современные, лекторы очень доступно и в тоже время легко объясняют не простую информацию. Также отдельная благодарность за презентации, к которым можно всегда обратиться и освежить свои знания. Спасибо за лекции и с нетерпением буду ждать новые</p>
+                            </div>
+                                                        <a href="#" data-prototype-disabled="" class="home-review-card__text-more-btn" data-vb-review-more="" rel="noopener noreferrer" aria-label="Открыть полный отзыв на Яндекс Картах">
+                                <span class="home-review-card__text-more-label">Читать далее</span>
+                                <span class="home-review-card__text-more-chevron" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+                                </span>
+                            </a>
+                                                    </div>
+                        </article>
+                        <div class="home-reviews__col home-reviews__col--c">
+                                            <article class="home-review-card">
+                        <header class="home-review-card__author">
+                            <span class="home-review-card__avatar">
+                                <img src="./assets/review-avatars/a810abc02af4495c.jpg" width="80" height="80" alt="">
+                            </span>
+                            <span class="home-review-card__who">
+                                <span class="home-review-card__name">Максим Савватеев</span>
+                                <span class="home-review-card__role">Знаток города 12 уровня</span>
+                            </span>
+                        </header>
+                                                <div class="home-review-card__text-wrap is-truncated" data-vb-review-text-wrap="" >
+                            <div class="home-review-card__text-clip" data-vb-review-text-clip="" style="max-height: 201.6px;">
+                                <p class="home-review-card__text home-review-card__text--lg">Добрый день. Вебинары этого учебного центра очень познавательные и нужные. Проводят их самые лучшие специалисты: Кулешов Алексей, Крутицкая Надежда, Калашникова Ольга. Их можно слушать бесконечно, я ими заслушиваюсь. Все слова лектора дублируются слайдами, со ссылками на исследования. Благодаря Алексею и Ольге не просто начал разбираться в гастроэнтерологии, но и полюбил ее. Спасибо огромное за Ваш труд! буду обязательно смотреть Ваши вебинары.</p>
+                            </div>
+                                                        <a href="#" data-prototype-disabled="" class="home-review-card__text-more-btn" data-vb-review-more="" rel="noopener noreferrer" aria-label="Открыть полный отзыв на Яндекс Картах">
+                                <span class="home-review-card__text-more-label">Читать далее</span>
+                                <span class="home-review-card__text-more-chevron" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+                                </span>
+                            </a>
+                                                    </div>
+                        </article>
+                        </div>
+                </div>
+                <div class="home-reviews__col home-reviews__col--d">
+                                        <article class="home-review-card">
+                        <header class="home-review-card__author">
+                            <span class="home-review-card__avatar">
+                                <img src="./assets/review-avatars/6696aba97577ff7f.jpg" width="80" height="80" alt="">
+                            </span>
+                            <span class="home-review-card__who">
+                                <span class="home-review-card__name">Олег О.</span>
+                                <span class="home-review-card__role">Знаток города 3 уровня</span>
+                            </span>
+                        </header>
+                                                <div class="home-review-card__text-wrap is-truncated" data-vb-review-text-wrap="" >
+                            <div class="home-review-card__text-clip" data-vb-review-text-clip="" style="max-height: 134.4px;">
+                                <p class="home-review-card__text home-review-card__text--lg">Отличная образовательная платформа! Материал структуирован и подается максимально понятно. Преподаватели - настоящие профессионалы. Огромное спасибо за возможность получать знания!</p>
+                            </div>
+                                                        <a href="#" data-prototype-disabled="" class="home-review-card__text-more-btn" data-vb-review-more="" rel="noopener noreferrer" aria-label="Открыть полный отзыв на Яндекс Картах">
+                                <span class="home-review-card__text-more-label">Читать далее</span>
+                                <span class="home-review-card__text-more-chevron" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+                                </span>
+                            </a>
+                                                    </div>
+                        </article>
+                    </div>
+            </div>
+            </section>
+
+        <section class="home-section home-teachers" id="home-teachers" aria-labelledby="home-teachers-title">
+            <h2 id="home-teachers-title" class="home-teachers__title">
+                <span>Вашими преподавателями будут топовые эксперты ветеринарной медицины</span>
+            </h2>
+                            <ul class="home-teachers__grid">
+                                                                    <li class="home-teacher-card">
+                            <div class="home-teacher-card__inner">
+                                <div class="home-teacher-card__hero">
+                                    <span class="home-teacher-card__hero-layers" aria-hidden="true"></span>
+                                    <span class="home-teacher-card__hero-photo" aria-hidden="true" style="background-image: url('./wp-content/uploads/2026/06/Вершинина-Мария-1-1024x1024.webp');"></span>
+                                </div>
+                                <span class="home-teacher-card__body">
+                                                                            <span class="home-teacher-card__chips">
+                                                                                            <span class="home-teacher-card__chip">Ветеринарный врач-гастроэнтеролог</span>
+                                                                                    </span>
+                                                                        <span class="home-teacher-card__name">Вершинина Мария</span>
+                                                                            <span class="home-teacher-card__bio">Телемедицина, член Общества сравнительной гастроэнтерологии (CGS)</span>
+                                                                    </span>
+                            </div>
+                        </li>
+                                                                    <li class="home-teacher-card">
+                            <div class="home-teacher-card__inner">
+                                <div class="home-teacher-card__hero">
+                                    <span class="home-teacher-card__hero-layers" aria-hidden="true"></span>
+                                    <span class="home-teacher-card__hero-photo" aria-hidden="true" style="background-image: url('./wp-content/uploads/2026/06/Имберт-Габриела-1024x1024.webp');"></span>
+                                </div>
+                                <span class="home-teacher-card__body">
+                                                                            <span class="home-teacher-card__chips">
+                                                                                            <span class="home-teacher-card__chip">Ветеринарный врач УЗД</span>
+                                                                                    </span>
+                                                                        <span class="home-teacher-card__name">Имберт Габриела</span>
+                                                                            <span class="home-teacher-card__bio">СВК «Белый клык», преподаватель курсов по УЗИ животных</span>
+                                                                    </span>
+                            </div>
+                        </li>
+                                                                    <li class="home-teacher-card">
+                            <div class="home-teacher-card__inner">
+                                <div class="home-teacher-card__hero">
+                                    <span class="home-teacher-card__hero-layers" aria-hidden="true"></span>
+                                    <span class="home-teacher-card__hero-photo" aria-hidden="true" style="background-image: url('./assets/doctors/Инал Тамара.png');"></span>
+                                </div>
+                                <span class="home-teacher-card__body">
+                                                                            <span class="home-teacher-card__chips">
+                                                                                            <span class="home-teacher-card__chip">Ветеринарный врач-анестезиолог-реаниматолог</span>
+                                                                                    </span>
+                                                                        <span class="home-teacher-card__name">Инал Тамара</span>
+                                                                            <span class="home-teacher-card__bio">Клиника RECOM, член экспертного совета общества «ВИТАР»</span>
+                                                                    </span>
+                            </div>
+                        </li>
+                                                                    <li class="home-teacher-card">
+                            <div class="home-teacher-card__inner">
+                                <div class="home-teacher-card__hero">
+                                    <span class="home-teacher-card__hero-layers" aria-hidden="true"></span>
+                                    <span class="home-teacher-card__hero-photo" aria-hidden="true" style="background-image: url('./wp-content/uploads/2026/06/Калашникова-Ольга-1024x1024.webp');"></span>
+                                </div>
+                                <span class="home-teacher-card__body">
+                                                                            <span class="home-teacher-card__chips">
+                                                                                            <span class="home-teacher-card__chip">Ветеринарный врач-гастроэнтеролог</span>
+                                                                                    </span>
+                                                                        <span class="home-teacher-card__name">Калашникова Ольга</span>
+                                                                            <span class="home-teacher-card__bio">Клиника доктора Сотникова, лектор конференций</span>
+                                                                    </span>
+                            </div>
+                        </li>
+                                                                    <li class="home-teacher-card">
+                            <div class="home-teacher-card__inner">
+                                <div class="home-teacher-card__hero">
+                                    <span class="home-teacher-card__hero-layers" aria-hidden="true"></span>
+                                    <span class="home-teacher-card__hero-photo" aria-hidden="true" style="background-image: url('./assets/doctors/Крутицкая Надежда.png');"></span>
+                                </div>
+                                <span class="home-teacher-card__body">
+                                                                            <span class="home-teacher-card__chips">
+                                                                                            <span class="home-teacher-card__chip">Ветеринарный врач-нефролог</span>
+                                                                                    </span>
+                                                                        <span class="home-teacher-card__name">Крутицкая Надежда</span>
+                                                                            <span class="home-teacher-card__bio">ВК «Ковчег», президент ассоциации «НефроУроВет»</span>
+                                                                    </span>
+                            </div>
+                        </li>
+                                                                    <li class="home-teacher-card">
+                            <div class="home-teacher-card__inner">
+                                <div class="home-teacher-card__hero">
+                                    <span class="home-teacher-card__hero-layers" aria-hidden="true"></span>
+                                    <span class="home-teacher-card__hero-photo" aria-hidden="true" style="background-image: url('./wp-content/uploads/2026/06/Кулешов-Алексей-1024x1024.webp');"></span>
+                                </div>
+                                <span class="home-teacher-card__body">
+                                                                            <span class="home-teacher-card__chips">
+                                                                                            <span class="home-teacher-card__chip">Ветеринарный врач-гастроэнтеролог</span>
+                                                                                    </span>
+                                                                        <span class="home-teacher-card__name">Кулешов Алексей</span>
+                                                                            <span class="home-teacher-card__bio">Ветеринарные центры Dr.Hug, лектор MVC и NVC</span>
+                                                                    </span>
+                            </div>
+                        </li>
+                                                                    <li class="home-teacher-card">
+                            <div class="home-teacher-card__inner">
+                                <div class="home-teacher-card__hero">
+                                    <span class="home-teacher-card__hero-layers" aria-hidden="true"></span>
+                                    <span class="home-teacher-card__hero-photo" aria-hidden="true" style="background-image: url('./wp-content/uploads/2026/06/Махкамова-Шахноза-1024x1024.webp');"></span>
+                                </div>
+                                <span class="home-teacher-card__body">
+                                                                            <span class="home-teacher-card__chips">
+                                                                                            <span class="home-teacher-card__chip">Ветеринарный врач-дерматолог</span>
+                                                                                    </span>
+                                                                        <span class="home-teacher-card__name">Махкамова Шахноза</span>
+                                                                            <span class="home-teacher-card__bio">Dr.Hug, автор курса «Основы дерматологии»</span>
+                                                                    </span>
+                            </div>
+                        </li>
+                                                                    <li class="home-teacher-card">
+                            <div class="home-teacher-card__inner">
+                                <div class="home-teacher-card__hero">
+                                    <span class="home-teacher-card__hero-layers" aria-hidden="true"></span>
+                                    <span class="home-teacher-card__hero-photo" aria-hidden="true" style="background-image: url('./wp-content/uploads/2026/06/Пожарская-Дарья-1024x1024.webp');"></span>
+                                </div>
+                                <span class="home-teacher-card__body">
+                                                                            <span class="home-teacher-card__chips">
+                                                                                            <span class="home-teacher-card__chip">Ветеринарный врач-дерматолог</span>
+                                                                                    </span>
+                                                                        <span class="home-teacher-card__name">Пожарская Дарья</span>
+                                                                            <span class="home-teacher-card__bio">СВК «Свой Доктор», научный руководитель отделения дерматологии</span>
+                                                                    </span>
+                            </div>
+                        </li>
+                                                                    <li class="home-teacher-card">
+                            <div class="home-teacher-card__inner">
+                                <div class="home-teacher-card__hero">
+                                    <span class="home-teacher-card__hero-layers" aria-hidden="true"></span>
+                                    <span class="home-teacher-card__hero-photo" aria-hidden="true" style="background-image: url('./wp-content/uploads/2026/06/Скоробогатова-Маргарита-1024x1024.webp');"></span>
+                                </div>
+                                <span class="home-teacher-card__body">
+                                                                            <span class="home-teacher-card__chips">
+                                                                                            <span class="home-teacher-card__chip">Ветеринарный врач-диетолог</span>
+                                                                                    </span>
+                                                                        <span class="home-teacher-card__name">Скоробогатова Маргарита</span>
+                                                                            <span class="home-teacher-card__bio">Dr.Hug, лектор конференций NVC и СО.ВЕТ</span>
+                                                                    </span>
+                            </div>
+                        </li>
+                                                                    <li class="home-teacher-card">
+                            <div class="home-teacher-card__inner">
+                                <div class="home-teacher-card__hero">
+                                    <span class="home-teacher-card__hero-layers" aria-hidden="true"></span>
+                                    <span class="home-teacher-card__hero-photo" aria-hidden="true" style="background-image: url('./wp-content/uploads/2026/06/Тиунчик-Екатерина-Михайловна-1024x1024.webp');"></span>
+                                </div>
+                                <span class="home-teacher-card__body">
+                                                                            <span class="home-teacher-card__chips">
+                                                                                            <span class="home-teacher-card__chip">Ветеринарный врач-рентгенолог</span>
+                                                                                    </span>
+                                                                        <span class="home-teacher-card__name">Тиунчик Екатерина</span>
+                                                                            <span class="home-teacher-card__bio">Европейский ветеринарный центр, лектор NVC</span>
+                                                                    </span>
+                            </div>
+                        </li>
+                                    </ul>
+                    </section>
+
+        <section class="home-section home-social-cta" id="home-social" aria-labelledby="home-social-title">
+            <h2 id="home-social-title" class="screen-reader-text">Экспертный контент в соцсетях</h2>
+            <div class="home-social-cta__layout">
+                                <div class="home-social-cta__banner">
+                    <div class="home-social-cta__banner-bg-stack" aria-hidden="true">
+                        <span class="home-social-cta__banner-bg-layer home-social-cta__banner-bg-layer--gradient"></span>
+                        <span class="home-social-cta__banner-bg-layer home-social-cta__banner-bg-layer--texture"></span>
+                        <span class="home-social-cta__banner-bg-layer home-social-cta__banner-bg-layer--radial-svg"></span>
+                    </div>
+                    <div class="home-social-cta__banner-text">
+                        <p class="home-social-cta__banner-title">
+                            <span class="home-social-cta__banner-title-line home-social-cta__banner-title-line--wide">Экспертный контент</span>
+                            <span class="home-social-cta__banner-title-line home-social-cta__banner-title-line--wide">в VK и Telegram</span>
+                            <span class="home-social-cta__banner-title-line home-social-cta__banner-title-line--narrow">Экспертный контент в VK</span>
+                            <span class="home-social-cta__banner-title-line home-social-cta__banner-title-line--narrow">и Telegram</span>
+                        </p>
+                        <p class="home-social-cta__banner-lead">
+                            Публикации от ветеринарных врачей, свежие исследования и анонсы событий — всё в наших соцсетях
+                        </p>
+                    </div>
+                    <div class="home-social-cta__banner-photo-wrap" aria-hidden="true">
+                        <img class="home-social-cta__banner-photo" src="./wp-content/themes/vet-brains/assets/images/main-page/1920_3_doctors.png" width="651" height="424" alt="" loading="eager" fetchpriority="high" decoding="async" data-vb-social-photos="{&quot;1920&quot;:{&quot;url&quot;:&quot;.\/wp-content\/themes\/vet-brains\/assets\/images\/main-page\/1920_3_doctors.png&quot;,&quot;width&quot;:651,&quot;height&quot;:424},&quot;1440&quot;:{&quot;url&quot;:&quot;.\/wp-content\/themes\/vet-brains\/assets\/images\/main-page\/1440_3_doctors.png&quot;,&quot;width&quot;:359,&quot;height&quot;:336},&quot;1000&quot;:{&quot;url&quot;:&quot;.\/wp-content\/themes\/vet-brains\/assets\/images\/main-page\/1440_3_doctors.png&quot;,&quot;width&quot;:393,&quot;height&quot;:360},&quot;768&quot;:{&quot;url&quot;:&quot;.\/wp-content\/themes\/vet-brains\/assets\/images\/main-page\/480_3_doctors.png&quot;,&quot;width&quot;:342,&quot;height&quot;:252},&quot;480&quot;:{&quot;url&quot;:&quot;.\/wp-content\/themes\/vet-brains\/assets\/images\/main-page\/480_3_doctors.png&quot;,&quot;width&quot;:432,&quot;height&quot;:262},&quot;320&quot;:{&quot;url&quot;:&quot;.\/wp-content\/themes\/vet-brains\/assets\/images\/main-page\/480_3_doctors.png&quot;,&quot;width&quot;:280,&quot;height&quot;:172}}">
+                        <script>
+                            (function () {
+                                var img = document.currentScript && document.currentScript.previousElementSibling;
+                                if (!img || !img.getAttribute('data-vb-social-photos')) {
+                                    return;
+                                }
+                                var payload = JSON.parse(img.getAttribute('data-vb-social-photos'));
+                                var w = window.innerWidth;
+                                var key = w <= 320 ? '320' : w <= 480 ? '480' : w <= 768 ? '768' : w <= 1000 ? '1000' : w <= 1440 ? '1440' : '1920';
+                                var spec = payload[key];
+                                if (!spec || !spec.url) {
+                                    img.classList.remove('is-vb-social-photo-pending');
+                                    return;
+                                }
+                                function reveal() {
+                                    img.classList.remove('is-vb-social-photo-pending');
+                                }
+                                img.setAttribute('width', String(spec.width));
+                                img.setAttribute('height', String(spec.height));
+                                if (img.getAttribute('src') === spec.url && img.complete) {
+                                    reveal();
+                                    return;
+                                }
+                                img.addEventListener('load', reveal, { once: true });
+                                img.addEventListener('error', reveal, { once: true });
+                                if (img.getAttribute('src') !== spec.url) {
+                                    img.setAttribute('src', spec.url);
+                                }
+                            }());
+                        </script>
+                    </div>
+                </div>
+                <div class="home-social-cta__links">
+                    <a class="home-social-cta__pill home-social-cta__pill--vk" href="#" data-prototype-disabled="" aria-label="Мы во Вконтакте">
+                        <span class="home-social-cta__pill-bg-stack" aria-hidden="true">
+                            <span class="home-social-cta__pill-bg-layer home-social-cta__pill-bg-layer--gradient"></span>
+                            <span class="home-social-cta__pill-bg-layer home-social-cta__pill-bg-layer--texture"></span>
+                            <span class="home-social-cta__pill-bg-layer home-social-cta__pill-bg-layer--radial-svg"></span>
+                        </span>
+                        <span class="home-social-cta__pill-label">Вконтакте</span>
+                        <span class="home-social-cta__pill-icon-wrap" aria-hidden="true">
+                            <img class="home-social-cta__pill-icon" src="./assets/social-vk-final.png" width="162" height="162" alt="">
+                        </span>
+                    </a>
+                    <a class="home-social-cta__pill home-social-cta__pill--tg" href="#" data-prototype-disabled="" aria-label="Мы в Telegram">
+                        <span class="home-social-cta__pill-bg-stack" aria-hidden="true">
+                            <span class="home-social-cta__pill-bg-layer home-social-cta__pill-bg-layer--gradient"></span>
+                            <span class="home-social-cta__pill-bg-layer home-social-cta__pill-bg-layer--texture"></span>
+                            <span class="home-social-cta__pill-bg-layer home-social-cta__pill-bg-layer--radial-svg"></span>
+                        </span>
+                        <span class="home-social-cta__pill-label">Telegram</span>
+                        <span class="home-social-cta__pill-icon-wrap" aria-hidden="true">
+                            <img class="home-social-cta__pill-icon" src="./assets/social-telegram-final.png" width="162" height="162" alt="">
+                        </span>
+                    </a>
+                    <a class="home-social-cta__pill home-social-cta__pill--lectures" href="#" data-prototype-disabled="" rel="noopener noreferrer" aria-label="Бесплатные лекции во VK Видео">
+                        <span class="home-social-cta__pill-bg-stack" aria-hidden="true">
+                            <span class="home-social-cta__pill-bg-layer home-social-cta__pill-bg-layer--gradient"></span>
+                            <span class="home-social-cta__pill-bg-layer home-social-cta__pill-bg-layer--texture"></span>
+                            <span class="home-social-cta__pill-bg-layer home-social-cta__pill-bg-layer--radial-svg"></span>
+                        </span>
+                        <span class="home-social-cta__pill-label">Бесплатные лекции</span>
+                        <span class="home-social-cta__pill-icon-wrap" aria-hidden="true">
+                            <img class="home-social-cta__pill-icon" src="./assets/social-video-final.png" width="162" height="162" alt="">
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-section home-advantages" id="home-advantages" aria-labelledby="home-advantages-title">
+            <h2 id="home-advantages-title" class="home-section__title home-section__title--center">Преимущества обучения</h2>
+            <div class="home-advantages__rows">
+                <ul class="home-advantages__grid"> <!-- Один общий ul -->
+                    <li class="home-advantage-card">
+                        <div class="home-advantage-card__visual" aria-hidden="true">
+                            <div class="home-advantage-card__stack home-advantage-card__stack--duplex">
+                                <img class="home-advantage-card__photo home-advantage-card__photo--1b" src="./wp-content/themes/vet-brains/assets/images/main-page/advantage-1b2.png" alt="" width="1671" height="940" loading="lazy" decoding="async">
+                            </div>
+                            <span class="home-advantage-card__fade"></span>
+                            <!-- <span class="home-advantage-card__foot-blur"></span> -->
+                        </div>
+                        <div class="home-advantage-card__body">
+                            <h3>Сбалансированная программа</h3>
+                            <p>Вам не нужно тратить по 8 часов в день на изучение материала. Знания даём равномерно в удобном для вас темпе.</p>
+                        </div>
+                    </li>
+                    <li class="home-advantage-card">
+                        <div class="home-advantage-card__visual" aria-hidden="true">
+                            <div class="home-advantage-card__stack home-advantage-card__stack--white">
+                                <img class="home-advantage-card__photo home-advantage-card__photo--2" src="./wp-content/themes/vet-brains/assets/images/main-page/advantage-22.png" alt="" width="1200" height="800" loading="lazy" decoding="async">
+                            </div>
+                            <span class="home-advantage-card__fade"></span>
+                            <!-- <span class="home-advantage-card__foot-blur"></span> -->
+                        </div>
+                        <div class="home-advantage-card__body">
+                            <h3><span class="home-advantage-card__title-line">Развитие</span><span class="home-advantage-card__title-line">клинического мышления</span></h3>
+                            <p>Приоритет обучения&nbsp;— поиск нестандартных решений в сложных ситуациях, а не только работа по готовым алгоритмам.</p>
+                        </div>
+                    </li>
+                    <li class="home-advantage-card">
+                        <div class="home-advantage-card__visual" aria-hidden="true">
+                            <div class="home-advantage-card__stack">
+                                <img class="home-advantage-card__photo home-advantage-card__photo--3" src="./wp-content/themes/vet-brains/assets/images/main-page/advantage-32.png" alt="" width="1600" height="1067" loading="lazy" decoding="async">
+                            </div>
+                            <span class="home-advantage-card__fade"></span>
+                            <!-- <span class="home-advantage-card__foot-blur"></span> -->
+                        </div>
+                        <div class="home-advantage-card__body">
+                            <h3>Практика</h3>
+                            <p>Выполняйте задания и разбирайте реальные кейсы, применяя знания сразу в работе.</p>
+                        </div>
+                    </li>
+                    <li class="home-advantage-card">
+                        <div class="home-advantage-card__visual" aria-hidden="true">
+                            <div class="home-advantage-card__stack home-advantage-card__stack--duplex">
+                                <img class="home-advantage-card__photo home-advantage-card__photo--4b" src="./wp-content/themes/vet-brains/assets/images/main-page/advantage-4b2.png" alt="" width="1671" height="940" loading="lazy" decoding="async">
+                            </div>
+                            <span class="home-advantage-card__fade"></span>
+                            <!-- <span class="home-advantage-card__foot-blur"></span> -->
+                        </div>
+                        <div class="home-advantage-card__body">
+                            <h3>Поддержка</h3>
+                            <p>Сопровождаем на всех этапах обучения&nbsp;— вы всегда знаете, куда обратиться за помощью.</p>
+                        </div>
+                    </li>
+                    <li class="home-advantage-card">
+                        <div class="home-advantage-card__visual" aria-hidden="true">
+                            <div class="home-advantage-card__stack home-advantage-card__stack--white">
+                                <img class="home-advantage-card__photo home-advantage-card__photo--5" src="./wp-content/themes/vet-brains/assets/images/main-page/advantage-52.png" alt="" width="1200" height="800" loading="lazy" decoding="async">
+                            </div>
+                            <span class="home-advantage-card__fade"></span>
+                            <!-- <span class="home-advantage-card__foot-blur"></span> -->
+                        </div>
+                        <div class="home-advantage-card__body">
+                            <h3>Документ об обучении</h3>
+                            <p>По программам ДПО — диплом о профессиональной переподготовке или удостоверение о повышении квалификации установленного образца после промежуточной и итоговой аттестации. По коротким курсам — сертификат Vet Brain.</p>
+                        </div>
+                    </li>
+                    <li class="home-advantage-card home-advantage-card--accent">
+                        <div class="home-advantage-card__accent-bg" aria-hidden="true">
+                            <span class="home-advantage-card__accent-gradient"></span>
+                            <span class="home-advantage-card__accent-texture" style="background-image: url('./wp-content/themes/vet-brains/assets/images/main-page/advantage-6-texture.png');"></span>
+                            <span class="home-advantage-card__accent-radial"></span>
+                        </div>
+                        <div class="home-advantage-card__visual home-advantage-card__visual--accent" aria-hidden="true">
+                            <div class="home-advantage-card__accent-mask">
+                                <img class="home-advantage-card__accent-photo" src="./wp-content/themes/vet-brains/assets/images/main-page/advantage-6-photo2.png" alt="" width="900" height="600" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                        <div class="home-advantage-card__body home-advantage-card__body--accent">
+                            <h3>Новая специализация</h3>
+                            <p class="home-advantage-card__accent-desc"><span class="home-advantage-card__accent-line">Переподготовка даёт право работать по новому направлению, </span><span class="home-advantage-card__accent-line">повышение квалификации — подтвердить уровень.</span></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="home-section home-benefits" id="home-benefits" aria-labelledby="home-benefits-title">
+            <h2 id="home-benefits-title" class="home-section__title home-section__title--center home-benefits__title">С нами выгодно</h2>
+            <ul class="home-benefits__grid">
+                <li class="home-benefit-card">
+                    <div class="home-benefit-card__figure" aria-hidden="true">
+                        <img src="./wp-content/themes/vet-brains/assets/images/main-page/benefit-graphic-0pct.svg" alt="" width="270" height="175" loading="lazy" decoding="async">
+                    </div>
+                    <div class="home-benefit-card__body">
+                        <h3>Рассрочка 0%</h3>
+                        <div class="home-benefit-card__desc">
+                            <p>Оплата частями без переплат.</p>
+                            <p>Поможем подобрать удобный срок до 12 месяцев</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="home-benefit-card">
+                    <div class="home-benefit-card__figure" aria-hidden="true">
+                        <img src="./wp-content/themes/vet-brains/assets/images/main-page/benefit-graphic-13pct.svg" alt="" width="360" height="175" loading="lazy" decoding="async">
+                    </div>
+                    <div class="home-benefit-card__body">
+                        <h3>Налоговый вычет</h3>
+                        <div class="home-benefit-card__desc">
+                            <p>Для программ ДПО. Верните часть стоимости обучения — выдадим справку для налоговой</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="home-benefit-card">
+                    <div class="home-benefit-card__figure" aria-hidden="true">
+                        <img src="./assets/benefit-graphic-15pct.png" alt="" width="360" height="174" loading="lazy" decoding="async">
+                    </div>
+                    <div class="home-benefit-card__body">
+                        <h3>Скидка выпускникам</h3>
+                        <div class="home-benefit-card__desc">
+                            <p>На любой следующий курс.</p>
+                            <p>Не суммируется с рассрочкой</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="home-section home-faq" id="home-faq" aria-labelledby="home-faq-title">
+            <h2 id="home-faq-title" class="home-section__title home-section__title--center home-faq__title">Вопросы-ответы</h2>
+            <div class="home-faq__list">
+                <details class="home-faq__item">
+                    <summary>
+                        <span class="home-faq__question">Какой документ я получу?</span>
+                        <span class="home-faq__toggle" aria-hidden="true"><span class="home-faq__toggle-icon"></span></span>
+                    </summary>
+                    <div class="home-faq__answer">
+                        <p>Профессиональная переподготовка — диплом о профессиональной переподготовке. Повышение квалификации — удостоверение о повышении квалификации.</p>
+                        <p>Диплом и удостоверение — официальные документы о квалификации установленного образца: их выдаёт лицензированная образовательная организация после итоговой аттестации на основании ч. 3 и ч. 10 ст. 60 и ч. 15 ст. 76 Федерального закона от 29.12.2012 № 273-ФЗ «Об образовании в Российской Федерации». Документ подтверждает повышение квалификации или получение новой квалификации и принимается работодателем.</p>
+                        <p>Лицензия Vet Brain: Л035-01298-77/04357828 от 12.02.2026. За короткие курсы, отдельные блоки и тарифы «только теория» — электронный сертификат.</p>
+                    </div>
+                </details>
+                <details class="home-faq__item">
+                    <summary>
+                        <span class="home-faq__question">Вы выдаёте диплом государственного образца?</span>
+                        <span class="home-faq__toggle" aria-hidden="true"><span class="home-faq__toggle-icon"></span></span>
+                    </summary>
+                    <div class="home-faq__answer">
+                        <p>Дипломов о профессиональной переподготовке и удостоверений о повышении квалификации государственного образца в России не существует — их не выдаёт ни одна организация дополнительного образования. Государственные бланки бывают только у колледжей и вузов. По программам ДПО выдаётся документ установленного образца: его форму утверждает лицензированная образовательная организация (ч. 15 ст. 76 ФЗ № 273-ФЗ «Об образовании в РФ»).</p>
+                        <p>Что важно знать:</p>
+                        <ul>
+                            <li>Диплом о профессиональной переподготовке даёт право работать по новому направлению (ч. 4 ст. 76 ФЗ № 273-ФЗ), удостоверение — подтверждает повышение квалификации.</li>
+                            <li>Все выданные документы мы вносим в федеральный реестр ФИС ФРДО — работодатель может проверить подлинность.</li>
+                            <li>Получить диплом или удостоверение могут слушатели с высшим или средним профессиональным образованием, а также студенты, которые его получают (ч. 3 ст. 76 ФЗ № 273-ФЗ).</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="home-faq__item">
+                    <summary>
+                        <span class="home-faq__question">Смогу ли я совмещать учёбу с работой?</span>
+                        <span class="home-faq__toggle" aria-hidden="true"><span class="home-faq__toggle-icon"></span></span>
+                    </summary>
+                    <div class="home-faq__answer">
+                        <p>Да. Лекции в записи — смотрите в удобное время. Онлайн-семинары идут по расписанию и сохраняются в записи. Очные мастер-классы проходят в Москве в конкретные даты — они указаны на странице курса.</p>
+                    </div>
+                </details>
+                <details class="home-faq__item">
+                    <summary>
+                        <span class="home-faq__question">Будет ли практика или только теория?</span>
+                        <span class="home-faq__toggle" aria-hidden="true"><span class="home-faq__toggle-icon"></span></span>
+                    </summary>
+                    <div class="home-faq__answer">
+                        <p>Курсы ориентированы на практику: разбираются реальные клинические случаи, даются алгоритмы диагностики и лечения, протоколы, чек-листы и рекомендации для применения в работе уже на следующий день. На программах по анестезиологии и нефрологии есть очные мастер-классы в Москве.</p>
+                    </div>
+                </details>
+                <details class="home-faq__item">
+                    <summary>
+                        <span class="home-faq__question">Могу ли я задавать вопросы преподавателям?</span>
+                        <span class="home-faq__toggle" aria-hidden="true"><span class="home-faq__toggle-icon"></span></span>
+                    </summary>
+                    <div class="home-faq__answer">
+                        <p>Да — в закрытом чате с куратором и на онлайн-семинарах с разбором случаев.</p>
+                    </div>
+                </details>
+                <details class="home-faq__item">
+                    <summary>
+                        <span class="home-faq__question">Как записаться?</span>
+                        <span class="home-faq__toggle" aria-hidden="true"><span class="home-faq__toggle-icon"></span></span>
+                    </summary>
+                    <div class="home-faq__answer">
+                        <p>Выберите программу и тариф, нажмите «Записаться» и оплатите — сразу или в рассрочку. Для программ ДПО менеджер пришлёт договор на электронную подпись — подписать можно кодом из SMS. После оплаты придёт доступ в личный кабинет. Есть вопросы — напишите нам в <a href="#" data-prototype-disabled="" rel="noopener noreferrer">Telegram</a>, <a href="#" data-prototype-disabled="" rel="noopener noreferrer">MAX</a> или <a href="#" data-prototype-disabled="" rel="noopener noreferrer">ВКонтакте</a>.</p>
+                    </div>
+                </details>
+                <details class="home-faq__item">
+                    <summary>
+                        <span class="home-faq__question">Какое образование нужно для ДПО?</span>
+                        <span class="home-faq__toggle" aria-hidden="true"><span class="home-faq__toggle-icon"></span></span>
+                    </summary>
+                    <div class="home-faq__answer">
+                        <p>Для диплома или удостоверения — высшее или среднее профессиональное образование (или обучение на последних курсах). Слушатели без высшего образования получают электронный сертификат.</p>
+                    </div>
+                </details>
+                <details class="home-faq__item">
+                    <summary>
+                        <span class="home-faq__question">Можно ли получить налоговый вычет?</span>
+                        <span class="home-faq__toggle" aria-hidden="true"><span class="home-faq__toggle-icon"></span></span>
+                    </summary>
+                    <div class="home-faq__answer">
+                        <p>Да, за программы ДПО. После оплаты выдадим справку для налоговой — напишите менеджеру.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+                <section class="home-section home-partners" id="home-partners" aria-labelledby="home-partners-title">
+            <h2 id="home-partners-title" class="home-section__title home-section__title--center">Наши партнёры</h2>
+            <ul class="home-partners__grid">
+                                                        <li class="home-partners__item">
+                        <a class="home-partners__card" href="#" data-prototype-disabled="" rel="noopener noreferrer">
+                                                            <img class="home-partners__logo" src="./wp-content/uploads/2026/10/Снимок-экрана-2026-10-23-225708-300x59.png" alt="ВетПродакс">
+                                                    </a>
+                    </li>
+                                                        <li class="home-partners__item">
+                        <a class="home-partners__card" href="#" data-prototype-disabled="" rel="noopener noreferrer">
+                                                            <img class="home-partners__logo" src="./assets/vet-academy-logo.svg" alt="ВетАкадемия">
+                                                    </a>
+                    </li>
+                                                        <li class="home-partners__item">
+                        <a class="home-partners__card" href="#" data-prototype-disabled="" rel="noopener noreferrer">
+                                                            <img class="home-partners__logo" src="./wp-content/uploads/2026/10/h4khlc8ofn8z8xltz59b1qws30h44oog-300x188.png" alt="Валта">
+                                                    </a>
+                    </li>
+                                                        <li class="home-partners__item">
+                        <a class="home-partners__card" href="#" data-prototype-disabled="" rel="noopener noreferrer">
+                                                            <img class="home-partners__logo" src="./wp-content/uploads/2026/10/images.png" alt="ВетСтем">
+                                                    </a>
+                    </li>
+                            </ul>
+        </section>
+        
+    </div>
+
+
+    </main>
+    <footer class="site-footer">
+                <div class="footer-help-consult-wrap">
+            <section class="footer-help-consult home-feedback" id="footer-feedback" aria-labelledby="footer-feedback-title">
+                <div class="home-feedback__layout">
+                    <div class="home-feedback__intro">
+                        <div class="home-feedback__intro-copy">
+                            <h2 id="footer-feedback-title" class="home-feedback__title">Поможем выбрать обучение</h2>
+                            <p class="home-feedback__lead">Оставьте контакты и вопрос. Подскажем, какая программа подойдёт под ваши задачи.</p>
+                        </div>
+                        <img class="home-feedback__illustration" src="./assets/feedback-vet-education-v4.png" width="1312" height="1199" alt="Ветеринар с собакой изучают учебник" loading="lazy" decoding="async">
+                    </div>
+                    <form class="home-feedback__form" data-local-feedback action="#footer-feedback" method="post">
+                        <h3 class="home-feedback__form-title">Свяжемся с вами</h3>
+                        <div class="home-feedback__fields">
+                            <label class="home-feedback__field" for="feedback-email">
+                                <span>Электронная почта</span>
+                                <input id="feedback-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+                            </label>
+                            <label class="home-feedback__field" for="feedback-telegram">
+                                <span>Ник в Telegram</span>
+                                <input id="feedback-telegram" name="telegram" type="text" autocomplete="off" placeholder="@username">
+                            </label>
+                            <label class="home-feedback__field" for="feedback-phone">
+                                <span>Номер телефона</span>
+                                <input id="feedback-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 999 000-00-00">
+                            </label>
+                            <label class="home-feedback__field home-feedback__field--wide" for="feedback-question">
+                                <span>Ваш вопрос <span class="home-feedback__optional">(необязательно)</span></span>
+                                <textarea id="feedback-question" name="question" rows="3" placeholder="О какой программе хотите узнать?"></textarea>
+                            </label>
+                        </div>
+                        <fieldset class="home-feedback__method">
+                            <legend>Как вам удобнее ответить?</legend>
+                            <div class="home-feedback__choices">
+                                <label><input type="radio" name="preferred_contact" value="email" checked><span><svg class="icon icon-tabler icon-tabler-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"/><path d="M3 7l9 6l9 -6"/></svg>По почте</span></label>
+                                <label><input type="radio" name="preferred_contact" value="telegram"><span><svg class="icon icon-tabler icon-tabler-brand-telegram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/></svg>В Telegram</span></label>
+                                <label><input type="radio" name="preferred_contact" value="phone"><span><svg class="icon icon-tabler icon-tabler-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>По телефону</span></label>
+                            </div>
+                        </fieldset>
+                        <label class="home-feedback__consent">
+                            <input type="checkbox" name="consent" required>
+                            <span>Согласен на обработку персональных данных в соответствии с <a href="#" data-prototype-disabled="" rel="noopener noreferrer">Политикой конфиденциальности</a>.</span>
+                        </label>
+                        <button class="home-feedback__submit" type="submit">Отправить заявку</button>
+                        <p class="home-feedback__status" data-local-feedback-status role="status" aria-live="polite" hidden></p>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <div class="footer-info-wrap" id="footer-info">
+            <div class="footer-info-container">
+                <div class="footer-favicon-logo">
+                    <img src="./wp-content/themes/vet-brains/assets/images/main-page/logo_favicon.png" alt="vet-brain">
+                </div>
+
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <div class="footer-nav-info">
+                        <p class="footer-nav-title">Разделы</p>
+                        <ul class="footer-nav-list"><li><a href="#" data-prototype-disabled="">О нас</a></li><li><a href="#home-teachers">Кураторы</a></li><li><a href="#" data-prototype-disabled="">Сведения об организации</a></li><li><a href="#home-reviews">Отзывы</a></li><li><a href="#" data-prototype-disabled="">Публичная оферта</a></li><li><a href="#" data-prototype-disabled="">Политика конфиденциальности</a></li></ul>                    </div>
+
+                    <div class="footer-nav-info">
+                        <p class="footer-nav-title">Контакты</p>
+                        <ul class="footer-nav-list"><li><a href="#" data-prototype-disabled="">info@dr-hug.school</a></li><li><a href="#" data-prototype-disabled="">Telegram</a></li><li><a href="#" data-prototype-disabled="">Вконтакте</a></li></ul>                    </div>
+                </nav>
+
+                <div class="footer-subscribe" id="footer-subscribe">
+                    <p class="footer-subscribe-title">Подписывайтесь — будем делиться курсами, скидками и пользой</p>
+                                        <form class="footer-subscribe-form" action="#" data-prototype-form="" method="post">
+                        <input type="hidden" id="vb_footer_subscribe_nonce" name="vb_footer_subscribe_nonce"><input type="hidden" name="_wp_http_referer">                        <input type="hidden" name="vb_footer_subscribe">
+                        <input type="hidden" name="vb_footer_subscribe_return">
+                        <label class="screen-reader-text" for="footer-subscribe-email">
+                            Email for subscription                        </label>
+                        <input id="footer-subscribe-email" class="footer-subscribe-input" type="email" name="footer_subscribe_email" placeholder="Электронная почта" required="">
+                        <button class="footer-subscribe-button" type="submit">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-brand-block">
+            
+            <div class="footer-brand-words">
+                <img src="./wp-content/themes/vet-brains/assets/images/footer/footer-brand-words.svg" alt="">
+            </div>
+
+            <div class="footer-team-image">
+                <img src="./wp-content/uploads/2026/06/doctors_footer_img.webp" alt="Footer team image">
+            </div>
+
+                            <div class="footer-legal">
+                                            <span class="footer-legal-item">© 2025–2026 Vet Brain</span>
+                                            <span class="footer-legal-item">ООО «ВетКомПро»</span>
+                                            <span class="footer-legal-item">ОГРН 1257700160630</span>
+                                            <span class="footer-legal-item">ИНН 7733466532</span>
+                                    </div>
+                    </div>
+    </footer>
+    <button type="button" class="vb-scroll-top" id="vb-scroll-top" aria-hidden="true" tabindex="-1" aria-label="Наверх">
+        <svg class="vb-scroll-top__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <path d="M12 5 5 12M12 5l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </button>
+</div>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/vet-brains/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+
+
+
+
+
+
+
+<script defer src="./local.js"></script><script defer src="./desktop-type-size.js"></script></body></html>
