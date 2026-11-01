@@ -1,0 +1,120 @@
+/* Shared phone typography for the home and therapy course pages. */
+@media (max-width: 425px) {
+  :root {
+    --vb-phone-section: 28px;
+    --vb-phone-card: 20px;
+    --vb-phone-copy: 16px;
+    --vb-phone-small: 14px;
+  }
+
+  .home-catalog__title,
+  .home-reviews__title,
+  .home-teachers__title,
+  .home-section__title,
+  .home-benefits__title.home-section__title--center,
+  .home-faq__title.home-section__title--center,
+  .home-feedback__title,
+  .home-help__consult-title,
+  .home-social-cta__banner-title,
+  .vb-course-page .vb-course-section-title,
+  .vb-course-page .vb-course-program-title,
+  .vb-course-page .vb-course-outcomes-title,
+  .vb-course-page .vb-course-tariffs-title {
+    font-size: var(--vb-phone-section) !important;
+    line-height: 1.2 !important;
+  }
+
+  .vb-course-page .vb-course-title {
+    font-size: 32px !important;
+    line-height: 1.12 !important;
+  }
+
+  .main-banner-grid-feature__title,
+  .main-banner-grid-feature__stat,
+  .main-banner-grid-hero__title,
+  .home-course-card__course-title,
+  .home-teacher-card__name,
+  .home-section.home-reviews .home-review-card__name,
+  .vb-course-section--reviews.home-reviews .home-review-card__name,
+  .home-advantage-card h3,
+  .home-benefit-card__body h3,
+  .home-faq__question,
+  .home-feedback__form-title,
+  .vb-course-page .vb-course-audience-title,
+  .vb-course-page .vb-course-step__content h3,
+  .vb-course-page .vb-course-curator__content h3,
+  .vb-course-page .vb-course-section--teachers .vb-course-teacher-name,
+  .vb-course-page .vb-learning-timeline__copy h3,
+  .vb-course-page .vb-course-section--outcomes .vb-course-outcome-title,
+  .vb-course-page .vb-course-situation h3,
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__title,
+  .vb-course-page .vb-course-tariff-name {
+    font-size: var(--vb-phone-card) !important;
+    line-height: 1.3 !important;
+  }
+
+  .main-banner-grid-feature__text,
+  .main-banner-grid-hero__desc,
+  .home-catalog__subtitle,
+  .home-teacher-card__bio,
+  .home-advantage-card__body p,
+  .home-benefit-card__desc p,
+  .home-reviews__subtitle,
+  .home-review-card__text-wrap,
+  .home-section.home-reviews .home-review-card__text-wrap,
+  .vb-course-section--reviews.home-reviews .home-review-card__text-wrap,
+  .home-faq__answer p,
+  .home-faq__answer li,
+  .home-feedback__lead,
+  .vb-course-page .vb-course-excerpt,
+  .vb-course-page .vb-course-audience-list li,
+  .vb-course-page .vb-course-step__content p,
+  .vb-course-page .vb-course-curator__content p,
+  .vb-course-page .vb-course-section--teachers .vb-course-teacher-bio,
+  .vb-course-page .vb-learning-timeline__copy p,
+  .vb-course-page .vb-course-section--outcomes .vb-course-outcome-body,
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__list li:not(.vb-course-acc-module__more),
+  .vb-course-page .vb-course-tariff-feature__text {
+    font-size: var(--vb-phone-copy) !important;
+    line-height: 1.45 !important;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cell:not(.vb-course-pathology-cell--cta),
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-text {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+  }
+
+  .home-course-card__chip,
+  .home-teacher-card__chip,
+  .home-review-card__role,
+  .vb-course-page .vb-course-section--teachers .vb-course-teacher-chip,
+  .vb-course-page .vb-learning-timeline__copy > .vb-course-teacher-chip {
+    font-size: var(--vb-phone-small) !important;
+    line-height: 1.3 !important;
+  }
+
+  .vb-course-page .vb-course-hero-visual {
+    aspect-ratio: 3 / 2;
+  }
+
+  .vb-course-page .vb-course-hero-img {
+    object-position: center;
+  }
+}
+
+@media (max-width: 320px) {
+  :root {
+    --vb-phone-section: 26px;
+    --vb-phone-card: 18px;
+  }
+
+  .vb-course-page .vb-course-title {
+    font-size: 28px !important;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cell:not(.vb-course-pathology-cell--cta),
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-text {
+    font-size: 16px !important;
+  }
+}
