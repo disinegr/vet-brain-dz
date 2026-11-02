@@ -1,0 +1,157 @@
+.vb-course-page .vb-course-program-outline__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.9fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.vb-course-page .vb-course-program-outline__modules {
+  margin: 0;
+  gap: 16px;
+}
+
+.vb-course-page .vb-course-program-outline__modules .vb-course-acc-module {
+  --vb-prog-accent: #1d9bb1;
+  --vb-prog-accent-soft: #e4f5f8;
+  border: 0;
+  border-left: 5px solid #1d9bb1;
+  border-radius: 24px;
+  box-shadow: none;
+  background: #fff;
+}
+
+.vb-course-page .vb-course-program-outline__modules .vb-course-acc-module > summary {
+  grid-template-columns: 88px minmax(0, 1fr) 48px;
+  gap: 16px;
+  padding: 24px 24px 24px 16px;
+}
+
+.vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__accent {
+  display: none;
+}
+
+.vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__num {
+  color: #ddf1f4;
+  font-size: 76px;
+  text-align: left;
+}
+
+.vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__title {
+  color: #222b2d;
+  font-size: 24px;
+  line-height: 1.22;
+}
+
+.vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__meta {
+  color: #718a94;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__body {
+  margin: 0 24px 0 120px;
+  padding: 20px 0 28px;
+  border-top: 1px solid #e2eef1;
+}
+
+.vb-course-page .vb-course-program-outline__topics {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 1.25em;
+  color: #526f79;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.vb-course-page .vb-course-program-outline__topic::marker,
+.vb-course-page .vb-course-program-outline__subtopics li::marker {
+  color: #1d9bb1;
+  font-weight: 700;
+}
+
+.vb-course-page .vb-course-program-outline__topic-heading {
+  color: #222b2d;
+  font-weight: 700;
+}
+
+.vb-course-page .vb-course-program-outline__subtopics {
+  display: grid;
+  gap: 6px;
+  margin: 9px 0 5px;
+  padding-left: 1.2em;
+}
+
+.vb-course-page .vb-course-program-outline__qualification {
+  position: sticky;
+  top: 24px;
+  min-width: 0;
+  overflow: hidden;
+  padding: 30px;
+  border-radius: 28px;
+  background: radial-gradient(circle at 40% 30%, #69cbd5 0, transparent 48%), linear-gradient(135deg, #44b7c6, #1b98ae);
+  color: #fff;
+}
+
+.vb-course-page .vb-course-program-outline__qualification::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('./assets/7d8a7b771ec20f54.png') 0 0 / 183.2px 245.2px repeat;
+  opacity: 0.09;
+  pointer-events: none;
+}
+
+.vb-course-page .vb-course-program-outline__qualification > * {
+  position: relative;
+}
+
+.vb-course-page .vb-course-program-outline__qualification img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 390px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.vb-course-page .vb-course-program-outline__qualification-title {
+  margin: 0 0 20px;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.vb-course-page .vb-course-program-outline__qualification-copy {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .vb-course-page .vb-course-program-outline__layout { grid-template-columns: 1fr; }
+  .vb-course-page .vb-course-program-outline__qualification { position: static; }
+  .vb-course-page .vb-course-program-outline__qualification img { max-height: 260px; }
+}
+
+@media (max-width: 600px) {
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module > summary {
+    grid-template-columns: 52px minmax(0, 1fr) 36px;
+    gap: 10px;
+    padding: 18px 16px 18px 12px;
+  }
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__num { font-size: 44px; }
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__title { font-size: 18px; }
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__meta { font-size: 14px; }
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__toggle { width: 36px; height: 36px; }
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__body {
+    margin: 0 16px;
+    padding: 16px 0 22px;
+  }
+  .vb-course-page .vb-course-program-outline__topics { font-size: 15px; }
+  .vb-course-page .vb-course-program-outline__qualification { padding: 22px; }
+  .vb-course-page .vb-course-program-outline__qualification-title { font-size: 26px; }
+  .vb-course-page .vb-course-program-outline__qualification-copy { font-size: 16px; }
+}
