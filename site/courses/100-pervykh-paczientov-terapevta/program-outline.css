@@ -117,16 +117,42 @@
 
 .vb-course-page .vb-course-program-outline__qualification-title {
   margin: 0 0 20px;
-  font-size: clamp(28px, 3vw, 42px);
+  font-size: 28px;
   font-weight: 700;
   line-height: 1.15;
 }
 
-.vb-course-page .vb-course-program-outline__qualification-copy {
+.vb-course-page .vb-course-program-outline__qualification-points {
   margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 18px;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.4;
+}
+
+.vb-course-page .vb-course-program-outline__qualification-points li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.vb-course-page .vb-course-program-outline__qualification-check {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e2f8fa;
+  color: #1399af;
+}
+
+.vb-course-page .vb-course-program-outline__qualification-check svg {
+  width: 16px;
+  height: 16px;
 }
 
 @media (max-width: 900px) {
@@ -151,6 +177,5 @@
   }
   .vb-course-page .vb-course-program-outline__topics { font-size: 15px; }
   .vb-course-page .vb-course-program-outline__qualification { padding: 22px; }
-  .vb-course-page .vb-course-program-outline__qualification-title { font-size: 26px; }
-  .vb-course-page .vb-course-program-outline__qualification-copy { font-size: 16px; }
+  .vb-course-page .vb-course-program-outline__qualification-points { font-size: 16px; }
 }
