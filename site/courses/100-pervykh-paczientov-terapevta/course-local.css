@@ -398,6 +398,10 @@ body.single-courses:has(.vb-course-steps) {
 @media (max-width: 900px) {
   .vb-course-hero-benefits .main-banner-grid-features { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
 }
+@media (min-width: 541px) and (max-width: 768px) {
+  .vb-course-hero-benefits .vb-course-hero-benefit-art { height: 100px; }
+  .vb-course-hero-benefits .vb-course-hero-benefit-art img { width: 100px; height: 100px; }
+}
 @media (max-width: 540px) {
   .vb-course-hero-benefits .main-banner-grid-features { grid-template-columns: 1fr !important; gap: 12px; }
   .vb-course-hero-benefits .main-banner-grid-feature { flex-direction: row; align-items: center; gap: 16px; }
@@ -658,6 +662,45 @@ body.single-courses:has(.vb-course-steps) {
   }
 }
 
+/* On the course page, keep the signup action within reach while scrolling on phones. */
+.vb-course-sticky-signup { display: none; }
+@media (max-width: 600px) {
+  body.single-courses {
+    padding-bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+
+  .vb-course-sticky-signup {
+    position: fixed;
+    z-index: 24;
+    inset: auto 0 0;
+    display: block;
+    box-sizing: border-box;
+    padding: 10px max(20px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+    border-top: 1px solid rgba(185, 203, 208, .7);
+    background: rgba(240, 248, 250, .96);
+    backdrop-filter: blur(12px);
+  }
+
+  .vb-course-sticky-signup__button {
+    display: flex;
+    box-sizing: border-box;
+    min-height: 56px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #f8485e;
+    color: #fff;
+    font: 700 var(--vb-ui-action, 18px)/1.25 Onest, system-ui, sans-serif;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .vb-course-sticky-signup__button:hover { background: #df3655; }
+  .vb-course-sticky-signup__button:focus-visible { outline: 3px solid #232929; outline-offset: 2px; }
+  body.single-courses .vb-scroll-top { bottom: calc(92px + env(safe-area-inset-bottom)); }
+  body.vb-header-nav-open .vb-course-sticky-signup { display: none; }
+}
+
 /* Align tariffs with the other course sections on desktop. */
 @media (min-width: 1001px) {
   .vb-course-page .vb-course-tariffs-wrap { padding-inline: 0; }
@@ -817,7 +860,7 @@ body.single-courses:has(.vb-course-steps) {
   aspect-ratio: 1.22;
   overflow: hidden;
   isolation: isolate;
-  background: radial-gradient(circle at 48% 48%, #8ed5de 0, #51bac9 52%, #229bb0 100%);
+  background: linear-gradient(135deg, #53bdcf 0%, #239cb1 100%);
 }
 .vb-course-situation__media::before {
   position: absolute;
@@ -830,14 +873,14 @@ body.single-courses:has(.vb-course-steps) {
 .vb-course-situation__media::after {
   position: absolute;
   z-index: 0;
-  top: 16%;
-  left: 13%;
-  width: 74%;
-  height: 68%;
+  top: -6%;
+  left: -8%;
+  width: 116%;
+  height: 112%;
   border-radius: 50%;
   content: "";
-  background: radial-gradient(ellipse, rgba(226, 253, 255, .66) 0%, rgba(199, 244, 248, .31) 45%, transparent 72%);
-  filter: blur(18px);
+  background: radial-gradient(ellipse at 50% 54%, rgba(235, 252, 255, .93) 0%, rgba(229, 249, 252, .75) 22%, rgba(204, 239, 246, .46) 45%, rgba(187, 228, 236, .18) 64%, transparent 82%);
+  filter: blur(28px);
   pointer-events: none;
 }
 .vb-course-situation__media img {
@@ -977,12 +1020,6 @@ body.single-courses:has(.vb-course-steps) {
     height: 100%;
     overflow: hidden;
   }
-  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-image--desktop {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: right bottom;
-  }
 
   .vb-course-page .vb-course-audience-list li,
   .vb-course-page .vb-course-curator__content p,
@@ -1102,6 +1139,13 @@ body.single-courses:has(.vb-course-steps) {
 .vb-course-steps__runway { display: contents; }
 
 /* Tablet pathology layout: copy and resting cat share one shallow banner. */
+@media (min-width: 1001px) and (max-width: 1024px) {
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card {
+    background:
+      radial-gradient(ellipse 42% 100% at 80% 55%, rgba(255, 255, 255, .82) 0%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(146deg, #54bfd1 0%, #239cb1 100%);
+  }
+}
 @media (max-width: 1024px) {
   .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card { min-height: 220px; }
   .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-text {
@@ -1145,7 +1189,6 @@ body.single-courses:has(.vb-course-steps) {
     min-height: 100px;
   }
   .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-media { flex-basis: 110px; width: 110px; }
-  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-image--mobile { object-position: right center; }
 }
 
 @media (max-width: 425px) {
@@ -1255,6 +1298,269 @@ body.single-courses:has(.vb-course-steps) {
   .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-text {
     font-size: 20px !important;
     line-height: 1.3 !important;
+  }
+}
+
+/* One section rhythm for the 768px tablet layout. */
+@media (min-width: 481px) and (max-width: 768px) {
+  .vb-course-page {
+    --vb-course-section-gap: 82px;
+  }
+
+  .vb-course-page > .vb-course-hero-wrap {
+    margin-bottom: 82px !important;
+  }
+
+  .vb-course-page > .vb-course-section {
+    margin-top: 0 !important;
+    margin-bottom: 82px !important;
+  }
+
+  .vb-course-page > .vb-course-section:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Match the phone copy size at the 480px breakpoint. */
+@media (min-width: 426px) and (max-width: 480px) {
+  .vb-course-page {
+    --vb-course-body-lg: 16px;
+  }
+
+  .vb-course-page .vb-course-excerpt,
+  .vb-course-page .vb-course-audience-list li,
+  .vb-course-page .vb-course-step__content p,
+  .vb-course-page .vb-course-curator__content p,
+  .vb-course-page .vb-course-section--teachers .vb-course-teacher-bio,
+  .vb-course-page .vb-learning-timeline__intro,
+  .vb-course-page .vb-learning-timeline__copy p,
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-text,
+  .vb-course-page .vb-course-section--outcomes .vb-course-outcome-body,
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__body,
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__list li:not(.vb-course-acc-module__more),
+  .vb-course-page .vb-course-program-outline__qualification-points,
+  .vb-course-page .vb-course-tariff-feature__text,
+  .vb-course-page .vb-course-section--reviews.home-reviews .home-reviews__subtitle {
+    font-size: 16px !important;
+  }
+}
+
+/* Size the visible course photo itself, not only its mobile wrapper. */
+@media (min-width: 426px) and (max-width: 768px) {
+  .vb-course-page .vb-course-hero-visual {
+    height: clamp(250px, 57vw, 440px);
+    min-height: 250px;
+    max-height: none;
+    flex: 0 0 auto;
+    aspect-ratio: auto;
+  }
+
+  .vb-course-page .vb-course-hero-img-frame {
+    height: 100%;
+    min-height: 250px;
+    max-height: none;
+  }
+
+  .vb-course-page .vb-course-hero-img-frame picture,
+  .vb-course-page .vb-course-hero-img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 250px;
+    max-width: none !important;
+    max-height: none !important;
+  }
+
+  .vb-course-page .vb-course-hero-img {
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .vb-course-section--teachers .vb-course-teachers-grid {
+    grid-auto-columns: calc(100% - 64px);
+    gap: 16px;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card picture {
+    inset: auto auto 8px 50%;
+    width: min(80%, 290px);
+    height: 46%;
+    transform: translateX(-50%);
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+}
+
+@media (max-width: 480px) {
+  .vb-course-page .vb-course-hero-info-top .vb-course-badges {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 480px) {
+  .vb-course-page .vb-course-title {
+    font-size: 32px;
+  }
+
+  .vb-course-page .vb-course-price-value {
+    font-size: 28px;
+  }
+}
+
+/* A compact transparent reference book fits the callout at every width. */
+.vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-image--reference {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (min-width: 1001px) {
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-text {
+    flex-basis: 60%;
+    max-width: 60%;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-media {
+    width: 40%;
+  }
+}
+
+/* Keep the discount copy inside the space between its decorations. */
+@media (min-width: 1440px) {
+  .vb-course-page .vb-course-tariff-promo__text {
+    font-size: 24px !important;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .vb-course-page .vb-course-tariff-promo {
+    --vb-promo-text-wrap: normal;
+  }
+
+  .vb-course-page .vb-course-tariff-promo__main {
+    min-width: 0;
+  }
+
+  .vb-course-page .vb-course-tariff-promo__text {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Compact numbering in every mobile program card. The 8px internal gap
+   stays smaller than the space between cards. */
+@media (max-width: 640px) {
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__shell {
+    gap: 8px;
+    padding: 16px 20px 20px;
+  }
+
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__num {
+    font-size: clamp(48px, 13.333vw, 56px);
+    line-height: 1;
+  }
+}
+
+@media (max-width: 360px) {
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__shell {
+    padding-inline: 16px;
+  }
+}
+
+/* Keep the 320px course hero compact without hiding any facts. */
+@media (max-width: 360px) {
+  .vb-course-page .vb-course-hero-info-top .vb-course-badges {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: start;
+    gap: 6px;
+  }
+
+  .vb-course-page .vb-course-badges .vb-course-badge {
+    gap: 4px;
+    padding: 4px 7px;
+    border-width: 1px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .vb-course-page .vb-course-badges .vb-course-badge-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .vb-course-page .vb-course-badges .vb-course-badge:nth-child(1) { grid-area: 1 / 1; }
+  .vb-course-page .vb-course-badges .vb-course-badge:nth-child(2) { grid-area: 2 / 2; }
+  .vb-course-page .vb-course-badges .vb-course-badge:nth-child(3) { grid-area: 1 / 2; }
+  .vb-course-page .vb-course-badges .vb-course-badge:nth-child(4) { grid-area: 2 / 1; }
+
+  .vb-course-page .vb-course-hero-benefits .main-banner-grid-feature {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .vb-course-page .vb-course-hero-benefits .vb-course-hero-benefit-art {
+    flex: 0 0 auto;
+    width: 72px;
+    height: 72px;
+  }
+
+  .vb-course-page .vb-course-hero-benefits .vb-course-hero-benefit-art img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .vb-course-page .vb-course-hero-benefits .main-banner-grid-feature__title {
+    font-size: 16px !important;
+    line-height: 1.3;
+    overflow-wrap: normal;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-layout {
+    margin-top: 24px;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card {
+    height: auto;
+    min-height: 0;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-text {
+    padding: 20px 18px 0;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-hero-card picture {
+    position: relative;
+    inset: auto;
+    display: flex;
+    flex: none;
+    width: min(80%, 240px);
+    height: 132px;
+    margin: 16px auto 20px;
+    transform: none;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: none !important;
+    grid-auto-rows: auto !important;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cell:not(.vb-course-pathology-cell--cta) {
+    min-height: 0;
+    height: auto;
+    padding: 22px 20px;
   }
 }
 

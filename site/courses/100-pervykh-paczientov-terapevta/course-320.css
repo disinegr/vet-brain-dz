@@ -1,0 +1,229 @@
+/* Narrow course layout: keep the agreed 320px spacing scale in one place. */
+@media (max-width: 320px) {
+  .vb-course-page .vb-course-badges .vb-course-badge {
+    justify-self: start;
+    width: max-content;
+    max-width: 100%;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 16px 4px 16px 16px;
+    font-size: 16px !important;
+    white-space: nowrap;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-cta-media {
+    flex: 0 0 88px;
+    width: 88px;
+  }
+
+  .vb-course-page {
+    --vb-course-section-gap: 72px;
+  }
+
+  .vb-course-page > .vb-course-section {
+    margin-top: 0 !important;
+    margin-bottom: 72px !important;
+  }
+
+  .vb-course-page > .vb-course-section:last-of-type {
+    margin-bottom: 0 !important;
+  }
+
+  .vb-course-page > .vb-course-section:not(.vb-course-schedule):not(.vb-course-section--outcomes):not(.vb-course-section--tariffs) > .vb-course-inner > .vb-course-section-title {
+    margin-bottom: 42px !important;
+  }
+
+  .vb-course-page .vb-course-section--pathology .vb-course-pathology-layout {
+    margin-top: 0;
+  }
+
+  .vb-course-page .vb-course-section--program-accordion .vb-course-program-head {
+    margin-bottom: 42px;
+  }
+
+  .vb-course-page .vb-course-section--program-accordion .vb-course-program-acc,
+  .vb-course-page .vb-course-program-outline__modules,
+  .vb-course-page .vb-course-situations__grid,
+  .vb-course-page .vb-course-tariffs-grid {
+    gap: 12px;
+  }
+
+  /* Cards that used 24px or larger inset get 16px; smaller insets stay. */
+  .vb-course-page .vb-course-step__content,
+  .vb-course-page .vb-course-curator__content,
+  .vb-course-page .vb-learning-timeline__copy,
+  .vb-course-page .vb-learning-timeline__row:nth-of-type(even) .vb-learning-timeline__copy,
+  .vb-course-page .vb-course-section--program-accordion .vb-course-acc-module__shell {
+    padding: 16px;
+  }
+
+  .vb-course-page .vb-learning-timeline__intro {
+    margin-bottom: 12px;
+  }
+
+  /* The narrow track leaves the photos the full remaining column width. */
+  .vb-course-page .vb-learning-timeline__list,
+  .vb-course-page .vb-learning-timeline__row {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .vb-course-page .vb-learning-timeline__row {
+    grid-template-columns: 16px minmax(0, 1fr);
+    column-gap: 8px;
+  }
+
+  .vb-course-page .vb-learning-timeline__track {
+    left: 7px;
+    width: 2px;
+  }
+
+  .vb-course-page .vb-learning-timeline__dot {
+    width: 16px;
+    height: 16px;
+    margin-top: 20px;
+    box-shadow: 0 0 0 4px #eff8fa;
+  }
+
+  .vb-course-page .vb-learning-timeline__dot::after {
+    inset: 3px;
+  }
+
+  .vb-course-page .vb-learning-timeline__copy,
+  .vb-course-page .vb-learning-timeline__photo,
+  .vb-course-page .vb-learning-timeline__row:nth-of-type(even) .vb-learning-timeline__copy,
+  .vb-course-page .vb-learning-timeline__row:nth-of-type(even) .vb-learning-timeline__photo {
+    grid-column: 2;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .vb-course-page .vb-learning-timeline__photo {
+    min-height: 0;
+    aspect-ratio: 3 / 2;
+  }
+
+  .vb-course-page .vb-learning-timeline__photo img {
+    max-width: 100%;
+  }
+
+  /* Program summary: number, then title and duration, with the toggle at right. */
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module > summary {
+    grid-template-columns: minmax(0, 1fr) 32px;
+    grid-template-rows: auto auto;
+    column-gap: 8px;
+    row-gap: 8px;
+    align-items: start;
+    padding: 16px;
+  }
+
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__num {
+    grid-area: 1 / 1;
+    font-size: 36px;
+    text-align: left;
+  }
+
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__core {
+    grid-area: 2 / 1;
+    gap: 6px;
+  }
+
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__title {
+    font-size: 18px !important;
+  }
+
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__meta {
+    font-size: 14px;
+  }
+
+  .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__toggle {
+    grid-area: 1 / 2 / 3 / 3;
+    align-self: start;
+    justify-self: end;
+    width: 32px;
+    height: 32px;
+  }
+
+  .vb-course-page .vb-course-program-outline__qualification {
+    padding: 16px;
+  }
+
+  .vb-course-page .vb-course-program-outline__qualification-title {
+    margin-bottom: 16px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .vb-course-page .vb-course-program-outline__qualification-points {
+    gap: 12px;
+  }
+
+  .vb-course-page .vb-course-program-outline__qualification-points li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .vb-course-page .vb-course-program-outline__qualification-check {
+    width: 24px;
+    height: 24px;
+  }
+
+  .vb-course-page .vb-course-program-outline__qualification-check svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Give tariff cards a little more width while retaining an outer gutter. */
+  .vb-course-page .vb-course-tariffs-wrap {
+    padding-inline: 16px;
+    gap: 12px;
+  }
+
+  .vb-course-page .vb-course-tariffs-title {
+    margin: 0 0 30px;
+  }
+
+  .vb-course-page .vb-course-tariff-card {
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+  }
+
+  /* Muted supporting copy uses 14px; card headings retain 18px. */
+  body.single-courses .vb-course-page :is(.vb-course-excerpt,
+    .vb-course-audience-list li, .vb-course-step__content p,
+    .vb-course-curator__content p, .vb-course-teacher-bio,
+    .vb-learning-timeline__intro, .vb-learning-timeline__copy p,
+    .vb-course-acc-module__list li:not(.vb-course-acc-module__more),
+    .vb-course-tariff-feature__text,
+    .vb-course-program-outline__qualification-points) {
+    font-size: 14px !important;
+  }
+
+  body.single-courses .home-feedback__intro,
+  body.single-courses .home-feedback__form {
+    padding: 16px;
+  }
+
+  body.single-courses .home-feedback__intro {
+    gap: 4px;
+  }
+
+  body.single-courses .home-feedback__illustration {
+    height: 186px;
+  }
+
+  body.single-courses .home-feedback__form-title {
+    font-size: 22px !important;
+    line-height: 1.2;
+  }
+
+  body.single-courses .home-feedback__lead {
+    font-size: 14px !important;
+  }
+}

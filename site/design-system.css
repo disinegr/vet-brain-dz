@@ -1,0 +1,285 @@
+/* Shared typography and form controls for the home and course pages.
+   Component-specific hero, schedule and tariff sizes agreed earlier stay in place. */
+body.home,
+body.single-courses {
+  --vb-ui-section: 52px;
+  --vb-ui-card: 24px;
+  --vb-ui-copy: 20px;
+  --vb-ui-secondary: 18px;
+  --vb-ui-action: 24px;
+  --vb-ui-field: 20px;
+  --vb-ui-placeholder: #859494;
+  --vb-ui-field-border: #b9cbd0;
+}
+
+/* Section headings and equivalent card text follow one scale on both pages. */
+body.home :is(.home-catalog__title, .home-reviews__title, .home-teachers__title,
+  .home-section__title, .home-benefits__title, .home-faq__title,
+  .home-feedback__title, .home-help__consult-title,
+  .home-social-cta__banner-title),
+body.single-courses .vb-course-page :is(.vb-course-section-title,
+  .vb-course-program-title, .vb-course-outcomes-title, .vb-course-tariffs-title) {
+  font-size: var(--vb-ui-section) !important;
+  line-height: 1.18 !important;
+}
+
+body.home :is(.home-course-card__course-title, .home-teacher-card__name,
+  .home-review-card__name, .home-advantage-card h3, .home-benefit-card__body h3,
+  .home-faq__question, .home-feedback__form-title),
+body.single-courses .vb-course-page :is(.vb-course-audience-title,
+  .vb-course-step__content h3, .vb-course-curator__content h3,
+  .vb-course-teacher-name, .vb-learning-timeline__copy h3,
+  .vb-course-outcome-title, .vb-course-situation h3,
+  .vb-course-acc-module__title) {
+  font-size: var(--vb-ui-card) !important;
+  line-height: 1.3 !important;
+}
+
+body.home :is(.home-catalog__subtitle, .home-teacher-card__bio,
+  .home-advantage-card__body p, .home-benefit-card__desc p,
+  .home-reviews__subtitle, .home-review-card__text-wrap,
+  .home-faq__answer p, .home-faq__answer li, .home-feedback__lead),
+body.single-courses .vb-course-page :is(.vb-course-excerpt,
+  .vb-course-audience-list li, .vb-course-step__content p,
+  .vb-course-curator__content p, .vb-course-teacher-bio,
+  .vb-learning-timeline__copy p, .vb-course-outcome-body,
+  .vb-course-acc-module__list li:not(.vb-course-acc-module__more),
+  .vb-course-tariff-feature__text) {
+  font-size: var(--vb-ui-copy) !important;
+  line-height: 1.45 !important;
+}
+
+body.home .home-feedback__optional,
+body.single-courses .vb-course-page :is(.vb-course-hero-installment,
+  .vb-course-trust-label, .vb-learning-timeline__intro,
+  .vb-course-curator__role) {
+  font-size: var(--vb-ui-secondary) !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+}
+
+/* Text-bearing actions only; icon controls, tabs and small chips keep their own sizes. */
+body.home :is(.main-image-content-button, .home-btn,
+  .home-catalog-tab, .home-help-channel__label,
+  .home-social-cta__pill-label, .home-feedback__submit,
+  .footer-subscribe-button),
+body.single-courses :is(.vb-course-btn, .vb-course-curator__button,
+  .vb-course-tariff-cta, .vb-tariff-promo-modal__cta,
+  .home-feedback__submit, .footer-subscribe-button,
+  .prototype-signup__submit) {
+  font-family: Onest, system-ui, sans-serif !important;
+  font-size: var(--vb-ui-action) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  text-align: center;
+}
+
+body.home :is(.home-review-card__text-more-btn, .vb-a11y-toolbar__reset),
+body.single-courses :is(.vb-course-pathology-cta-text,
+  .vb-a11y-toolbar__reset) {
+  font-family: Onest, system-ui, sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* All text entry fields have the same visible outline and placeholder treatment. */
+body.home :is(.home-feedback__field input, .home-feedback__field textarea,
+  .footer-subscribe-form input),
+body.single-courses :is(.home-feedback__field input, .home-feedback__field textarea,
+  .footer-subscribe-form input, .vb-course-signup-modal__input,
+  .prototype-signup input) {
+  box-sizing: border-box;
+  border: 1px solid var(--vb-ui-field-border) !important;
+  font-family: Onest, system-ui, sans-serif !important;
+  font-size: var(--vb-ui-field) !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+}
+
+body.home :is(.home-feedback__field input, .home-feedback__field textarea,
+  .footer-subscribe-form input)::placeholder,
+body.single-courses :is(.home-feedback__field input, .home-feedback__field textarea,
+  .footer-subscribe-form input, .vb-course-signup-modal__input,
+  .prototype-signup input)::placeholder {
+  color: var(--vb-ui-placeholder) !important;
+  font-family: Onest, system-ui, sans-serif !important;
+  font-size: var(--vb-ui-field) !important;
+  font-weight: 500 !important;
+  opacity: 1;
+}
+
+@media (max-width: 1199px) {
+  body.home,
+  body.single-courses {
+    --vb-ui-section: 42px;
+    --vb-ui-card: 24px;
+    --vb-ui-copy: 18px;
+    --vb-ui-secondary: 16px;
+    --vb-ui-field: 18px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1024px) {
+  body.home,
+  body.single-courses {
+    --vb-ui-action: 20px;
+  }
+}
+
+@media (max-width: 999px) {
+  body.home,
+  body.single-courses {
+    --vb-ui-section: 36px;
+    --vb-ui-card: 22px;
+    --vb-ui-copy: 18px;
+    --vb-ui-action: 20px;
+    --vb-ui-field: 18px;
+  }
+}
+
+/* One desktop section rhythm on the home and course pages. */
+@media (min-width: 1024px) {
+  body.single-courses .vb-course-page > :is(.vb-course-hero-wrap, .vb-course-section) {
+    margin-top: 0 !important;
+    margin-bottom: 100px !important;
+  }
+
+  /* Match the home page's 32px space between the header and first banner. */
+  body.single-courses .vb-course-page > .vb-course-hero-wrap:first-child {
+    margin-top: 32px !important;
+    margin-bottom: 16px !important;
+  }
+
+  body.single-courses .vb-course-page > .vb-course-section:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  body.home .main-page-container { gap: 100px !important; }
+  body.home .main-page-container > :is(.main-banner-container, .home-catalog, .home-section) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  body.single-courses .vb-course-page > .vb-course-section :is(
+    .vb-course-section-title, .vb-course-program-title,
+    .vb-course-outcomes-title, .vb-course-tariffs-title) {
+    margin-top: 0 !important;
+    margin-bottom: 52px !important;
+  }
+
+  body.single-courses .vb-course-page > .vb-course-section :is(
+    .vb-course-section-title, .vb-course-program-title,
+    .vb-course-outcomes-title, .vb-course-tariffs-title) + * {
+    margin-top: 0 !important;
+  }
+
+  body.single-courses .vb-course-page > .vb-course-section--tariffs .vb-course-tariffs-title {
+    margin-bottom: 20px !important;
+  }
+
+  body.single-courses .vb-course-section--program-accordion .vb-course-program-head {
+    margin-bottom: 0 !important;
+  }
+
+  body.home .home-catalog__body { gap: 52px !important; }
+  body.home .home-reviews__header { margin-bottom: 52px !important; }
+  body.home .home-teachers__title,
+  body.home .home-partners > .home-section__title { margin-bottom: 52px !important; }
+  body.home :is(.home-advantages, .home-benefits, .home-faq) { gap: 52px !important; }
+  body.home :is(.home-advantages, .home-benefits, .home-faq) > .home-section__title {
+    margin: 0 !important;
+  }
+}
+
+/* The hero, mobile trust card and benefit cards form one group. */
+@media (max-width: 768px) {
+  body.single-courses .vb-course-page > .vb-course-hero-wrap:first-child {
+    margin-bottom: 16px !important;
+  }
+
+  body.single-courses .vb-course-page > .vb-course-hero-trust-mobile {
+    margin-bottom: 16px !important;
+  }
+}
+
+@media (max-width: 540px) {
+  body.single-courses .vb-course-page > .vb-course-hero-wrap:first-child {
+    margin-bottom: 12px !important;
+  }
+
+  body.single-courses .vb-course-page > .vb-course-hero-trust-mobile {
+    margin-bottom: 12px !important;
+  }
+}
+
+/* The decorative footer badge obstructs the columns below desktop width. */
+@media (max-width: 1023px) {
+  body.home .footer-favicon-logo,
+  body.single-courses .footer-favicon-logo { display: none !important; }
+
+  body.home .footer-info-container .footer-nav,
+  body.single-courses .footer-info-container .footer-nav {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start !important;
+    gap: 24px;
+    width: 100%;
+  }
+
+  body.home .footer-info-container .footer-nav-info,
+  body.single-courses .footer-info-container .footer-nav-info {
+    min-width: 0;
+    width: 100%;
+    align-items: flex-start !important;
+    text-align: left;
+  }
+
+  body.home .footer-info-container .footer-nav-list,
+  body.single-courses .footer-info-container .footer-nav-list {
+    align-items: flex-start !important;
+    text-align: left;
+  }
+}
+
+@media (max-width: 599px) {
+  body.home .footer-info-container .footer-nav,
+  body.single-courses .footer-info-container .footer-nav {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* The illumination follows the vet photo, not the text. */
+@media (min-width: 701px) and (max-width: 1100px) {
+  body.home .home-feedback__intro::after,
+  body.single-courses .home-feedback__intro::after {
+    background: radial-gradient(ellipse 68% 90% at 80% 55%, rgba(236, 252, 255, .64) 0%, rgba(231, 249, 252, .3) 40%, transparent 78%);
+  }
+}
+
+@media (max-width: 700px), (min-width: 1101px) {
+  body.home .home-feedback__intro::after,
+  body.single-courses .home-feedback__intro::after {
+    background: radial-gradient(ellipse 94% 58% at 50% 84%, rgba(236, 252, 255, .64) 0%, rgba(231, 249, 252, .3) 40%, transparent 78%);
+  }
+}
+
+@media (max-width: 480px) {
+  body.home,
+  body.single-courses {
+    --vb-ui-section: 28px;
+    --vb-ui-card: 20px;
+    --vb-ui-copy: 16px;
+    --vb-ui-secondary: 16px;
+    --vb-ui-action: 18px;
+    --vb-ui-field: 16px;
+  }
+}
+
+@media (max-width: 320px) {
+  body.home,
+  body.single-courses {
+    --vb-ui-section: 26px;
+    --vb-ui-card: 18px;
+    --vb-ui-secondary: 14px;
+    --vb-ui-action: 16px;
+  }
+}

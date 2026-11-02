@@ -59,6 +59,121 @@
   }
 }
 
+/* Catalog facts stay in one uniform row; the script keeps only fitting facts. */
+.home-course-card__chips {
+  flex-wrap: nowrap !important;
+  height: 40px;
+  min-height: 40px;
+  align-items: center;
+}
+
+.home-course-card__chips .home-course-card__chip {
+  box-sizing: border-box;
+  height: 40px;
+  min-height: 40px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-course-card__row--current {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: 4px;
+}
+
+.home-course-card__installment { white-space: nowrap; }
+
+@media (min-width: 901px) and (max-width: 1199px) {
+  .home-course-card__bottom { gap: 8px; }
+  .home-course-card__info { max-width: none; }
+  .home-course-card__row--current { font-size: 20px; }
+  .home-course-card__installment { font-size: 14px; }
+  .home-course-card__arrow { width: 40px; height: 40px; }
+  .home-course-card__arrow svg { width: 20px; height: 20px; }
+}
+
+@media (max-width: 900px) {
+  .home-course-card__info { max-width: none; }
+  .home-course-card__row--current { font-size: clamp(16px, 2.7vw, 20px); }
+  .home-course-card__installment { font-size: clamp(12px, 2vw, 16px); }
+}
+
+@media (max-width: 480px) {
+  .home-course-card__chips,
+  .home-course-card__chips .home-course-card__chip {
+    height: 34px;
+    min-height: 34px;
+  }
+}
+
+/* The home teachers use the same horizontal carousel pattern as the course. */
+.home-teachers__shell { position: relative; }
+.home-teachers__grid {
+  display: grid !important;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 60px) / 4);
+  grid-template-columns: none !important;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  margin: 0;
+  padding: 0 0 72px;
+  margin-bottom: -72px;
+}
+.home-teachers__grid::-webkit-scrollbar { display: none; }
+.home-teachers__grid > .home-teacher-card {
+  min-width: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.home-teachers__controls {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+.home-teachers__shell:hover .home-teachers__controls,
+.home-teachers__shell:focus-within .home-teachers__controls { opacity: 1; }
+.home-teachers__control {
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: #239cb1;
+  color: #fff;
+  font-size: 23px;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 5px 18px rgba(18, 76, 88, .18);
+}
+.home-teachers__control:first-child { transform: translateX(-50%); }
+.home-teachers__control:last-child { transform: translateX(50%); }
+.home-teachers__control:disabled { background: #d7e9ed; color: #89a9af; cursor: default; }
+@media (hover: none) { .home-teachers__controls { opacity: 1; } }
+
+@media (max-width: 1200px) {
+  .home-teachers__grid { grid-auto-columns: calc((100% - 32px) / 3); gap: 16px; }
+}
+@media (max-width: 768px) {
+  .home-teachers__grid { grid-auto-columns: calc((100% - 16px) / 2); }
+  .home-teachers__control:first-child { transform: translateX(-20%); }
+  .home-teachers__control:last-child { transform: translateX(20%); }
+}
+@media (max-width: 480px) {
+  .home-teachers__grid { grid-auto-columns: calc(100% - 64px); gap: 16px; }
+}
+
 @media (min-width: 1024px) and (max-width: 1440px) {
   .main-banner-grid-feature .main-banner-grid-feature__icon {
     width: 42px;
@@ -452,66 +567,12 @@ a.home-partners__card:hover {
   display: none !important;
 }
 
-.home-course-card__more {
-  position: absolute;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 39px;
-  padding: 8px 12px;
-  border: 2px solid #859494;
-  border-radius: 24px;
-  background: #fff;
-  color: #657a7d;
-  font: 500 16px/1.2 Onest, system-ui, sans-serif;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.home-course-card__more[hidden] {
-  display: none;
-}
-
-.home-course-card__more:hover,
-.home-course-card__more[aria-expanded="true"] {
-  border-color: #239cb1;
-  color: #168aa0;
-}
-
-.home-course-card__more:focus-visible {
-  outline: 2px solid #239cb1;
-  outline-offset: 2px;
-}
-
-.home-course-chip-tooltip {
-  position: fixed;
-  z-index: 10000;
-  max-width: min(380px, calc(100vw - 24px));
-  padding: 14px 18px;
-  border-radius: 16px;
-  background: #232929;
-  box-sizing: border-box;
-  color: #fff;
-  font: 500 16px/1.4 Onest, system-ui, sans-serif;
-  pointer-events: none;
-}
-
-.home-course-chip-tooltip[hidden] {
-  display: none;
-}
-
 @media (max-width: 768px) {
   .home-reviews .home-review-card__role,
   .home-reviews .home-review-card__text-more-btn {
     font-size: 16px;
   }
 
-  .home-course-card__more {
-    min-height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-  }
 }
 
 /* Footer feedback form: existing white cards, Onest type and turquoise CTA. */
@@ -555,7 +616,7 @@ a.home-partners__card:hover {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: url("./wp-content/themes/vet-brains/assets/images/main-page/advantage-6-texture.png") center / 100% 100% no-repeat;
+  background: url("./wp-content/themes/vet-brains/assets/images/main-page/advantage-6-texture.png") center / cover no-repeat;
   opacity: 0.07;
 }
 

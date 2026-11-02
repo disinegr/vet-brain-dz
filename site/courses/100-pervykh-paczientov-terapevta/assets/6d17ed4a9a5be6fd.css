@@ -1808,7 +1808,6 @@ a.vb-course-pathology-cell--cta:focus-visible {
 .vb-course-section--program-accordion .vb-course-acc-module {
     border-radius: 12px;
     border: none;
-    border-left: 6px solid var(--vb-cayman);
     box-shadow: none;
     background: var(--vb-white);
     overflow: visible;

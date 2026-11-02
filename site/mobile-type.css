@@ -99,8 +99,8 @@
   }
 
   .vb-course-page .vb-course-hero-visual {
-    height: clamp(220px, 64vw, 280px) !important;
-    min-height: clamp(220px, 64vw, 280px) !important;
+    height: clamp(264px, 77vw, 336px) !important;
+    min-height: clamp(264px, 77vw, 336px) !important;
     max-height: none !important;
     flex: 0 0 auto !important;
     aspect-ratio: auto;
@@ -114,6 +114,7 @@
   .vb-course-page .vb-course-hero-img {
     width: 100% !important;
     height: 100% !important;
+    min-height: 250px !important;
     max-width: none !important;
     max-height: none !important;
     object-fit: cover !important;
@@ -143,6 +144,16 @@
   .vb-course-page .vb-course-price-from,
   .vb-course-page .vb-course-price-suffix {
     font-size: 16px !important;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 420px) {
+  .vb-course-page .vb-course-title {
+    font-size: 28px !important;
+  }
+
+  .vb-course-page .vb-course-price-value {
+    font-size: 24px !important;
   }
 }
 

@@ -62,125 +62,55 @@
 
   const chipRows = [...document.querySelectorAll('.home-course-card__chips')];
   if (chipRows.length) {
-    const hiddenChips = new WeakMap();
-    const moreButtons = new WeakMap();
-    const tooltip = document.createElement('div');
-    tooltip.className = 'home-course-chip-tooltip';
-    tooltip.id = 'home-course-chip-tooltip';
-    tooltip.setAttribute('role', 'tooltip');
-    tooltip.hidden = true;
-    document.body.append(tooltip);
-    let activeRow = null;
-
-    const hideTooltip = () => {
-      if (activeRow) {
-        const button = moreButtons.get(activeRow);
-        button.setAttribute('aria-expanded', 'false');
-        button.removeAttribute('aria-describedby');
-      }
-      activeRow = null;
-      tooltip.hidden = true;
+    const priority = chip => {
+      const label = chip.textContent.trim().toLowerCase();
+      if (label === 'дпо') return 0;
+      if (label.startsWith('скидка') || label.startsWith('старт') || label === 'бесплатный семинар') return 1;
+      if (label === 'курс' || label === 'вебинар') return 2;
+      return 3;
     };
+    chipRows.forEach(row => {
+      [...row.children].sort((a, b) => priority(a) - priority(b)).forEach(chip => row.append(chip));
+    });
     const updateRow = row => {
       const chips = [...row.querySelectorAll('.home-course-card__chip')];
-      const button = moreButtons.get(row);
       chips.forEach(chip => { chip.hidden = false; });
-      button.hidden = true;
-      row.style.minHeight = '';
       const rowRect = row.getBoundingClientRect();
-      if (!rowRect.width) {
-        hiddenChips.set(row, []);
-        if (activeRow === row) hideTooltip();
-        return;
-      }
-      const widths = chips.map(chip => chip.getBoundingClientRect().width);
+      if (!rowRect.width) return;
       const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
-      const totalWidth = widths.reduce((sum, width) => sum + width, 0) + gap * Math.max(0, chips.length - 1);
-      if (totalWidth <= rowRect.width + 1) {
-        hiddenChips.set(row, []);
-        if (activeRow === row) hideTooltip();
-        return;
-      }
-
-      row.style.minHeight = `${Math.ceil(Math.max(...chips.map(chip => chip.getBoundingClientRect().height)))}px`;
-      button.hidden = false;
-      button.style.visibility = 'hidden';
-      let visibleCount = 0;
-      let visibleWidth = 0;
-      for (let count = chips.length - 1; count >= 0; count--) {
-        button.textContent = `+${chips.length - count}`;
-        const chipWidth = widths.slice(0, count).reduce((sum, width) => sum + width, 0);
-        const neededWidth = chipWidth + gap * count + button.getBoundingClientRect().width;
-        if (neededWidth <= rowRect.width + 1) {
-          visibleCount = count;
-          visibleWidth = chipWidth + gap * count;
-          break;
-        }
-      }
-
-      const rest = chips.slice(visibleCount).map(chip => chip.textContent.trim());
-      chips.forEach((chip, index) => { chip.hidden = index >= visibleCount; });
-      button.textContent = `+${rest.length}`;
-      button.setAttribute('aria-label', `Показать ещё ${rest.length} параметров курса`);
-      const cardRect = row.closest('.home-course-card').getBoundingClientRect();
-      button.style.left = `${rowRect.left - cardRect.left + visibleWidth}px`;
-      button.style.top = `${rowRect.top - cardRect.top}px`;
-      button.style.visibility = '';
-      hiddenChips.set(row, rest);
-      if (activeRow === row) hideTooltip();
-    };
-    const positionTooltip = button => {
-      const rect = button.getBoundingClientRect();
-      const left = Math.max(12, Math.min(rect.left, window.innerWidth - tooltip.offsetWidth - 12));
-      const below = rect.bottom + 8;
-      const above = rect.top - tooltip.offsetHeight - 8;
-      tooltip.style.left = `${left}px`;
-      tooltip.style.top = `${below + tooltip.offsetHeight <= window.innerHeight - 12 ? below : Math.max(12, above)}px`;
-    };
-    const showTooltip = row => {
-      const rest = hiddenChips.get(row);
-      if (!rest?.length) return;
-      hideTooltip();
-      const button = moreButtons.get(row);
-      tooltip.textContent = rest.join(' · ');
-      activeRow = row;
-      tooltip.hidden = false;
-      button.setAttribute('aria-expanded', 'true');
-      button.setAttribute('aria-describedby', tooltip.id);
-      positionTooltip(button);
+      let used = 0;
+      chips.forEach((chip, index) => {
+        const width = chip.getBoundingClientRect().width;
+        const next = used + (used ? gap : 0) + width;
+        if (index > 0 && next > rowRect.width + 1) chip.hidden = true;
+        else used = next;
+      });
     };
     const updateAllRows = () => chipRows.forEach(updateRow);
-
-    chipRows.forEach(row => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'home-course-card__more';
-      button.setAttribute('aria-controls', tooltip.id);
-      button.setAttribute('aria-expanded', 'false');
-      button.hidden = true;
-      row.closest('.home-course-card').append(button);
-      moreButtons.set(row, button);
-      button.addEventListener('click', event => {
-        event.preventDefault();
-        event.stopPropagation();
-        if (activeRow === row) hideTooltip();
-        else showTooltip(row);
-      });
-    });
     tabs.forEach(tab => tab.addEventListener('click', () => requestAnimationFrame(updateAllRows)));
-    window.addEventListener('resize', () => {
-      hideTooltip();
-      updateAllRows();
-    });
-    window.addEventListener('scroll', hideTooltip, { passive: true });
-    document.addEventListener('pointerdown', event => {
-      if (!event.target.closest('.home-course-card__more')) hideTooltip();
-    });
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') hideTooltip();
-    });
+    window.addEventListener('resize', updateAllRows);
     document.fonts?.ready.then(updateAllRows);
     requestAnimationFrame(updateAllRows);
+  }
+
+  const teachers = document.querySelector('.home-teachers__grid');
+  const teachersPrev = document.querySelector('[data-home-teachers-prev]');
+  const teachersNext = document.querySelector('[data-home-teachers-next]');
+  if (teachers && teachersPrev && teachersNext) {
+    const cardStep = () => {
+      const teacherCards = teachers.querySelectorAll('.home-teacher-card');
+      return teacherCards.length > 1 ? teacherCards[1].offsetLeft - teacherCards[0].offsetLeft : teachers.clientWidth;
+    };
+    const updateButtons = () => {
+      const maxScroll = teachers.scrollWidth - teachers.clientWidth;
+      teachersPrev.disabled = teachers.scrollLeft < 2;
+      teachersNext.disabled = teachers.scrollLeft >= maxScroll - 2;
+    };
+    teachersPrev.addEventListener('click', () => teachers.scrollBy({ left: -cardStep(), behavior: 'smooth' }));
+    teachersNext.addEventListener('click', () => teachers.scrollBy({ left: cardStep(), behavior: 'smooth' }));
+    teachers.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
   }
 
   const scrollTop = document.querySelector('.vb-scroll-top');

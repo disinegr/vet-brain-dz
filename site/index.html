@@ -110,6 +110,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <link rel="stylesheet" href="./custom.css" media="all">
 <link rel="stylesheet" href="./two-weight-typography.css" media="all">
 <link rel="stylesheet" href="./mobile-type.css" media="all">
+<link rel="stylesheet" href="./design-system.css" media="all">
 
 <meta name="generator" content="WordPress 7.1.4">
 <link rel="canonical" href="/">
@@ -1254,7 +1255,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <h2 id="home-teachers-title" class="home-teachers__title">
                 <span>Вашими преподавателями будут топовые эксперты ветеринарной медицины</span>
             </h2>
-                            <ul class="home-teachers__grid">
+                            <div class="home-teachers__shell">
+                                <div class="home-teachers__controls" aria-label="Преподаватели">
+                                    <button type="button" class="home-teachers__control" data-home-teachers-prev aria-label="Предыдущие преподаватели">←</button>
+                                    <button type="button" class="home-teachers__control" data-home-teachers-next aria-label="Следующие преподаватели">→</button>
+                                </div>
+                            <ul class="home-teachers__grid" tabindex="0" aria-label="Карточки преподавателей, горизонтальная прокрутка">
                                                                     <li class="home-teacher-card">
                             <div class="home-teacher-card__inner">
                                 <div class="home-teacher-card__hero">
@@ -1406,6 +1412,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                             </div>
                         </li>
                                     </ul>
+                            </div>
                     </section>
 
         <section class="home-section home-social-cta" id="home-social" aria-labelledby="home-social-title">

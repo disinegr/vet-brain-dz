@@ -155,9 +155,12 @@
   height: 16px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .vb-course-page .vb-course-program-outline__layout { grid-template-columns: 1fr; }
-  .vb-course-page .vb-course-program-outline__qualification { position: static; }
+  .vb-course-page .vb-course-program-outline__qualification { position: relative; }
+}
+
+@media (max-width: 900px) {
   .vb-course-page .vb-course-program-outline__qualification img { max-height: 260px; }
 }
 

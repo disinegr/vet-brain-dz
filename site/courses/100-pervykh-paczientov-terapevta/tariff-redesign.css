@@ -95,3 +95,15 @@
   .vb-course-page .vb-course-tariff-visual img { object-position: 58% 42%; }
   .vb-course-page .vb-course-tariff-heading { gap: 10px; }
 }
+
+@media (max-width: 768px) {
+  .vb-course-page .vb-course-tariff-current {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+  .vb-course-page .vb-course-tariff-card .vb-course-tariff-name {
+    font-size: 24px !important;
+  }
+}

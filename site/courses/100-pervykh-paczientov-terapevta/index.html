@@ -68,6 +68,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <link rel="stylesheet" href="../../mobile-type.css">
 <link rel="stylesheet" href="./tariff-redesign.css">
 <link rel="stylesheet" href="./program-outline.css">
+<link rel="stylesheet" href="./schedule.css">
+<link rel="stylesheet" href="../../design-system.css">
+<link rel="stylesheet" href="./course-320.css">
 </head>
 <body class="wp-singular courses-template-default single single-courses postid-384 wp-theme-vet-brains">
 <div class="site-shell">
@@ -194,7 +197,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                         aria-expanded="false" aria-controls="vb-a11y-panel"
                         aria-label="Версия для слабовидящих">
                     <img class="vb-a11y-keep"
-                         src="./assets/c57be8a08e44b402.svg"
+                         src="../../wp-content/themes/vet-brains/assets/images/header/accessible_version.svg"
                          alt="" aria-hidden="true" width="32" height="32">
                 </button>
                 <button class="header__menu-toggle" type="button" aria-expanded="false"
@@ -281,10 +284,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <section class="vb-course-section vb-course-hero-benefits" aria-label="Преимущества курса">
         <div class="vb-course-inner">
             <ul class="main-banner-grid-features">
-                <li class="main-banner-grid-feature"><div class="vb-course-hero-benefit-art"><img src="./assets/benefit-foundation-3d-minimal.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="main-banner-grid-feature__body"><h3 class="main-banner-grid-feature__title">База, которой так не хватает после университета</h3></div></li>
-                <li class="main-banner-grid-feature"><div class="vb-course-hero-benefit-art"><img src="./assets/benefit-diagnostics-3d-minimal.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="main-banner-grid-feature__body"><h3 class="main-banner-grid-feature__title">Симптомы и синдромы, с которыми врач сталкивается каждый день</h3></div></li>
-                <li class="main-banner-grid-feature"><div class="vb-course-hero-benefit-art"><img src="./assets/benefit-lab-3d-minimal.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="main-banner-grid-feature__body"><h3 class="main-banner-grid-feature__title">Анализы и тесты, которые наконец станут понятными</h3></div></li>
-                <li class="main-banner-grid-feature"><div class="vb-course-hero-benefit-art"><img src="./assets/benefit-communication-3d-minimal.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="main-banner-grid-feature__body"><h3 class="main-banner-grid-feature__title">Коммуникация с владельцем, коллегами и пациентом — без страха и растерянности</h3></div></li>
+                <li class="main-banner-grid-feature"><div class="vb-course-hero-benefit-art"><img src="./assets/benefit-foundation-3d-minimal.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="main-banner-grid-feature__body"><h3 class="main-banner-grid-feature__title">База, которой не хватает после университета</h3></div></li>
+                <li class="main-banner-grid-feature"><div class="vb-course-hero-benefit-art"><img src="./assets/benefit-diagnostics-3d-minimal.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="main-banner-grid-feature__body"><h3 class="main-banner-grid-feature__title">Симптомы и синдромы на каждом приёме</h3></div></li>
+                <li class="main-banner-grid-feature"><div class="vb-course-hero-benefit-art"><img src="./assets/benefit-lab-3d-minimal.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="main-banner-grid-feature__body"><h3 class="main-banner-grid-feature__title">Анализы и тесты станут понятными</h3></div></li>
+                <li class="main-banner-grid-feature"><div class="vb-course-hero-benefit-art"><img src="./assets/benefit-communication-3d-minimal.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="main-banner-grid-feature__body"><h3 class="main-banner-grid-feature__title">Общение с владельцами, коллегами и пациентами — без страха</h3></div></li>
             </ul>
         </div>
     </section>
@@ -385,8 +388,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                                 <a class="vb-course-pathology-cell vb-course-pathology-cell--cta" href="#vb-course-program">
                                     <span class="vb-course-pathology-cta-text">И ещё заболевания</span>
                                     <span class="vb-course-pathology-cta-media" aria-hidden="true">
-                                        <img class="vb-course-pathology-cta-image vb-course-pathology-cta-image--desktop" src="./assets/pathology-cta-dog-side.webp" alt="" loading="lazy" decoding="async">
-                                        <img class="vb-course-pathology-cta-image vb-course-pathology-cta-image--mobile" src="./assets/pathology-cta-dog-mobile.webp" alt="" loading="lazy" decoding="async">
+                                        <img class="vb-course-pathology-cta-image vb-course-pathology-cta-image--reference" src="./assets/pathology-cta-reference-book.png" width="1280" height="1280" alt="" decoding="async">
                                     </span>
                                 </a>
                             </div>
@@ -809,7 +811,40 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                     </div>
                 </section>
 
-                                            <section class="vb-course-section vb-course-section--outcomes">
+                <section class="vb-course-section vb-course-schedule" aria-labelledby="vb-course-schedule-title">
+                    <div class="vb-course-inner">
+                        <h2 class="vb-course-section-title vb-course-section-title--center" id="vb-course-schedule-title">Расписание курса</h2>
+                        <div class="vb-course-schedule__head" aria-hidden="true"><span>Дата</span><span>Событие</span></div>
+                        <ol class="vb-course-schedule__list">
+                            <li class="vb-course-schedule__row">
+                                <div class="vb-course-schedule__date"><time datetime="2027-02-15">15.02.2027</time></div>
+                                <article class="vb-course-schedule__event"><h3>Приветственная встреча</h3><img src="./assets/schedule-welcome.png" alt="Ветеринарный врач приветствует участников на онлайн-встрече" loading="lazy" decoding="async"></article>
+                            </li>
+                            <li class="vb-course-schedule__row">
+                                <div class="vb-course-schedule__date">Даты уточняются</div>
+                                <article class="vb-course-schedule__event"><h3>Блок 1: 2 семинара с Томилиной-Пейчевой Э.А.</h3><img src="./assets/schedule-block-1.png" alt="Ветеринарный преподаватель ведёт онлайн-семинар" loading="lazy" decoding="async"></article>
+                            </li>
+                            <li class="vb-course-schedule__row">
+                                <div class="vb-course-schedule__date"><time datetime="2027-03-14">14.03.2027</time><time datetime="2027-04-01">01.04.2027</time></div>
+                                <article class="vb-course-schedule__event"><h3>Семинары блока 2</h3><img src="./assets/schedule-block-2.png" alt="Ветеринарный врач разбирает клинический случай с собакой" loading="lazy" decoding="async"></article>
+                            </li>
+                            <li class="vb-course-schedule__row">
+                                <div class="vb-course-schedule__date"><time datetime="2027-04-22">22.04.2027</time><time datetime="2027-05-13">13.05.2027</time></div>
+                                <article class="vb-course-schedule__event"><h3>Семинары блока 3</h3><img src="./assets/schedule-block-3.png" alt="Ветеринарный врач изучает результаты анализов" loading="lazy" decoding="async"></article>
+                            </li>
+                            <li class="vb-course-schedule__row">
+                                <div class="vb-course-schedule__date"><time datetime="2027-06-03">03.06.2027</time><time datetime="2027-06-17">17.06.2027</time><time datetime="2027-07-08">08.07.2027</time></div>
+                                <article class="vb-course-schedule__event"><h3>Семинары блока 4</h3><img src="./assets/schedule-block-4.png" alt="Ветеринарные врачи обсуждают клинический случай" loading="lazy" decoding="async"></article>
+                            </li>
+                            <li class="vb-course-schedule__row">
+                                <div class="vb-course-schedule__date"><time datetime="2027-07-22">22.07.2027</time></div>
+                                <article class="vb-course-schedule__event"><h3>Итоговый экзамен (онлайн)</h3><img src="./assets/schedule-exam.png" alt="Слушатель проходит итоговый экзамен за ноутбуком" loading="lazy" decoding="async"></article>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section class="vb-course-section vb-course-section--outcomes">
                     <div class="vb-course-inner vb-course-inner--outcomes">
                         <div class="vb-course-outcomes-panel">
                                                             <h2 class="vb-course-outcomes-title">После курса Вы</h2>
@@ -841,6 +876,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                                             </div>
                                                                                 <h3 class="vb-course-outcome-title">Станете спокойнее и увереннее в своей практике</h3>
                                         <p class="vb-course-outcome-body">Получите базу, максимально приближенную к&nbsp;реальной работе врача на&nbsp;приёме, будете понимать, что делать, зачем делать и&nbsp;куда двигаться дальше в&nbsp;каждом клиническом случае</p>
+                                    </article>
+                                    <article class="vb-course-outcome-card">
+                                        <div class="vb-course-outcome-card__media">
+                                            <img src="./assets/vb-outcome-clinical-thinking-3d.png" alt="" decoding="async" loading="lazy">
+                                        </div>
+                                        <h3 class="vb-course-outcome-title">Начнете думать, как клиницист.</h3>
+                                        <p class="vb-course-outcome-body">Понимаете логику диагностики и подбираете лечение по логике, а не «под диагноз».</p>
+                                    </article>
+                                    <article class="vb-course-outcome-card">
+                                        <div class="vb-course-outcome-card__media">
+                                            <img src="./assets/vb-outcome-differential-diagnosis-3d.png" alt="" decoding="async" loading="lazy">
+                                        </div>
+                                        <h3 class="vb-course-outcome-title">Сможете видеть разные причины одного симптома.</h3>
+                                        <p class="vb-course-outcome-body">Владеете дифференциальной диагностикой и осознанно идёте к диагнозу.</p>
                                     </article>
                                                             </div>
                         </div>
@@ -874,7 +923,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                         >
                     </div>
                     <div class="vb-course-tariff-promo__main">
-                        <p class="vb-course-tariff-promo__text">Скидка 15% для наших студентов на любой следующий курс</p>
+                        <p class="vb-course-tariff-promo__text" data-desktop-type-keep>Скидка 15% для наших студентов на любой следующий курс</p>
                     </div>
                     <div class="vb-course-tariff-promo__decor vb-course-tariff-promo__decor--right" aria-hidden="true">
                         <img
@@ -1622,6 +1671,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                   stroke-linejoin="round"/>
         </svg>
     </button>
+    <div class="vb-course-sticky-signup">
+        <a class="vb-course-sticky-signup__button" href="#vb-course-tariffs">Записаться</a>
+    </div>
 </div>
 
 

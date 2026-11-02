@@ -39,7 +39,7 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: url("./wp-content/themes/vet-brains/assets/images/main-page/advantage-6-texture.png") center / 100% 100% no-repeat;
+  background: url("./wp-content/themes/vet-brains/assets/images/main-page/advantage-6-texture.png") center / cover no-repeat;
   opacity: 0.07;
 }
 
