@@ -20,7 +20,7 @@
 }
 
 .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module > summary {
-  grid-template-columns: 88px minmax(0, 1fr) 48px;
+  grid-template-columns: max-content minmax(0, 1fr) 48px;
   gap: 16px;
   padding: 24px 24px 24px 16px;
 }
@@ -48,7 +48,7 @@
 }
 
 .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__body {
-  margin: 0 24px 0 120px;
+  margin: 0 24px 0 106px;
   padding: 20px 0 28px;
   border-top: 1px solid #e2eef1;
 }
@@ -137,8 +137,8 @@
 
 @media (max-width: 600px) {
   .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module > summary {
-    grid-template-columns: 52px minmax(0, 1fr) 36px;
-    gap: 10px;
+    grid-template-columns: max-content minmax(0, 1fr) 36px;
+    gap: 16px;
     padding: 18px 16px 18px 12px;
   }
   .vb-course-page .vb-course-program-outline__modules .vb-course-acc-module__num { font-size: 44px; }
