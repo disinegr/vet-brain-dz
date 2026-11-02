@@ -1,0 +1,89 @@
+/* The complete course leads the tariff list; individual blocks keep the shared card style. */
+.vb-course-page .vb-course-tariff-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.vb-course-page .vb-course-tariff-badge {
+  flex: none;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.vb-course-page .vb-course-tariff-card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  grid-template-rows: auto auto;
+  gap: 32px 36px;
+  align-items: start;
+  background: radial-gradient(circle at 81% 49%, #e7f7fa 0%, #fff 44%);
+  border: 1px solid #d7edf1;
+}
+
+.vb-course-page .vb-course-tariff-card--featured .vb-course-tariff-card__top {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.vb-course-page .vb-course-tariff-card--featured .vb-course-tariff-card__bottom {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: 0;
+}
+
+.vb-course-page .vb-course-tariff-card--featured .vb-course-tariff-name {
+  font-size: 38px !important;
+  line-height: 1.15 !important;
+}
+
+.vb-course-page .vb-course-tariff-visual {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  min-width: 0;
+  min-height: 280px;
+  overflow: visible;
+}
+
+.vb-course-page .vb-course-tariff-visual img {
+  display: block;
+  width: min(100%, 480px);
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 1000px) {
+  .vb-course-page .vb-course-tariff-card--featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 24px;
+  }
+
+  .vb-course-page .vb-course-tariff-card--featured .vb-course-tariff-card__top,
+  .vb-course-page .vb-course-tariff-card--featured .vb-course-tariff-card__bottom,
+  .vb-course-page .vb-course-tariff-visual {
+    grid-column: 1;
+  }
+
+  .vb-course-page .vb-course-tariff-card--featured .vb-course-tariff-card__top { grid-row: 1; }
+  .vb-course-page .vb-course-tariff-visual { grid-row: 2; min-height: 0; }
+  .vb-course-page .vb-course-tariff-card--featured .vb-course-tariff-card__bottom { grid-row: 3; }
+  .vb-course-page .vb-course-tariff-visual img { width: min(65%, 380px); }
+  .vb-course-page .vb-course-tariff-card--featured .vb-course-tariff-name { font-size: 30px !important; }
+}
+
+@media (max-width: 520px) {
+  .vb-course-page .vb-course-tariff-card--featured .vb-course-tariff-name {
+    font-size: var(--vb-phone-card, 22px) !important;
+    line-height: 1.3 !important;
+  }
+
+  .vb-course-page .vb-course-tariff-visual img { width: min(86%, 290px); }
+  .vb-course-page .vb-course-tariff-heading { gap: 10px; }
+}
