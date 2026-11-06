@@ -242,7 +242,7 @@ body.vb-header-nav-open {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .site-header {
         display: flex;
         flex-direction: column;
@@ -424,7 +424,7 @@ body.vb-header-nav-open {
     }
 }
 
-@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+@media (max-width: 1200px) and (prefers-reduced-motion: reduce) {
     .header-nav,
     .header__backdrop,
     .header__menu-toggle-line {

@@ -1,0 +1,49 @@
+/* Keep the new course banner on the same hero layout as the therapy course. */
+.vb-course-page {
+  padding-bottom: 0 !important;
+}
+
+.vb-course-page .vb-course-hero-wrap--preview {
+  margin-bottom: 100px;
+}
+
+.vb-course-page .vb-course-hero-wrap--preview .vb-course-hero-img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+}
+
+@media (max-width: 1023px) {
+  .vb-course-page .vb-course-hero-wrap--preview {
+    margin-bottom: 82px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vb-course-page .vb-course-hero-wrap--preview .vb-course-hero-main {
+    display: flex;
+    min-height: 0;
+  }
+
+  .vb-course-page .vb-course-hero-wrap--preview .vb-course-hero-visual {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1817 / 866;
+  }
+
+  .vb-course-page .vb-course-hero-wrap--preview .vb-course-hero-img {
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .vb-course-page .vb-course-hero-wrap--preview {
+    margin-bottom: 72px;
+  }
+}

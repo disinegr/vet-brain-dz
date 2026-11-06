@@ -17,6 +17,10 @@
   });
   menuBackdrop?.addEventListener('click', closeMenu);
   header?.querySelectorAll('.header-nav a').forEach(link => link.addEventListener('click', closeMenu));
+  const compactHeader = matchMedia('(max-width: 1200px)');
+  compactHeader.addEventListener('change', () => {
+    if (!compactHeader.matches) closeMenu();
+  });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') closeMenu();
   });

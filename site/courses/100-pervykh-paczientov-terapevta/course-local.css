@@ -300,9 +300,26 @@ body.single-courses:has(.vb-course-steps) {
   white-space: nowrap;
 }
 
-.vb-course-page .vb-course-hero-info-top .vb-course-badge-icon.vb-tabler-icon {
+.vb-course-page .vb-course-hero-info-top .vb-course-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
+  flex: 0 0 20px;
+}
+
+.vb-course-page .vb-course-hero-info-top .vb-course-badge-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 360px) {
+  .vb-course-page .vb-course-hero-info-top .vb-course-badge-icon {
+    width: 14px;
+    height: 14px;
+    flex-basis: 14px;
+  }
 }
 
 @media (max-width: 540px) {
@@ -326,6 +343,9 @@ body.single-courses:has(.vb-course-steps) {
 .vb-course-page .vb-course-hero-main {
   grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
   min-height: 650px;
+}
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .vb-course-page .vb-course-hero-inner { padding: 0; }
 }
 .vb-course-page .vb-course-hero-info-top {
   max-width: none;
@@ -469,6 +489,51 @@ body.single-courses:has(.vb-course-steps) {
 @media (max-width: 1024px) {
   .vb-course-page .vb-course-hero-actions { flex-direction: column; }
   .vb-course-page .vb-course-hero-actions .vb-course-btn { flex: none; width: 100%; }
+}
+/* At tablet and compact desktop widths the facts span the whole banner.
+   The hero may grow when a future course has a longer title or description. */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .vb-course-page .vb-course-hero-inner { padding: 0; }
+
+  .vb-course-page .vb-course-hero-main {
+    grid-template-areas:
+      "hero-badges hero-badges"
+      "hero-text hero-visual"
+      "hero-cta hero-visual";
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    min-height: 560px;
+    height: auto;
+  }
+
+  .vb-course-page .vb-course-hero-info-top { display: contents; }
+  .vb-course-page .vb-course-hero-info-top .vb-course-badges {
+    grid-area: hero-badges;
+    position: relative;
+    z-index: 2;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-self: start;
+    min-width: 0;
+    padding: 24px 24px 0;
+  }
+
+  .vb-course-page .vb-course-hero-text {
+    grid-area: hero-text;
+    min-width: 0;
+    padding: 24px 20px 0 24px;
+  }
+
+  .vb-course-page .vb-course-hero-cta-block {
+    grid-area: hero-cta;
+    min-width: 0;
+    padding: 24px 20px 24px 24px;
+  }
+
+  .vb-course-page .vb-course-hero-visual {
+    grid-area: 1 / 2 / 4 / 3;
+    min-height: 0;
+    height: 100%;
+  }
 }
 @media (min-width: 769px) and (max-width: 1600px) {
   .vb-course-page .vb-course-hero-wrap {

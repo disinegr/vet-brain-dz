@@ -18,8 +18,8 @@
     width: 100%;
     max-width: 1464px;
     margin-inline: auto;
-    padding-left: max(clamp(16px, 4vw, 32px), env(safe-area-inset-left, 0px));
-    padding-right: max(clamp(16px, 4vw, 32px), env(safe-area-inset-right, 0px));
+    padding-left: max(0px, env(safe-area-inset-left, 0px));
+    padding-right: max(0px, env(safe-area-inset-right, 0px));
     box-sizing: border-box;
 }
 

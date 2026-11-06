@@ -26,7 +26,7 @@
   });
   header?.querySelector('.header__backdrop')?.addEventListener('click', closeMenu);
   header?.querySelectorAll('.header-nav a').forEach(link => link.addEventListener('click', closeMenu));
-  const mobileHeader = matchMedia('(max-width: 768px)');
+  const mobileHeader = matchMedia('(max-width: 1200px)');
   mobileHeader.addEventListener('change', () => {
     if (!mobileHeader.matches) closeMenu();
   });

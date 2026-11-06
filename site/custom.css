@@ -59,6 +59,7 @@
   }
 }
 
+
 /* Catalog facts stay in one uniform row; the script keeps only fitting facts. */
 .home-course-card__chips {
   flex-wrap: nowrap !important;
