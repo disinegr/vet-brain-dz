@@ -71,6 +71,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <link rel="stylesheet" href="./schedule.css">
 <link rel="stylesheet" href="../../design-system.css">
 <link rel="stylesheet" href="./course-320.css">
+<link rel="stylesheet" href="./course-video.css">
 </head>
 <body class="wp-singular courses-template-default single single-courses postid-384 wp-theme-vet-brains">
 <div class="site-shell">
@@ -841,6 +842,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                                 <article class="vb-course-schedule__event"><h3>Итоговый экзамен (онлайн)</h3><img src="./assets/schedule-exam.png" alt="Слушатель проходит итоговый экзамен за ноутбуком" loading="lazy" decoding="async"></article>
                             </li>
                         </ol>
+                    </div>
+                </section>
+
+                <!-- WordPress: set data-video-provider to vk, youtube or file; for file, use the uploaded MP4/WebM/Ogg URL in data-video-src. -->
+                <section class="vb-course-section vb-course-video" aria-labelledby="vb-course-video-title" data-video-provider="vk" data-video-src="https://vkvideo.ru/video_ext.php?oid=-223885178&amp;id=456239488&amp;hd=2">
+                    <div class="vb-course-inner">
+                        <h2 class="vb-course-section-title vb-course-section-title--center" id="vb-course-video-title">Фрагмент курса</h2>
+                        <div class="vb-course-video__frame" data-video-frame>
+                            <img class="vb-course-video__poster" src="./assets/course-hero-preview-wide.png" alt="" loading="lazy" decoding="async">
+                            <button class="vb-course-video__trigger" type="button" disabled aria-label="Смотреть фрагмент курса">
+                                <span class="vb-course-video__play" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16l13 -8l-13 -8"/></svg>
+                                </span>
+                                <span class="vb-course-video__label">Смотреть фрагмент курса</span>
+                            </button>
+                        </div>
                     </div>
                 </section>
 
@@ -1688,6 +1705,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 <script src="./course-local.js"></script>
 <script src="./program-outline.js"></script>
+<script src="./course-video.js"></script>
 <script defer src="../../desktop-type-size.js"></script>
 </body>
 </html>

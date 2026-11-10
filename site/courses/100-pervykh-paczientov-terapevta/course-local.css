@@ -1629,3 +1629,10 @@ body.single-courses:has(.vb-course-steps) {
   }
 }
 
+/* Show three teachers at full HD and wider. */
+@media (min-width: 1920px) {
+  .vb-course-section--teachers .vb-course-teachers-grid {
+    grid-auto-columns: calc((100% - 40px) / 3);
+  }
+}
+

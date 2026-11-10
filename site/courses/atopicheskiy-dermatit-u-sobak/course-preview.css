@@ -47,3 +47,15 @@
     margin-bottom: 72px;
   }
 }
+
+/* The video follows the hero at the same section rhythm as the full course. */
+.vb-course-page > .vb-course-video:last-child { margin-bottom: 100px; }
+@media (max-width: 768px) {
+  .vb-course-page > .vb-course-hero-wrap--preview { margin-bottom: 16px !important; }
+  .vb-course-page > .vb-course-hero-trust-mobile { margin-bottom: 82px; }
+  .vb-course-page > .vb-course-video:last-child { margin-bottom: 82px !important; }
+}
+@media (max-width: 480px) {
+  .vb-course-page > .vb-course-hero-trust-mobile { margin-bottom: 72px; }
+  .vb-course-page > .vb-course-video:last-child { margin-bottom: 72px !important; }
+}
