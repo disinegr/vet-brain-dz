@@ -1,5 +1,5 @@
 /* Shared course video: branded poster, third-party embeds, and hosted-file controls. */
-.vb-course-video .vb-course-section-title { margin: 0 0 52px; }
+.vb-course-video .vb-course-section-title { margin: 0 auto 52px; }
 
 .vb-course-video__frame {
   position: relative;

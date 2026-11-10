@@ -1,10 +1,6 @@
-/* Keep the new course banner on the same hero layout as the therapy course. */
+/* Preview course uses the same hero and section rhythm as the detailed course. */
 .vb-course-page {
   padding-bottom: 0 !important;
-}
-
-.vb-course-page .vb-course-hero-wrap--preview {
-  margin-bottom: 100px;
 }
 
 .vb-course-page .vb-course-hero-wrap--preview .vb-course-hero-img {
@@ -16,9 +12,16 @@
   object-position: center bottom !important;
 }
 
+/* Shared design-system.css forces a 16px hero gap, so match its specificity. */
+body.single-courses .vb-course-page > .vb-course-hero-wrap--preview:first-child,
+body.single-courses .vb-course-page > .vb-course-video:last-child {
+  margin-bottom: 100px !important;
+}
+
 @media (max-width: 1023px) {
-  .vb-course-page .vb-course-hero-wrap--preview {
-    margin-bottom: 82px;
+  body.single-courses .vb-course-page > .vb-course-hero-wrap--preview:first-child,
+  body.single-courses .vb-course-page > .vb-course-video:last-child {
+    margin-bottom: 82px !important;
   }
 }
 
@@ -40,22 +43,25 @@
     object-fit: cover !important;
     object-position: center !important;
   }
-}
 
-@media (max-width: 480px) {
-  .vb-course-page .vb-course-hero-wrap--preview {
-    margin-bottom: 72px;
+  /* Keep the trust badge attached to the hero, then separate the video. */
+  body.single-courses .vb-course-page > .vb-course-hero-wrap--preview:first-child {
+    margin-bottom: 16px !important;
+  }
+
+  body.single-courses .vb-course-page > .vb-course-hero-trust-mobile,
+  body.single-courses .vb-course-page > .vb-course-video:last-child {
+    margin-bottom: 82px !important;
   }
 }
 
-/* The video follows the hero at the same section rhythm as the full course. */
-.vb-course-page > .vb-course-video:last-child { margin-bottom: 100px; }
-@media (max-width: 768px) {
-  .vb-course-page > .vb-course-hero-wrap--preview { margin-bottom: 16px !important; }
-  .vb-course-page > .vb-course-hero-trust-mobile { margin-bottom: 82px; }
-  .vb-course-page > .vb-course-video:last-child { margin-bottom: 82px !important; }
-}
 @media (max-width: 480px) {
-  .vb-course-page > .vb-course-hero-trust-mobile { margin-bottom: 72px; }
-  .vb-course-page > .vb-course-video:last-child { margin-bottom: 72px !important; }
+  body.single-courses .vb-course-page > .vb-course-hero-wrap--preview:first-child {
+    margin-bottom: 12px !important;
+  }
+
+  body.single-courses .vb-course-page > .vb-course-hero-trust-mobile,
+  body.single-courses .vb-course-page > .vb-course-video:last-child {
+    margin-bottom: 72px !important;
+  }
 }
