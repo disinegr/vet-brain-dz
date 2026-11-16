@@ -90,7 +90,7 @@
   .main-banner-grid-hero__desc { margin-top: 16px; font-size: 16px; }
   .main-banner-grid-hero__points { gap: 10px; }
   .main-banner-grid-hero__points li { font-size: 14px; }
-  .main-banner-grid-hero__media { flex-basis: 210px; min-height: 210px; height: 210px; }
+  .main-banner-grid-hero__media { flex-basis: 210px; min-height: 210px; height: 210px; justify-content: center; }
   .main-banner-grid-hero__photo { max-height: 210px; }
 }
 

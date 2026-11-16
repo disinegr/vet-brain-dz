@@ -1,0 +1,6 @@
+@media (min-width: 1280px) {
+  .vb-course-page .vb-course-hero-wrap--preview .vb-course-hero-img {
+    position: relative;
+    top: 3.5%;
+  }
+}

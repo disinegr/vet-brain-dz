@@ -164,3 +164,10 @@
     object-fit: cover !important;
     object-position: center center !important;
 }
+
+/* Preserve complete webinar previews at every card width. */
+.home-course-card[data-course-kind="webinar"] .home-course-card__media {
+    flex: 0 0 auto;
+    height: auto;
+    aspect-ratio: 3 / 2;
+}
