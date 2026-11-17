@@ -1,0 +1,21 @@
+/* New CKD webinars use complete branded previews on smaller screens. */
+@media (max-width: 768px) {
+  body.vb-new-webinar .vb-course-page .vb-course-hero-wrap--preview .vb-course-hero-visual {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+  body.vb-new-webinar .vb-course-page .vb-course-hero-wrap--preview .vb-course-hero-img {
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+}
+
+/* Keep the doctor's head clear of the top and the animal's platform visible. */
+@media (min-width: 1280px) {
+  body.vb-new-webinar .vb-course-page .vb-course-hero-wrap--preview .vb-course-hero-img {
+    top: 0 !important;
+    transform: scale(.96);
+    transform-origin: center bottom;
+  }
+}
